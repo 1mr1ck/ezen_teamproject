@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import board.BoardDto;
 import util.DBManager;
 
 public class CommentDao {
@@ -42,9 +43,9 @@ public class CommentDao {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setInt(1, no);
-			this.pstmt.setInt(2, comment.getBoard_no());
+			this.pstmt.setInt(2, comment.getb_no());
 			this.pstmt.setString(3, comment.getContent());
-			this.pstmt.setString(4, comment.getId());
+			this.pstmt.setString(4, comment.getuser_id());
 			
 			Timestamp now = new Timestamp(System.currentTimeMillis());
 			this.pstmt.setTimestamp(5, now);
@@ -90,7 +91,7 @@ public class CommentDao {
 	// Read
 	public ArrayList<CommentDto> getCommentAll(int no){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
-		String sql = "SELECT * FROM boards WHERE board_no=?;";
+		String sql = "SELECT * FROM comments WHERE b_no=?;";
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
@@ -98,23 +99,23 @@ public class CommentDao {
 			this.rs = this.pstmt.executeQuery();
 			
 			while(this.rs.next()) {
-				int comment_no = this.rs.getInt(1);
-				int board_no = this.rs.getInt(2);
+				int c_no = this.rs.getInt(1);
+				int b_no = this.rs.getInt(2);
 				String content = this.rs.getString(3);
-				String id = this.rs.getString(4);
+				String user_id = this.rs.getString(4);
 				Timestamp regDate = this.rs.getTimestamp(5);
 				Timestamp modDate = this.rs.getTimestamp(6);
 				
-				CommentDto comment = new CommentDto(comment_no, board_no, content, id, regDate, modDate);
+				CommentDto comment = new CommentDto(c_no, b_no, content, user_id, regDate, modDate);
 				list.add(comment);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				this.rs.close();
 				this.pstmt.close();
 				this.conn.close();
+				//this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -127,9 +128,9 @@ public class CommentDao {
 	
 	// Update
 	public void updateComment(CommentDto comment) {
-		String sql = "update board set comment = ? WHERE comment_no = ? AND board_no = ?;";
-		int c_no = comment.getComment_no();
-		int b_no = comment.getBoard_no();
+		String sql = "update board set comment = ? WHERE c_no = ? AND b_no = ?;";
+		int c_no = comment.getc_no();
+		int b_no = comment.getb_no();
 		String content = comment.getContent();
 		
 		try {
@@ -153,10 +154,10 @@ public class CommentDao {
 	}
 	// Delete
 	public void deleteComment(CommentDto comment) {
-		int c_no = comment.getComment_no();
-		int b_no = comment.getBoard_no();
+		int c_no = comment.getc_no();
+		int b_no = comment.getb_no();
 		
-		String sql = "DELETE FROM comments WHERE cmoment_no = ? AND board_no = ?;";
+		String sql = "DELETE FROM comments WHERE cmoment_no = ? AND b_no = ?;";
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);

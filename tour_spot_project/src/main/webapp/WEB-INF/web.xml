@@ -41,5 +41,18 @@
   <servlet-mapping>
   	<servlet-name>join</servlet-name>
   	<url-pattern>/join</url-pattern>
+<<<<<<< HEAD
+=======
+  </servlet-mapping>
+  
+   <!-- join.jsp mapping -->
+   <servlet>
+  	<servlet-name>board</servlet-name>
+  	<jsp-file>/board.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>board</servlet-name>
+  	<url-pattern>/board</url-pattern>
+>>>>>>> refs/remotes/origin/master
   </servlet-mapping>
 </web-app>

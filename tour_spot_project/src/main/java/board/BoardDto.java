@@ -4,105 +4,106 @@ import java.sql.Timestamp;
 
 public class BoardDto {
 	
-	private int no;				// PK
-	private int viewCnt;		
-	private String title;		
-	private String content;		
-	private String id;			// FK
-	private String map_url;		// FK
-	private Timestamp regDate;	
-	private Timestamp modDate;	
+	private int b_no;			// PK
+	private String title;
+	private String content;
+	private String user_id;		// FK
+	private Timestamp regDate;
+	private Timestamp modDate;
+	private int viewCnt;
+	private String map_url;
 	
-	public BoardDto(int no, int viewCnt, String title, String content, String id, String map_url, Timestamp regDate,
-			Timestamp modDate) {
+	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, Timestamp modDate, int viewCnt, String map_url) {
 		super();
-		this.no = no;
-		this.viewCnt = viewCnt;
+		this.b_no = b_no;
 		this.title = title;
 		this.content = content;
-		this.id = id;
-		this.map_url = map_url;
+		this.user_id = user_id;
 		this.regDate = regDate;
 		this.modDate = modDate;
-	}
-
-	public BoardDto(int no, int viewCnt, String title, String content, String id, String map_url, Timestamp regDate) {
-		super();
-		this.no = no;
 		this.viewCnt = viewCnt;
+		this.map_url = map_url;
+	}
+	
+	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, int viewCnt, String map_url) {
+		super();
+		this.b_no = b_no;
 		this.title = title;
 		this.content = content;
-		this.id = id;
-		this.map_url = map_url;
+		this.user_id = user_id;
 		this.regDate = regDate;
-	}
-
-	public BoardDto(int no) {
-		super();
-		this.no = no;
-	}
-
-	public int getNo() {
-		return no;
-	}
-
-//	public void setNo(int no) {
-//		this.no = no;
-//	}
-
-	public int getViewCnt() {
-		return viewCnt;
-	}
-
-	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
+		this.map_url = map_url;
 	}
-
+	
+	public BoardDto(int b_no, String title, String content) {
+		super();
+		this.b_no = b_no;
+		this.title = title;
+		this.content = content;
+	}
+	
+	public int getB_no() {
+		return b_no;
+	}
+	
+//	public void setB_no(int b_no) {
+//		this.b_no = b_no;
+//	}
+	
 	public String getTitle() {
 		return title;
 	}
-
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
 	public String getContent() {
 		return content;
 	}
-
+	
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getId() {
-		return id;
+	
+	public String getUser_id() {
+		return user_id;
 	}
-
-	public void setId(String id) {
-		this.id = id;
+	
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
-
-	public String getMap_url() {
-		return map_url;
-	}
-
-	public void setMap_url(String map_url) {
-		this.map_url = map_url;
-	}
-
+	
 	public Timestamp getRegDate() {
 		return regDate;
 	}
-
+	
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
-
+	
 	public Timestamp getModDate() {
 		return modDate;
 	}
-
+	
 //	public void setModDate(Timestamp modDate) {
 //		this.modDate = modDate;
 //	}
+	
+	public int getViewCnt() {
+		return viewCnt;
+	}
+	
+	public void setViewCnt(int viewCnt) {
+		this.viewCnt = viewCnt;
+	}
+	
+	public String getMap_url() {
+		return map_url;
+	}
+	
+	public void setMap_url(String map_url) {
+		this.map_url = map_url;
+	}
 }
