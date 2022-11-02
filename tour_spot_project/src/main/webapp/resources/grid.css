@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100&family=Single+Day&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 150vh;
+	display: grid;
+	grid-template-columns: 100px 1fr 100px;
+	grid-template-rows: 120px 40px 100px 1fr 150px;
+	grid-template-areas: 
+	"header header  header" 
+	"nav    nav     nav"
+	"aside  aside   aside" "section section section"
+	"footer footer  footer";
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+header {
+	grid-area: header;
+	text-align: center;
+}
+
+nav {
+	grid-area: nav;
+}
+
+aside {
+	grid-area: aside;
+}
+
+section {
+	grid-area: section;
+}
+
+footer {
+	grid-area: footer;
+	font-size: 0.8em;
+}
+
+ul {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}

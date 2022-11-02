@@ -1,10 +1,12 @@
 package user;
 
+import java.sql.Date;
+
 public class UserDto {
 	
 	private int no;
 	private String name;
-	private int age;
+	private Date birthday;
 	private String gender;
 	private String id;
 	private String address;
@@ -12,17 +14,29 @@ public class UserDto {
 	private String password;
 	private String token;
 
-	public UserDto(int no, String name, int age, String gender, String id, String address, String phone, String password, String token) {
+	public UserDto(int no, String name, Date birthday, String gender, String id, String address, String phone, String password, String token) {
 		super();
 		this.no = no;
 		this.id = id;
 		this.password = password;
 		this.name = name;
-		this.age = age;
+		this.birthday = birthday;
 		this.gender = gender;
 		this.address = address;
 		this.phone = phone;
 		this.token = token;
+	}
+
+	public UserDto(int no, String name, Date birthday, String gender, String id, String address, String phone, String password) {
+		super();
+		this.no = no;
+		this.name = name;
+		this.birthday = birthday;
+		this.gender = gender;
+		this.id = id;
+		this.address = address;
+		this.phone = phone;
+		this.password = password;
 	}
 
 	// getter & setter
@@ -42,12 +56,12 @@ public class UserDto {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getGender() {
