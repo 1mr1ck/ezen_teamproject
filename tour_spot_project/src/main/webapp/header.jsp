@@ -1,3 +1,5 @@
+<%@page import="user.UserDto"%>
+<%@page import="user.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +14,8 @@
 <body>
 	<%
 	String id = (String)session.getAttribute("log");
+	UserDao dao = UserDao.getInstance();
+	UserDto dto = dao.getUserById(id);
 	%>
 	<header>
 		<%if(id == null) {%>
@@ -32,6 +36,7 @@
 					<td><input type="button" onclick="location.href='index'"
 						value="홈으로"></td>
 					<td><input type="button" onclick="location.href='LogoutAction'" value="로그아웃"></td>
+					<td><%=dto.getName() %>님 환영합니다.</td>
 				</tr>
 			</table>
 		<%} %>
