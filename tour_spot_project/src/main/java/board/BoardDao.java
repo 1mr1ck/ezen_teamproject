@@ -170,13 +170,55 @@ public class BoardDao {
 	
 	// Update
 	public void updateBoard(BoardDto board) {
-		String sql = "";
+		String sql = "update board set title = ?, content = ? WHERE `no` = ?;";
 		
+		int no = board.getNo();
+		String title = board.getTitle();
+		String content = board.getContent();
+		Timestamp modDate = board.getModDate();
 		
-		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, title);
+			this.pstmt.setString(2, content);
+			this.pstmt.setInt(3, no);
+			
+			modDate = new Timestamp(System.currentTimeMillis());
+			this.pstmt.setTimestamp(4, modDate);
+			
+			this.pstmt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	// Delete
-	
-	
+	public void removeBoard(BoardDto board) {
+		String sql = "DELETE board WHERE `no` = ?;";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = conn.prepareStatement(sql);
+			this.pstmt.setInt(1, board.getNo());
+			
+			this.pstmt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
