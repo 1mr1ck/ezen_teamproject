@@ -89,14 +89,13 @@ public class CommentDao {
 	}
 	
 	// Read
-	public ArrayList<CommentDto> getCommentAll(BoardDto dto){
+	public ArrayList<CommentDto> getCommentAll(int no){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
-		int num = dto.getNo();
 		String sql = "SELECT * FROM comments WHERE b_no=?;";
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
-			this.pstmt.setInt(1, num);
+			this.pstmt.setInt(1, no);
 			this.rs = this.pstmt.executeQuery();
 			
 			while(this.rs.next()) {

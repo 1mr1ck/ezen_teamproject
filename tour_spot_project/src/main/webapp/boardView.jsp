@@ -1,3 +1,6 @@
+<%@page import="comment.CommentDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="comment.CommentDao"%>
 <%@page import="board.BoardDto"%>
 <%@page import="board.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,8 +21,11 @@
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
 	
+	CommentDao commentDao = CommentDao.getInstance();
+	
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
+		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
 		board = dao.getBoardByNo(b_no); %>
 		
 	<h1>Tour_Spot</h1>
@@ -31,6 +37,32 @@
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
         </form>
     </div>
+    	<table>
+		<thead>
+			<tr>
+				<th>no</th>
+				<th>title</th>
+				<th>user</th>
+				<th>regDate</th>
+				<th>modDate</th>
+				<th>modDate</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+			for (CommentDto comment : list) {
+			%>
+			<tr>
+				<td><%=comment.getc_no()%></td>
+				<td><%=comment.getb_no()%></td>
+				<td><%=comment.getContent()%></td>
+				<td><%=comment.getuser_id()%></td>
+				<td><%=comment.getRegDate()%></td>
+				<td><%=comment.getModDate() %></td>
+			</tr>
+			<%} %>
+		</tbody>
+	</table>
 	<%}
 	else {
 		response.sendRedirect("board.jsp"); // borad 조회 실패 -> 페이지 이동
