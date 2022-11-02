@@ -2,8 +2,8 @@ package image;
 
 public class ImageDto {
 	
-	int board_no;		// FK
-	String thumbnail, url, movie;
+	private int board_no;		// FK
+	private String thumbnail, url, movie;
 	
 	public ImageDto(int board_no, String thumbnail, String url, String movie) {
 		super();

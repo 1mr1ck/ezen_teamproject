@@ -4,11 +4,11 @@ import java.sql.Timestamp;
 
 public class CommentDto {
 	
-	int comment_no;		// PK
-	int board_no;		// FK
-	String content;
-	String id;			// FK
-	Timestamp regDate, modDate;
+	private int comment_no;		// PK
+	private int board_no;		// FK
+	private String content;
+	private String id;			// FK
+	private Timestamp regDate, modDate;
 	
 	public CommentDto(int comment_no, int board_no, String content, String id, Timestamp regDate, Timestamp modDate) {
 		super();

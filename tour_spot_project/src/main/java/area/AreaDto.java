@@ -2,8 +2,8 @@ package area;
 
 public class AreaDto {
 	
-	String code;	// PK
-	String name;
+	private String code;	// PK
+	private String name;
 
 	public AreaDto(String code, String name) {
 		this.code = code;

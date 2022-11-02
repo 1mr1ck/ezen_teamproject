@@ -4,14 +4,14 @@ import java.sql.Timestamp;
 
 public class BoardDto {
 	
-	int no;				// PK
-	int viewCnt;
-	String title;
-	String content;
-	String id;			// FK
-	String code;		// FK
-	Timestamp regDate;
-	Timestamp modDate;
+	private int no;				// PK
+	private int viewCnt;
+	private String title;
+	private String content;
+	private String id;			// FK
+	private String code;		// FK
+	private Timestamp regDate;
+	private Timestamp modDate;
 	
 	public BoardDto(int no, int viewCnt, String title, String content, String id, String code, Timestamp regDate, Timestamp modDate) {
 		super();

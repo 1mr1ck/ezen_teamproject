@@ -2,15 +2,15 @@ package user;
 
 public class UserDto {
 	
-	int no;
-	int age;
-	String name;
-	String gender;
-	String mail;
-	String address;
-	String phone;
-	String id;			// PK
-	String password;
+	private int no;
+	private int age;
+	private String name;
+	private String gender;
+	private String mail;
+	private String address;
+	private String phone;
+	private String id;			// PK
+	private String password;
 	
 	public UserDto(int no, int age, String name, String gender, String mail, String address, String phone, String id, String password) {
 		super();
