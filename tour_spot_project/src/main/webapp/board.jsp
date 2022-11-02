@@ -12,14 +12,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>tour_spot</title>
+    <link rel="stylesheet" href="resources/table.css">
+	<title>Tour_Spot</title>
 </head>
 <body>
 	<%
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardAll();
 	%>
-	<h1>tour_spot</h1>
+	<h1>Tour_Spot</h1>
 	<div class="table-container">
         <table border="1">
             <thead>

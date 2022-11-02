@@ -25,8 +25,7 @@ public class BoardDto {
 		this.map_url = map_url;
 	}
 	
-	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, int viewCnt,
-			String map_url) {
+	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, int viewCnt, String map_url) {
 		super();
 		this.b_no = b_no;
 		this.title = title;

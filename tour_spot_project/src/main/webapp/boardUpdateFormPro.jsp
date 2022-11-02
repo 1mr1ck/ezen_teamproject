@@ -6,21 +6,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>tour_spot</title>
+	<title>Tour_Spot</title>
 </head>
 <body>
 	<%
 	BoardDao dao = BoardDao.getInstance();
 	
-	if(request.getParameter("no") != null) {
-		int no = Integer.parseInt(request.getParameter("no"));
+	if(request.getParameter("b_no") != null) {
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
-		BoardDto board = new BoardDto(no, title, content);
+		BoardDto board = new BoardDto(b_no, title, content);
 		dao.updateBoard(board);
 	}
-	response.sendRedirect("index");
+	response.sendRedirect("board.jsp");
 	%>
 </body>
 </html>
