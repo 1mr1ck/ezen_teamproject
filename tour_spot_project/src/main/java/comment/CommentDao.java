@@ -32,6 +32,16 @@ public class CommentDao {
 	}
 	
 	// Create
+	private void createComment(CommentDto comment) {
+		String sql = "insert into comments values(?, ?, ?, ?, ?, ?);";
+		int no = noGenerator();
+	}
+	
+	private int noGenerator() {
+		String sql = "";
+		return ;
+	}
+	
 	// Read
 	public ArrayList<CommentDto> getCommentAll(int no){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
