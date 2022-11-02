@@ -13,7 +13,8 @@ public class UserDto {
 	private String phone;
 	private String password;
 	private String token;
-
+	
+	// 카카오 회원
 	public UserDto(int no, String name, Date birthday, String gender, String id, String address, String phone, String password, String token) {
 		super();
 		this.no = no;
@@ -26,7 +27,8 @@ public class UserDto {
 		this.phone = phone;
 		this.token = token;
 	}
-
+	
+	// 일반 회원
 	public UserDto(int no, String name, Date birthday, String gender, String id, String address, String phone, String password) {
 		super();
 		this.no = no;

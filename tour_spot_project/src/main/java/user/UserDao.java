@@ -136,6 +136,43 @@ public class UserDao {
 		return user;
 	}
 	
+	public UserDto getUserById(String id) {
+		UserDto user = null;
+		String sql = "SELECT * FROM users WHERE `id` = ?";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, id);
+			this.rs = this.pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int no = this.rs.getInt(1);
+				String name = this.rs.getString(2);
+				Date birthday = this.rs.getDate(3);
+				String gender = this.rs.getString(4);
+				String address = this.rs.getString(6);
+				String phone = this.rs.getString(7);
+				String password = this.rs.getString(8);
+				String token = this.rs.getString(9);
+				
+				user = new UserDto(no, name, birthday, gender, id, address, phone, password, token);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return user;
+	}
+	
 	// U
 	// 유저 정보 수정
 	public void updateUserInfo(UserDto dto) {

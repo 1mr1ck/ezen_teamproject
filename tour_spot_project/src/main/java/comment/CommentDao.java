@@ -122,6 +122,9 @@ public class CommentDao {
 		return list;
 	}
 	
+	// 한 게시글의 모든 댓글을 뽑아오는 메소드. 뭐 한게시글에 댓글이 6개면 그 6개를 뽑아와야댐.
+	
+	
 	// Update
 	public void updateComment(CommentDto comment) {
 		String sql = "update board set comment = ? WHERE comment_no = ? AND board_no = ?;";
