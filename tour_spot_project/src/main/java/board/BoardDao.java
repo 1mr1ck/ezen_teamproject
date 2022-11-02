@@ -64,7 +64,6 @@ public class BoardDao {
 				e.printStackTrace();
 			}
 		}
-		
 	}
 	
 	private int noGenerator() {
