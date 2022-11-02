@@ -35,17 +35,17 @@
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
             <input type="button" onclick="location.href='board.jsp'" value="글목록">
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
+            <input type="button" onclick="location.href='commentWriteForm.jsp'" value="댓글작성">
         </form>
     </div>
-    	<table>
+    	<table border="1">
 		<thead>
 			<tr>
-				<th>no</th>
-				<th>title</th>
-				<th>user</th>
-				<th>regDate</th>
-				<th>modDate</th>
-				<th>modDate</th>
+				<th>댓글번호</th>
+				<th>내용</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>수정일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -54,7 +54,6 @@
 			%>
 			<tr>
 				<td><%=comment.getc_no()%></td>
-				<td><%=comment.getb_no()%></td>
 				<td><%=comment.getContent()%></td>
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
