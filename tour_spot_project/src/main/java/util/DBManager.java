@@ -10,8 +10,7 @@ public class DBManager {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(url, user, password);
-			
+			conn = DriverManager.getConnection(url, user, password);	
 			System.out.println("데이터베이스 연동 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
