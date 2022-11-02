@@ -40,6 +40,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>join</servlet-name>
-  	<url-pattern>/join	</url-pattern>
+  	<url-pattern>/join</url-pattern>
   </servlet-mapping>
 </web-app>
