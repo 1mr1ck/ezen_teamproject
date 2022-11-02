@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import util.DBManager;
+
 public class CommentDao {
 	
 	private Connection conn;
@@ -35,11 +37,54 @@ public class CommentDao {
 	private void createComment(CommentDto comment) {
 		String sql = "insert into comments values(?, ?, ?, ?, ?, ?);";
 		int no = noGenerator();
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setInt(1, no);
+			this.pstmt.setInt(2, comment.getBoard_no());
+			this.pstmt.setString(3, comment.getContent());
+			this.pstmt.setString(4, comment.getId());
+			
+			Timestamp now = new Timestamp(System.currentTimeMillis());
+			this.pstmt.setTimestamp(5, now);
+			this.pstmt.setTimestamp(6, now);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	private int noGenerator() {
-		String sql = "";
-		return ;
+		String sql = "SELECT MAX(`no`) FROM comments;";
+		int no = 0;
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.rs = this.pstmt.executeQuery();
+			
+			if(this.rs.next()) {
+				no = this.rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.rs.close();
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ++no;
 	}
 	
 	// Read
@@ -78,6 +123,52 @@ public class CommentDao {
 	}
 	
 	// Update
+	public void updateComment(CommentDto comment) {
+		String sql = "update board set comment = ? WHERE comment_no = ? AND board_no = ?;";
+		int c_no = comment.getComment_no();
+		int b_no = comment.getBoard_no();
+		String content = comment.getContent();
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, content);
+			this.pstmt.setInt(2, c_no);
+			this.pstmt.setInt(3, b_no);
+			this.pstmt.execute();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	// Delete
-	
+	public void deleteComment(CommentDto comment) {
+		int c_no = comment.getComment_no();
+		int b_no = comment.getBoard_no();
+		
+		String sql = "DELETE FROM comments WHERE cmoment_no = ? AND board_no = ?;";
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setInt(1, c_no);
+			this.pstmt.setInt(2, b_no);
+			this.pstmt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
