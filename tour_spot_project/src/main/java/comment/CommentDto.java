@@ -4,36 +4,36 @@ import java.sql.Timestamp;
 
 public class CommentDto {
 	
-	private int comment_no;		// PK
-	private int board_no;		// FK
+	private int c_no;		// PK
+	private int b_no;		// FK
 	private String content;
-	private String id;			// FK
+	private String user_id;			// FK
 	private Timestamp regDate, modDate;
 	
-	public CommentDto(int comment_no, int board_no, String content, String id, Timestamp regDate, Timestamp modDate) {
+	public CommentDto(int c_no, int b_no, String content, String user_id, Timestamp regDate, Timestamp modDate) {
 		super();
-		this.comment_no = comment_no;
-		this.board_no = board_no;
+		this.c_no = c_no;
+		this.b_no = b_no;
 		this.content = content;
-		this.id = id;
+		this.user_id = user_id;
 		this.regDate = regDate;
 		this.modDate = modDate;
 	}
 	
-	public int getComment_no() {
-		return comment_no;
+	public int getc_no() {
+		return c_no;
 	}
 	
-//	public void setComment_no(int comment_no) {
-//		this.comment_no = comment_no;
+//	public vouser_id setc_no(int c_no) {
+//		this.c_no = c_no;
 //	}
 	
-	public int getBoard_no() {
-		return board_no;
+	public int getb_no() {
+		return b_no;
 	}
 	
-//	public void setBoard_no(int board_no) {
-//		this.board_no = board_no;
+//	public vouser_id setb_no(int b_no) {
+//		this.b_no = b_no;
 //	}
 	
 	public String getContent() {
@@ -44,12 +44,12 @@ public class CommentDto {
 		this.content = content;
 	}
 	
-	public String getId() {
-		return id;
+	public String getuser_id() {
+		return user_id;
 	}
 	
-//	public void setId(String id) {
-//		this.id = id;
+//	public vouser_id setuser_id(String user_id) {
+//		this.user_id = user_id;
 //	}
 	
 	public Timestamp getRegDate() {
