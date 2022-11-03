@@ -25,12 +25,12 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>b_no</th>
-                    <th width="200px">title</th>
-                    <th>name</th>
-                    <th>regDate</th>
-                    <th>modDate</th>
-                    <th>viewCnt</th>
+                    <th>번호</th>
+                    <th width="200px">제목</th>
+                    <th>작성자</th>
+                    <th>작성날짜</th>
+                    <th>수정날짜</th>
+                    <th>조회수</th>
                 </tr>
             </thead>
             <tbody>
