@@ -66,7 +66,7 @@
 				<td><%=comment.getContent()%></td>
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
-				<td><%=comment.getModDate() %></td>
+				<td><%=comment.getModDate()%></td>
 			</tr>
 			<%} %>
 		</tbody>
