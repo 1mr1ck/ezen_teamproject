@@ -99,7 +99,7 @@ public class CommentDao {
 		return ++no;
 	}
 	
-	// Read
+	// 게시글 번호로 Read
 	public ArrayList<CommentDto> getCommentAll(int no){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
 		String sql = "SELECT * FROM comments WHERE `b_no`=?;";
@@ -136,8 +136,52 @@ public class CommentDao {
 		return list;
 	}
 	
-	// 한 게시글의 모든 댓글을 뽑아오는 메소드. 뭐 한게시글에 댓글이 6개면 그 6개를 뽑아와야댐.
-	
+	// 댓글 번호로 Read
+		public CommentDto getCommentOne(int no){
+			CommentDto comment = null;
+			String sql = "SELECT * FROM comments WHERE `c_no`=?;";
+			try {
+				this.conn = DBManager.getConnection(this.url, this.user, this.password);
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setInt(1, no);
+				this.rs = this.pstmt.executeQuery();
+				
+				if(this.rs.next()) {
+					int c_no = this.rs.getInt(1);
+					int b_no = this.rs.getInt(2);
+					String content = this.rs.getString(3);
+					String user_id = this.rs.getString(4);
+					Timestamp regDate = this.rs.getTimestamp(5);
+					Timestamp modDate = this.rs.getTimestamp(6);
+					
+					comment = new CommentDto(c_no, b_no, content, user_id, regDate, modDate);
+				}
+//				while(this.rs.next()) {
+//					int c_no = this.rs.getInt(1);
+//					int b_no = this.rs.getInt(2);
+//					String content = this.rs.getString(3);
+//					String user_id = this.rs.getString(4);
+//					Timestamp regDate = this.rs.getTimestamp(5);
+//					Timestamp modDate = this.rs.getTimestamp(6);
+//					
+//					CommentDto comment = new CommentDto(c_no, b_no, content, user_id, regDate, modDate);
+//					list.add(comment);
+//				}
+				System.out.println("성공");
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("실패");
+			}finally {
+				try {
+					this.conn.close();
+					this.pstmt.close();
+					this.rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return comment;
+		}
 	
 	// Update
 	public void updateComment(CommentDto comment) {
