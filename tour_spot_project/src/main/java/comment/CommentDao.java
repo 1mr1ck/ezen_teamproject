@@ -39,7 +39,7 @@ public class CommentDao {
 	
 	// Create
 	public void createComment(CommentDto comment) {
-		String sql = "insert into comments values(?, ?, ?, ?, ?, ?);";
+		String sql = "insert into comments values(?, ?, ?, ?, ?, ?)";
 		int no = noGenerator();
 		
 		try {
