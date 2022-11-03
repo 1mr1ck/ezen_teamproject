@@ -200,22 +200,24 @@ public class BoardDao {
 	
 	// Update
 	public void updateBoard(BoardDto board) {
-		String sql = "update boards set title = ?, content = ? WHERE `b_no` = ?";
+		String sql = "update boards set title = ?, content = ?, moddate = ?, map_addr = ? WHERE `b_no` = ?";
 		
 		int b_no = board.getB_no();
 		String title = board.getTitle();
 		String content = board.getContent();
 		Timestamp modDate = board.getModDate();
+		String map_addr = board.getMap_addr();
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, title);
 			this.pstmt.setString(2, content);
-			this.pstmt.setInt(3, b_no);
-			
 			modDate = new Timestamp(System.currentTimeMillis());
-			this.pstmt.setTimestamp(4, modDate);
+			this.pstmt.setTimestamp(3, modDate);
+			this.pstmt.setString(4, map_addr);
+			this.pstmt.setInt(5, b_no);
+			
 			
 			this.pstmt.execute();
 		} catch (Exception e) {
