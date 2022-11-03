@@ -2,46 +2,54 @@ package image;
 
 public class ImageDto {
 	
-	private int board_no;		// FK
-	private String thumbnail, url, movie;
+	private int b_no;			// FK
+	private String thumbnail; 
+	private String img_url;
+	private String movie_url;
 	
-	public ImageDto(int board_no, String thumbnail, String url, String movie) {
+	public ImageDto(int b_no, String thumbnail, String img_url, String movie_url) {
 		super();
-		this.board_no = board_no;
+		this.b_no = b_no;
 		this.thumbnail = thumbnail;
-		this.url = url;
-		this.movie = movie;
+		this.img_url = img_url;
+		this.movie_url = movie_url;
 	}
-	
-	public int getBoard_no() {
-		return board_no;
+
+	public ImageDto(int b_no, String thumbnail) {
+		super();
+		this.b_no = b_no;
+		this.thumbnail = thumbnail;
 	}
-	
-//	public void setBoard_no(int board_no) {
-//		this.board_no = board_no;
+
+	public int getB_no() {
+		return b_no;
+	}
+
+//	public void setB_no(int b_no) {
+//		this.b_no = b_no;
 //	}
-	
+
 	public String getThumbnail() {
 		return thumbnail;
 	}
-	
+
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
 	}
-	
-	public String getUrl() {
-		return url;
+
+	public String getImg_url() {
+		return img_url;
 	}
-	
-	public void setUrl(String url) {
-		this.url = url;
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
 	}
-	
-	public String getMovie() {
-		return movie;
+
+	public String getMovie_url() {
+		return movie_url;
 	}
-	
-	public void setMovie(String movie) {
-		this.movie = movie;
+
+	public void setMovie_url(String movie_url) {
+		this.movie_url = movie_url;
 	}
 }
