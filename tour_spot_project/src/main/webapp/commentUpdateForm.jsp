@@ -10,17 +10,30 @@
 <title>Tour_Spot</title>
 </head>
 <body>
-<%
-request.setCharacterEncoding("utf-8");
+	<%
+	request.setCharacterEncoding("utf-8");
 
-CommentDao commentDao = CommentDao.getInstance();
-if(request.getParameter("no") != null) {
-	int b_no = Integer.parseInt(request.getParameter("no"));
-	int c_no = Integer.parseInt(request.getParameter("c_no"));
-	ArrayList<CommentDto> list = commentDao.getCommentOne(c_no);
-	
-}
-%>
+	CommentDao commentDao = CommentDao.getInstance();
+	CommentDto comment = null;
+	if (request.getParameter("no") != null) {
+		int c_no = Integer.parseInt(request.getParameter("no"));
+		comment = commentDao.getCommentOne(c_no);
+	%>
+
+	<h1>Tour_Spot</h1>
+	<div class="form-container"></div>
+	<form method="post" action="commentUpdateAction">
+		<input type="text" name="c_no" value="test : <%=comment.getc_no()%>">
+		<textarea name="content" rows="20"><%=comment.getContent()%></textarea>
+		<input type="submit" value="글등록">
+	</form>
+	<%
+	}
+
+	else {
+	response.sendRedirect("board");
+	}
+	%>
 
 </body>
 </html>

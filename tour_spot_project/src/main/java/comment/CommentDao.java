@@ -185,25 +185,28 @@ public class CommentDao {
 	
 	// Update
 	public void updateComment(CommentDto comment) {
-		String sql = "update board set comment = ? WHERE c_no = ? AND b_no = ?;";
+		String sql = "update comments set content = ? WHERE c_no = 1;";
 		int c_no = comment.getc_no();
-		int b_no = comment.getb_no();
 		String content = comment.getContent();
+		Timestamp modDate = comment.getModDate();
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, content);
-			this.pstmt.setInt(2, c_no);
-			this.pstmt.setInt(3, b_no);
+//			this.pstmt.setInt(2, c_no);
 			this.pstmt.execute();
+			
+//			modDate = new Timestamp(System.currentTimeMillis());
+//			this.pstmt.setTimestamp(4, modDate);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				this.pstmt.close();
 				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -227,6 +230,7 @@ public class CommentDao {
 			try {
 				this.conn.close();
 				this.pstmt.close();
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

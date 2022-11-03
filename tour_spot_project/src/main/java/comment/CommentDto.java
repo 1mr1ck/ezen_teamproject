@@ -33,6 +33,11 @@ public class CommentDto {
 		this.user_id = user_id;
 	}
 	
+	public CommentDto(String content) {
+		super();
+		this.content = content;
+	}
+	
 	public int getc_no() {
 		return c_no;
 	}
