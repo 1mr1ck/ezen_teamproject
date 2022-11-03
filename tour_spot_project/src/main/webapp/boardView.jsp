@@ -22,6 +22,7 @@
 	BoardDto board = null;
 	
 	CommentDao commentDao = CommentDao.getInstance();
+	String id = (String)session.getAttribute("log");
 	
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
@@ -35,7 +36,9 @@
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
             <input type="button" onclick="location.href='board.jsp'" value="글목록">
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
+            <%if(id != null){ %>
             <input type="button" onclick="location.href='commentWriteForm.jsp'" value="댓글작성">
+            <%} %>
         </form>
     </div>
     	<table border="1">

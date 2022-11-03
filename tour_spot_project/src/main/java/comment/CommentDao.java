@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import board.BoardDto;
 import util.DBManager;
 
@@ -50,6 +52,11 @@ public class CommentDao {
 			Timestamp now = new Timestamp(System.currentTimeMillis());
 			this.pstmt.setTimestamp(5, now);
 			this.pstmt.setTimestamp(6, now);
+			System.out.println("c_no : "+no);
+			System.out.println("b_no : "+ comment.getb_no());
+			System.out.println("content:"+comment.getContent());
+			System.out.println("user_id:"+comment.getuser_id());
+			System.out.println("테스트");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

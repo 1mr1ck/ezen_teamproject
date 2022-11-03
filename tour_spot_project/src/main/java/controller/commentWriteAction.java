@@ -34,17 +34,18 @@ public class commentWriteAction extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		CommentDao dao = CommentDao.getInstance();
-		UserDao udao = UserDao.getInstance();
 		
 
 		HttpSession session = request.getSession();
+		
 		String user_id = (String)session.getAttribute("log");
 		String content = request.getParameter("content");
 		
 		if(user_id != null && content != null) {
-			CommentDto comment = new CommentDto(user_id, content);
+			CommentDto comment = new CommentDto( user_id, content);
 			dao.createComment(comment);	
 			System.out.println(user_id + "님의 댓글 등록 완료");
+			System.out.println("user_id : " + user_id);
 		}
 		else {			
 			System.out.println(user_id + "님의 댓글 등록 실패");

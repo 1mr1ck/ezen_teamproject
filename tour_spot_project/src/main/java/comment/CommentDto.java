@@ -20,7 +20,7 @@ public class CommentDto {
 		this.modDate = modDate;
 	}
 	
-	public CommentDto(String content, String user_id) {
+	public CommentDto(String user_id, String content) {
 		super();
 		this.content = content;
 		this.user_id = user_id;
