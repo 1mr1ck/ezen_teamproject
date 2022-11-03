@@ -232,7 +232,7 @@ public class BoardDao {
 	
 	// Delete
 	public void deleteBoard(BoardDto board) {
-		String sql = "DELETE FROM boards WHERE `b_no` = ?";
+		String sql = "DELETE FROM boards WHERE b_no = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);

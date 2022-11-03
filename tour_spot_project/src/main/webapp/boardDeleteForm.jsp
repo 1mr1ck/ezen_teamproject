@@ -21,15 +21,15 @@
 	
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
+		board = dao.getBoardByNo(b_no);
 		dao.deleteBoard(board); %>
 		
 	<h1>Tour_Spot</h1>
-	<div>alert("삭제되었습니다.")</div>
+	<script>alert("삭제되었습니다.")</script>
 	
-	<%}
-	else {
+	<%
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 	}%>
-	
+	 
 </body>
 </html>
