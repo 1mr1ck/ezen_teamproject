@@ -20,6 +20,13 @@ public class CommentDto {
 		this.modDate = modDate;
 	}
 	
+	public CommentDto(String user_id, String content, int b_no) {
+		super();
+		this.content = content;
+		this.user_id = user_id;
+		this.b_no = b_no;
+	}
+	
 	public CommentDto(String user_id, String content) {
 		super();
 		this.content = content;

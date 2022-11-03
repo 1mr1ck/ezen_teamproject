@@ -42,9 +42,10 @@ public class commentWriteAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("log");
 		String content = request.getParameter("content");
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		
 		if(user_id != null && content != null) {
-			CommentDto comment = new CommentDto(user_id, content);
+			CommentDto comment = new CommentDto(user_id, content, b_no);
 			dao.createComment(comment);	
 			System.out.println(user_id + "님의 댓글 등록 완료");
 			System.out.println("user_id : " + user_id);
