@@ -76,7 +76,7 @@ public class CommentDao {
 	}
 	
 	private int noGenerator() {
-		String sql = "SELECT MAX(`c_no`) FROM comments;";
+		String sql = "SELECT MAX(`c_no`) FROM comments";
 		int no = 0;
 		
 		try {
