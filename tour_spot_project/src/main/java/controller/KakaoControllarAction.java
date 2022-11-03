@@ -42,6 +42,7 @@ public class KakaoControllarAction extends HttpServlet {
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//11/03/ 12 : 30;
+		
 	}
 
 }
