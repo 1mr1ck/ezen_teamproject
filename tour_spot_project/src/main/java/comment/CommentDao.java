@@ -35,7 +35,7 @@ public class CommentDao {
 	}
 	
 	// Create
-	private void createComment(CommentDto comment) {
+	public void createComment(CommentDto comment) {
 		String sql = "insert into comments values(?, ?, ?, ?, ?, ?);";
 		int no = noGenerator();
 		
@@ -54,8 +54,9 @@ public class CommentDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				this.pstmt.close();
 				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -63,7 +64,7 @@ public class CommentDao {
 	}
 	
 	private int noGenerator() {
-		String sql = "SELECT MAX(`no`) FROM comments;";
+		String sql = "SELECT MAX(`c_no`) FROM comments;";
 		int no = 0;
 		
 		try {
@@ -78,9 +79,9 @@ public class CommentDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				this.rs.close();
-				this.pstmt.close();
 				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
