@@ -41,7 +41,10 @@ public class KakaoControllarAction extends HttpServlet {
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//11/03/ 12 : 30;
+		//Redirect URI : http://localhost:8081/tour_spot_project/KakaoControllarAction
+		//REST API 키 : f17145af917afa076cf92e7f58096053 ;
+		//http :
+		
 		
 	}
 
