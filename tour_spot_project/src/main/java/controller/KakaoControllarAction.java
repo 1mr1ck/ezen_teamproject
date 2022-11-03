@@ -21,15 +21,14 @@ public class KakaoControllarAction extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     //http://localhost:8083/tour_spot_project/KakaoControllarAction
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String code = request.getParameter("code");
-		System.out.println("접속");
-		response.getWriter().append(code);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		doProcess(request, response);
 	}
 
 	/**
@@ -38,7 +37,11 @@ public class KakaoControllarAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		doGet(request, response);
+		doProcess(request, response);
+	}
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//11/03/ 12 : 30;
 	}
 
 }

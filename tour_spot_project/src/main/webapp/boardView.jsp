@@ -11,6 +11,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	c4fe4f7a920db65124e99252c9f6071e&libraries=services"></script>
     <link rel="stylesheet" href="resources/form.css">
 	<title>Tour_Spot</title>
 </head>
@@ -33,8 +34,10 @@
 	<h1>Tour_Spot</h1>
     <div class="form-container">
         <form method="post" action="">
+        	<input type="hidden" name="main_address" id="main_address" value="<%=board.getMap_addr()%>">
             <input type="text" value="<%=board.getTitle() %>" readonly>
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
+            <div id="map" style="width:500px;height:400px;"></div>
             <input type="button" onclick="location.href='board.jsp'" value="글목록">
             <%
             if(id != null) {
@@ -70,7 +73,9 @@
 	</table>
 	<%}
 	else {
-		response.sendRedirect("board.jsp"); // borad 조회 실패 -> 페이지 이동
+		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 	}%>
+	
+	<script src="resources/map.js"></script>
 </body>
 </html>
