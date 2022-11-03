@@ -29,7 +29,8 @@
 		int b_no = Integer.parseInt(request.getParameter("no"));
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
 		dao.updateViewCnt(b_no);
-		board = dao.getBoardByNo(b_no); %>
+		board = dao.getBoardByNo(b_no);
+		%>
 		
 	<h1>Tour_Spot</h1>
     <div class="form-container">
@@ -47,7 +48,7 @@
             <%} %>
         </form>
     </div>
-    	<table border="1">
+	<table border="1">
 		<thead>
 			<tr>
 				<th>댓글번호</th>
@@ -66,7 +67,7 @@
 				<td><%=comment.getContent()%></td>
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
-				<td><%=comment.getModDate() %></td>
+				<td><%=comment.getModDate()%></td>
 			</tr>
 			<%} %>
 		</tbody>

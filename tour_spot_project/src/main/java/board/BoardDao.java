@@ -48,7 +48,7 @@ public class BoardDao {
 			this.pstmt.setString(3, board.getContent());
 			this.pstmt.setString(4, board.getUser_id());
 			this.pstmt.setTimestamp(5, now);
-			this.pstmt.setTimestamp(6, now);
+			this.pstmt.setTimestamp(6, null);
 			this.pstmt.setInt(7, board.getViewCnt());
 			this.pstmt.setString(8, board.getMap_addr());
 			

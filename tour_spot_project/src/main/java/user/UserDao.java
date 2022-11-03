@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import util.DBManager;
 
@@ -97,7 +98,46 @@ public class UserDao {
 	}
 	
 	// R
-	// 유저 한명의 정보 가져오기
+	// 유저 전체 불러오기
+	public ArrayList<UserDto> getUserAll() {
+		ArrayList<UserDto> list = new ArrayList<UserDto>();
+		String sql = "SELECT * FROM users";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.rs = this.pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int no = this.rs.getInt(1);
+				String name = this.rs.getString(2);
+				Date birthday = this.rs.getDate(3);
+				String gender = this.rs.getString(4);
+				String id = this.rs.getString(5);
+				String address = this.rs.getString(6);
+				String phone = this.rs.getString(7);
+				String token = this.rs.getString(8);
+				
+				UserDto dto = new UserDto(no, name, birthday, gender, id, address, phone, phone, token);
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return list;
+	}
+	
+	// 회원코드로 유저 정보 불러오기.
 	public UserDto getUserByNo(int no) {
 		UserDto user = null;
 		String sql = "SELECT * FROM users WHERE `no` = ?";
@@ -136,6 +176,7 @@ public class UserDao {
 		return user;
 	}
 	
+	// id로 회원 정보 가져오기
 	public UserDto getUserById(String id) {
 		UserDto user = null;
 		String sql = "SELECT * FROM users WHERE `id` = ?";
@@ -173,6 +214,46 @@ public class UserDao {
 		return user;
 	}
 	
+	// 카카오 회원 확인
+	// 없을 시 -> 회원 가입   /  있으면 -> 이 메소드를 활용해 정보를 가져와서 로그인완료.
+	public UserDto getUserByToken(UserDto dto) {
+		UserDto user = null;
+		String token = dto.getToken();
+		String sql = "SELECT * FROM users WHERE `token` = ?";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, token);
+			this.rs = this.pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int no = this.rs.getInt(1);
+				String name = this.rs.getString(2);
+				Date birthday = this.rs.getDate(3);
+				String gender = this.rs.getString(4);
+				String address = this.rs.getString(6);
+				String phone = this.rs.getString(7);
+				String password = this.rs.getString(8);
+				
+				user = new UserDto(no, name, birthday, gender, gender, address, phone, password, token);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return user;
+	}
+	
 	// U
 	// 유저 정보 수정
 	public void updateUserInfo(UserDto dto) {
@@ -185,7 +266,7 @@ public class UserDao {
 		String password = dto.getPassword();
 		String token = dto.getToken();
 		
-		String sql  = "UPDATE users SET `name` = ?, birthday = ?, gender = ?, address = ?, phone = ?, password = ?, token = ?";
+		String sql  = "UPDATE users SET `name` = ?, birthday = ?, gender = ?, address = ?, phone = ?, password = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
@@ -197,7 +278,6 @@ public class UserDao {
 			this.pstmt.setString(5, address);
 			this.pstmt.setString(6, phone);
 			this.pstmt.setString(7, password);
-			this.pstmt.setString(8, token);
 			
 			this.pstmt.execute();
 		} catch (Exception e) {

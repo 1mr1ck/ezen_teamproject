@@ -54,6 +54,7 @@ public class LoginAction extends HttpServlet {
 		else {
 			response.sendRedirect("home");
 		}
+		
 		request.getRequestDispatcher("home").forward(request, response);
 	}
 
