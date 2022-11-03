@@ -39,14 +39,14 @@
             <input type="text" value="<%=board.getTitle() %>" readonly>
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
             <div id="map" style="width:500px;height:400px;"></div>
-            <input type="button" onclick="location.href='board.jsp'" value="글목록">
+            <input type="button" onclick="location.href='board.jsp'" value="글 목록">
             <%
             if(id != null) {
             %>
             <input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
-            <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
-            <input type="button" onclick="Javascript:button_event();" value="글삭제">
-            <input type="button" onclick="location.href='commentWriteForm.jsp?b_no=<%=board.getB_no() %>'" value="댓글작성">
+            <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글 수정">
+            <input type="button" onclick="Javascript:button_event();" value="글 삭제">
+            <input type="button" onclick="location.href='commentWriteForm.jsp?b_no=<%=board.getB_no() %>'" value="댓글 작성">
             <%} %>
         </form>
     </div>
