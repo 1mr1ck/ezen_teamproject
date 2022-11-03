@@ -24,11 +24,10 @@
 				</table>
 				<input type="submit" value="로그인">
 			</form>
-			<a href="#" ><img src="kakao_login/kakao_login_small.png"></a>
+			<a href="https://kauth.kakao.com/oauth/authorize?client_id=f17145af917afa076cf92e7f58096053&redirect_uri=http://localhost:8081/tour_spot_project/KakaoControllarAction?cmd=callback&response_type=code" ><img src="kakao_login/kakao_login_small.png"></a>
 		</div>
 	</section>
 	<jsp:include page="footer.jsp" />
-	<script src="resources/kakaoLoginApi.js"></script>
 	<script src="resources/validation.js"></script>
 </body>
 </html>

@@ -9,7 +9,6 @@
 <body>
 	<jsp:include page="header.jsp"/>
     <section>
-        본문
     </section>
     <jsp:include page="footer.jsp"/>
 </body>
