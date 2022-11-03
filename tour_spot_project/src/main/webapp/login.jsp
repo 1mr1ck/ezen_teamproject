@@ -25,7 +25,6 @@
 				<input type="submit" value="로그인">
 			</form>
 		</div>
-		<button class ="kakaoLogin">login</button>
 	</section>
 	<jsp:include page="footer.jsp" />
 	<script src="resources/kakaoLoginApi.js"></script>
