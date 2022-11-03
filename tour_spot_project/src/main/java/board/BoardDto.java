@@ -44,6 +44,14 @@ public class BoardDto {
 		this.map_addr = map_addr;
 	}
 	
+	public BoardDto(int b_no, String title, String content, String map_addr) {
+		super();
+		this.b_no = b_no;
+		this.title = title;
+		this.content = content;
+		this.map_addr = map_addr;
+	}
+
 	public int getB_no() {
 		return b_no;
 	}

@@ -16,8 +16,9 @@
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		String map_addr = request.getParameter("map_addr");
 		
-		BoardDto board = new BoardDto(b_no, title, content);
+		BoardDto board = new BoardDto(b_no, title, content, map_addr);
 		dao.updateBoard(board);
 	}
 	response.sendRedirect("board.jsp");
