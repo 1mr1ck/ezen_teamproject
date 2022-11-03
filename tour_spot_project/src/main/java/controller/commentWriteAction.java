@@ -43,7 +43,6 @@ public class commentWriteAction extends HttpServlet {
 		String user_id = (String)session.getAttribute("log");
 		String content = request.getParameter("content");
 		
-		
 		if(user_id != null && content != null) {
 			CommentDto comment = new CommentDto(user_id, content);
 			dao.createComment(comment);	

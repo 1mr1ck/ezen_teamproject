@@ -43,6 +43,7 @@
             if(id != null) {
             %>
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
+        	<input type="hidden" name="b_num" id="b_num" value="<%=board.getB_no()%>">
             <input type="button" onclick="location.href='commentWriteForm.jsp'" value="댓글작성">
             <%} %>
         </form>
