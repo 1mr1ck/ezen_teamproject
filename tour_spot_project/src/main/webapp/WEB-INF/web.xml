@@ -1,55 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>tour_spot_project</display-name>
-  <welcome-file-list>
-    <welcome-file>home.html</welcome-file>
-    <welcome-file>home.htm</welcome-file>
-    <welcome-file>home.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-<!-- servlet mapping -->  
-  
-<!-- jsp mapping -->
-<!-- home.jsp mapping -->
-  <servlet>
-  	<servlet-name>home</servlet-name>
-  	<jsp-file>/home.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>home</servlet-name>
-  	<url-pattern>/home</url-pattern>
-  </servlet-mapping>
+	<display-name>tour_spot_project</display-name>
+	<welcome-file-list>
+		<welcome-file>home.html</welcome-file>
+		<welcome-file>home.htm</welcome-file>
+		<welcome-file>home.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- servlet mapping -->
+	<servlet>
+		<servlet-name>boardWrite</servlet-name>
+		<servlet-class>controller.boardWriteAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardWrite</servlet-name>
+		<url-pattern>/boardWrite</url-pattern>
+	</servlet-mapping>
+
+	<!-- jsp mapping -->
+	<!-- home mapping -->
+	<servlet>
+		<servlet-name>home</servlet-name>
+		<jsp-file>/home.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>home</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
 
 
-<!-- loing.jsp mapping -->
-  <servlet>
-  	<servlet-name>login</servlet-name>
-  	<jsp-file>/login.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>login</servlet-name>
-  	<url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  
- <!-- join.jsp mapping -->
-   <servlet>
-  	<servlet-name>join</servlet-name>
-  	<jsp-file>/join.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>join</servlet-name>
-  	<url-pattern>/join</url-pattern>
-  </servlet-mapping>
-  
-   <!-- join.jsp mapping -->
-   <servlet>
-  	<servlet-name>board</servlet-name>
-  	<jsp-file>/board.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>board</servlet-name>
-  	<url-pattern>/board</url-pattern>
-  </servlet-mapping>
+	<!-- login mapping -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<jsp-file>/login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<!-- join mapping -->
+	<servlet>
+		<servlet-name>join</servlet-name>
+		<jsp-file>/join.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>join</servlet-name>
+		<url-pattern>/join</url-pattern>
+	</servlet-mapping>
+
+	<!-- board mapping -->
+	<servlet>
+		<servlet-name>board</servlet-name>
+		<jsp-file>/board.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>board</servlet-name>
+		<url-pattern>/board</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>boardView</servlet-name>
+		<jsp-file>/boardView.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardView</servlet-name>
+		<url-pattern>/boardView</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>boardWriteForm</servlet-name>
+		<jsp-file>/boardWriteForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardWriteForm</servlet-name>
+		<url-pattern>/boardWriteForm</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>

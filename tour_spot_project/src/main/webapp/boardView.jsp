@@ -17,6 +17,7 @@
 <body>
 	<%
 	request.setCharacterEncoding("utf-8");
+	String id = (String)session.getAttribute("log");
 	
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
@@ -27,6 +28,7 @@
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
+		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no); %>
 		
 	<h1>Tour_Spot</h1>
@@ -35,6 +37,9 @@
             <input type="text" value="<%=board.getTitle() %>" readonly>
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
             <input type="button" onclick="location.href='board.jsp'" value="글목록">
+            <%
+            if(id != null) {
+            %>
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
             <%if(id != null){ %>
             <input type="button" onclick="location.href='commentWriteForm.jsp'" value="댓글작성">

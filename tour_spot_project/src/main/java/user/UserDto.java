@@ -14,7 +14,7 @@ public class UserDto {
 	private String password;
 	private String token;
 	
-	// 카카오 회원
+	// 카카오 회원 token은 카카오에서 뺴온 id값 ex) 2353215
 	public UserDto(int no, String name, Date birthday, String gender, String id, String address, String phone, String password, String token) {
 		super();
 		this.no = no;

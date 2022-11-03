@@ -25,26 +25,28 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>no</th>
+                    <th>b_no</th>
                     <th width="200px">title</th>
                     <th>name</th>
                     <th>regDate</th>
                     <th>modDate</th>
+                    <th>viewCnt</th>
                 </tr>
             </thead>
             <tbody>
             <%for(BoardDto board : list) {%>
                 <tr>
                     <td><%=board.getB_no() %></td>
-                    <td><a href="boardView.jsp?no=<%=board.getB_no()%>"><%=board.getTitle() %></a></td>
+                    <td><a href="boardView?no=<%=board.getB_no()%>"><%=board.getTitle() %></a></td>
                     <td><%=board.getUser_id() %></td>
                     <td><%=board.getRegDate() %></td>
                     <td><%=board.getModDate() %></td>
+                    <td><%=board.getViewCnt() %></td>
                 </tr>
             <%} %>
             </tbody>
         </table>
-        <button onclick="location.href='boardWriteForm.jsp'">글쓰기</button>
+        <button onclick="location.href='boardWriteForm'">글쓰기</button>
     </div>
 </body>
 </html>
