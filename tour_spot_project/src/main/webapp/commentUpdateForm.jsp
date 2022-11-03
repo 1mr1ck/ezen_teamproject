@@ -22,14 +22,13 @@
 
 	<h1>Tour_Spot</h1>
 	<div class="form-container"></div>
-	<form method="post" action="commentUpdateAction">
+	<form method="post" action="commentUpdateAction2">
 		<input type="text" name="c_no" value="test : <%=comment.getc_no()%>">
 		<textarea name="content" rows="20"><%=comment.getContent()%></textarea>
-		<input type="submit" value="글등록">
+		<input type="submit" value="댓글수정">
 	</form>
 	<%
 	}
-
 	else {
 	response.sendRedirect("board");
 	}

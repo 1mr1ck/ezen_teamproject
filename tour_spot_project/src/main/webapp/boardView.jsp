@@ -66,7 +66,7 @@
 			for (CommentDto comment : list) {
 			%>
 			<tr>
-				<td name="c_no"><%=comment.getc_no()%></td>
+				<td><%=comment.getc_no()%></td>
 				<td><%=comment.getContent()%></td>
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>

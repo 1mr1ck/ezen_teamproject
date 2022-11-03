@@ -33,8 +33,9 @@ public class CommentDto {
 		this.user_id = user_id;
 	}
 	
-	public CommentDto(String content) {
+	public CommentDto(int c_no, String content) {
 		super();
+		this.c_no = c_no;
 		this.content = content;
 	}
 	
