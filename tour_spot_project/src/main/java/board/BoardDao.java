@@ -217,7 +217,6 @@ public class BoardDao {
 			this.pstmt.setString(4, map_addr);
 			this.pstmt.setInt(5, b_no);
 			
-			
 			this.pstmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -232,8 +231,8 @@ public class BoardDao {
 	}
 	
 	// Delete
-	public void removeBoard(BoardDto board) {
-		String sql = "DELETE boards WHERE `b_no` = ?";
+	public void deleteBoard(BoardDto board) {
+		String sql = "DELETE FROM boards WHERE `b_no` = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
