@@ -24,6 +24,7 @@
 				</table>
 				<input type="submit" value="로그인">
 			</form>
+			<a href="#" ><img src="kakao_login/kakao_login_small.png"></a>
 		</div>
 	</section>
 	<jsp:include page="footer.jsp" />
