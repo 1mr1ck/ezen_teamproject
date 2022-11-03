@@ -212,7 +212,7 @@ public class CommentDao {
 	}
 	// Delete
 	public void deleteComment(int no) {
-		String sql = "DELETE FROM comments WHERE c_no = ?;";
+		String sql = "DELETE FROM comments WHERE c_no = 18;";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
