@@ -17,6 +17,7 @@
 <body>
 	<%
 	request.setCharacterEncoding("utf-8");
+	String id = (String)session.getAttribute("log");
 	
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
@@ -34,8 +35,12 @@
             <input type="text" value="<%=board.getTitle() %>" readonly>
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
             <input type="button" onclick="location.href='board.jsp'" value="글목록">
+            <%
+            if(id != null) {
+            %>
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
             <input type="button" onclick="location.href='commentWriteForm.jsp'" value="댓글작성">
+            <%} %>
         </form>
     </div>
     	<table border="1">
