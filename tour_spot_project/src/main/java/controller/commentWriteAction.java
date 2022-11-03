@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import board.BoardDao;
+import board.BoardDto;
 import comment.CommentDao;
 import comment.CommentDto;
 import user.UserDao;
@@ -35,14 +39,12 @@ public class commentWriteAction extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		CommentDao dao = CommentDao.getInstance();
 		
-
 		HttpSession session = request.getSession();
-		
 		String user_id = (String)session.getAttribute("log");
 		String content = request.getParameter("content");
 		
 		if(user_id != null && content != null) {
-			CommentDto comment = new CommentDto( user_id, content);
+			CommentDto comment = new CommentDto(user_id, content);
 			dao.createComment(comment);	
 			System.out.println(user_id + "님의 댓글 등록 완료");
 			System.out.println("user_id : " + user_id);

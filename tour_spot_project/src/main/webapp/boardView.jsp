@@ -23,8 +23,6 @@
 	BoardDto board = null;
 	
 	CommentDao commentDao = CommentDao.getInstance();
-	String id = (String)session.getAttribute("log");
-	
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
@@ -41,7 +39,6 @@
             if(id != null) {
             %>
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
-            <%if(id != null){ %>
             <input type="button" onclick="location.href='commentWriteForm.jsp'" value="댓글작성">
             <%} %>
         </form>
