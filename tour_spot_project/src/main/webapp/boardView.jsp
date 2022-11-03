@@ -1,6 +1,6 @@
 <%@page import="comment.CommentDto"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="comment.CommentDao"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="board.BoardDto"%>
 <%@page import="board.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -24,6 +24,7 @@
 	BoardDto board = null;
 	
 	CommentDao commentDao = CommentDao.getInstance();
+		
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);

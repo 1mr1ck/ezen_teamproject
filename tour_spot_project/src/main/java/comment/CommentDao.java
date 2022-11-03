@@ -31,6 +31,7 @@ public class CommentDao {
         this.pstmt = null;
         this.rs = null;
 	}
+	
 	private static CommentDao instance = new CommentDao();
 	public static CommentDao getInstance() {
 		return instance;
@@ -56,7 +57,6 @@ public class CommentDao {
 			System.out.println("b_no : "+ comment.getb_no());
 			System.out.println("content:"+comment.getContent());
 			System.out.println("user_id:"+comment.getuser_id());
-			System.out.println("테스트");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -86,9 +86,9 @@ public class CommentDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				this.conn.close();
-				this.pstmt.close();
 				this.rs.close();
+				this.pstmt.close();
+				this.conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -121,9 +121,9 @@ public class CommentDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				this.pstmt.close();
 				this.conn.close();
-				//this.rs.close();
+				this.pstmt.close();
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -133,10 +133,9 @@ public class CommentDao {
 	
 	// 한 게시글의 모든 댓글을 뽑아오는 메소드. 뭐 한게시글에 댓글이 6개면 그 6개를 뽑아와야댐.
 	
-	
 	// Update
 	public void updateComment(CommentDto comment) {
-		String sql = "update board set comment = ? WHERE c_no = ? AND b_no = ?;";
+		String sql = "update boards set comment = ? WHERE c_no = ? AND b_no = ?;";
 		int c_no = comment.getc_no();
 		int b_no = comment.getb_no();
 		String content = comment.getContent();
@@ -160,6 +159,7 @@ public class CommentDao {
 			}
 		}
 	}
+	
 	// Delete
 	public void deleteComment(CommentDto comment) {
 		int c_no = comment.getc_no();
@@ -176,8 +176,8 @@ public class CommentDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				this.conn.close();
 				this.pstmt.close();
+				this.conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

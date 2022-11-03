@@ -195,7 +195,6 @@ public class BoardDao {
 				e.printStackTrace();
 			}
 		}
-		
 	}
 	
 	// Update

@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 
 public class CommentDto {
 	
-	private int c_no;		// PK
-	private int b_no;		// FK
+	private int c_no;				// PK
+	private int b_no;				// FK
 	private String content;
 	private String user_id;			// FK
 	private Timestamp regDate, modDate;
