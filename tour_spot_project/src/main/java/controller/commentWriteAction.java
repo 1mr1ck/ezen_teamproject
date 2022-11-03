@@ -37,6 +37,7 @@ public class commentWriteAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
 		
 		HttpSession session = request.getSession();
@@ -44,10 +45,11 @@ public class commentWriteAction extends HttpServlet {
 		String content = request.getParameter("content");
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		
-		if(user_id != null && content != null) {
+		if(user_id != null && content != null && b_no != 0) {
 			CommentDto comment = new CommentDto(user_id, content, b_no);
 			dao.createComment(comment);	
 			System.out.println(user_id + "님의 댓글 등록 완료");
+			System.out.println("b_no : " + b_no);
 			System.out.println("user_id : " + user_id);
 		}
 		else {			

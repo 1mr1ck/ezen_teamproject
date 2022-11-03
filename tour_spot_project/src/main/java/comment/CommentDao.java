@@ -45,19 +45,21 @@ public class CommentDao {
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
+			Timestamp now = new Timestamp(System.currentTimeMillis());
 			this.pstmt.setInt(1, no);
 			this.pstmt.setInt(2, comment.getb_no());
 			this.pstmt.setString(3, comment.getContent());
 			this.pstmt.setString(4, comment.getuser_id());
 			
-			Timestamp now = new Timestamp(System.currentTimeMillis());
 			this.pstmt.setTimestamp(5, now);
 			this.pstmt.setTimestamp(6, now);
+			this.pstmt.execute();
 			System.out.println("테스트");
 			System.out.println("c_no : "+no);
 			System.out.println("b_no : "+ comment.getb_no());
 			System.out.println("content:"+comment.getContent());
 			System.out.println("user_id:"+comment.getuser_id());
+			System.out.println("time : "+now);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -118,13 +120,15 @@ public class CommentDao {
 				CommentDto comment = new CommentDto(c_no, b_no, content, user_id, regDate, modDate);
 				list.add(comment);
 			}
+			System.out.println("성공");
 		}catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("실패");
 		}finally {
 			try {
-				this.pstmt.close();
 				this.conn.close();
-				//this.rs.close();
+				this.pstmt.close();
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

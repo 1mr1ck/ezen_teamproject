@@ -16,6 +16,7 @@
 	<div class="form-container">
 		<form method="post" action="commentWriteAction">
 		<input type="hidden" name="b_no" value="<%=b_no %>">
+		<input type="text" name="tb_no" value="test : <%=b_no %>">
 		<textarea name="content" rows="20" placeholder="댓글내용" required></textarea>
         <input type="submit" value="글등록">
 		</form>

@@ -47,7 +47,7 @@
             <%} %>
         </form>
     </div>
-    	<table border="1">
+	<table border="1">
 		<thead>
 			<tr>
 				<th>댓글번호</th>
