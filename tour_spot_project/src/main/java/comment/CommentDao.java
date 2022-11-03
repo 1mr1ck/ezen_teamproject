@@ -7,10 +7,6 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
-
-import board.BoardDao;
-import board.BoardDto;
 import util.DBManager;
 
 public class CommentDao {
