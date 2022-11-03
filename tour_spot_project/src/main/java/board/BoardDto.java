@@ -36,11 +36,12 @@ public class BoardDto {
 		this.map_addr = map_addr;
 	}
 	
-	public BoardDto(String user_id, String title, String content) {
+	public BoardDto(String user_id, String title, String content, String map_addr) {
 		super();
 		this.user_id = user_id;
 		this.title = title;
 		this.content = content;
+		this.map_addr = map_addr;
 	}
 	
 	public int getB_no() {

@@ -26,6 +26,6 @@
 		</form>
 	</div>
 	
-	<script src="resources/map.js"></script>
+	<script src="resources/searchMap.js"></script>
 </body>
 </html>

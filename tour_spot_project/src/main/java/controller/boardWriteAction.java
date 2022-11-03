@@ -32,6 +32,8 @@ public class boardWriteAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
+		
 		BoardDao dao = BoardDao.getInstance();
 		
 		HttpSession session = request.getSession();
@@ -42,9 +44,11 @@ public class boardWriteAction extends HttpServlet {
 		String map_addr = request.getParameter("main_address");
 		
 		if(title != null && content != null) {
-			BoardDto dto = new BoardDto(id, title, content);
+			BoardDto dto = new BoardDto(id, title, content, map_addr);
 			dao.createBoard(dto);
 		}
+		
+		request.getRequestDispatcher("board").forward(request, response);
 	}
 
 	/**
@@ -52,6 +56,8 @@ public class boardWriteAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 

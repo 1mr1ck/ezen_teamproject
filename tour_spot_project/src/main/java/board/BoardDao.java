@@ -173,7 +173,7 @@ public class BoardDao {
 	
 	// Update viewCnt
 	public void updateViewCnt(int b_no) {
-		String sql = "update board set viewCnt=viewCnt+1 WHERE `b_no` = ?";
+		String sql = "update boards set viewCnt=viewCnt+1 WHERE `b_no` = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
