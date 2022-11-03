@@ -12,6 +12,9 @@
 	<title>Insert title here</title>
 </head>
 <body>
+
+	<script>alert("삭제되었습니다.")</script>
+	
 	<%
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("log");
@@ -22,14 +25,9 @@
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
 		board = dao.getBoardByNo(b_no);
-		dao.deleteBoard(board); %>
-		
-	<h1>Tour_Spot</h1>
-	<script>alert("삭제되었습니다.")</script>
-	
-	<%
-		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
+		dao.deleteBoard(board);
+		response.sendRedirect("board");
 	}%>
-	 
+	
 </body>
 </html>
