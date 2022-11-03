@@ -12,16 +12,16 @@ import user.UserDao;
 import user.UserDto;
 
 /**
- * Servlet implementation class LoginAction
+ * Servlet implementation class UserDeleteAction
  */
-@WebServlet("/LoginAction")
-public class LoginAction extends HttpServlet {
+@WebServlet("/UserDeleteAction")
+public class UserDeleteAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginAction() {
+    public UserDeleteAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,30 +32,22 @@ public class LoginAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
+		request.setCharacterEncoding("utf-8");
+		UserDao dao = UserDao.getInstance();
+		UserDto dto = null;
 		
-		if(id != null & password != null) {
-			UserDao dao = UserDao.getInstance();
-			UserDto user = dao.getUserById(id);
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("log");
+		
+		if(id != null) {
+			dto = dao.getUserById(id);
+			dao.deleteUser(dto);
+			session.invalidate();
+			System.out.println("회원탈퇴 완료");
 			
-			if(user == null) {
-				// 로그인 실패
-				System.out.println("로그인 실패");
-			}
-			else {
-				// 로그인 성공
-				HttpSession session = request.getSession();
-				session.setAttribute("log", user.getId());
-				request.setCharacterEncoding("utf-8");
-				System.out.println("로그인 성공");
-			}
 		}
-		else {
-			response.sendRedirect("home");
-		}
-		
 		request.getRequestDispatcher("home").forward(request, response);
+		
 	}
 
 	/**

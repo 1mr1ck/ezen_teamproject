@@ -1,3 +1,4 @@
+<%@page import="java.sql.Timestamp"%>
 <%@page import="user.UserDto"%>
 <%@page import="user.UserDao"%>
 <%@page import="board.BoardDao"%>
@@ -34,13 +35,15 @@
                 </tr>
             </thead>
             <tbody>
-            <%for(BoardDto board : list) {%>
+            <%for(BoardDto board : list) {
+            	Timestamp modDate = board.getModDate();%>
                 <tr>
                     <td><%=board.getB_no() %></td>
                     <td><a href="boardView?no=<%=board.getB_no()%>"><%=board.getTitle() %></a></td>
                     <td><%=board.getUser_id() %></td>
                     <td><%=board.getRegDate() %></td>
-                    <td><%=board.getModDate() %></td>
+                    <td><%if(modDate != null) {%>
+                   			<%=modDate%> <%} %></td>
                     <td><%=board.getViewCnt() %></td>
                 </tr>
             <%} %>
