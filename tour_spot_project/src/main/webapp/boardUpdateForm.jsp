@@ -33,7 +33,7 @@
     </div>
 	<%}
 	else {
-		response.sendRedirect("board.jsp"); // borad 조회 실패 -> 페이지 이동
+		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 	}%>
 </body>
 </html>
