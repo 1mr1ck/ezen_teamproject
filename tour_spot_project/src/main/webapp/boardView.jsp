@@ -78,7 +78,7 @@
 	<%}
 	else {
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
-	}%>
+	}%> 
 	
 	<script src="resources/map.js"></script>
 </body>
