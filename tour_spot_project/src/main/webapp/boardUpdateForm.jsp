@@ -24,7 +24,7 @@
 	
     <h1>Tour_Spot</h1>
     <div class="form-container">
-        <form method="post" action="boardUpdateFormPro.jsp">
+        <form method="post" action="boardUpdateAction">
         	<input type="hidden" name="b_no" value="<%=b_no%>">
             <input type="text" name="title" value="<%=board.getTitle() %>">
             <textarea name="content" rows="20"><%=board.getContent() %></textarea>
@@ -34,6 +34,7 @@
 	<%}
 	else {
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
+		System.out.println("조회실패");
 	}%>
 </body>
 </html>
