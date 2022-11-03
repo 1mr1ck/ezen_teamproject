@@ -25,11 +25,12 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>no</th>
+                    <th>b_no</th>
                     <th width="200px">title</th>
                     <th>name</th>
                     <th>regDate</th>
                     <th>modDate</th>
+                    <th>viewCnt</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                     <td><%=board.getUser_id() %></td>
                     <td><%=board.getRegDate() %></td>
                     <td><%=board.getModDate() %></td>
+                    <td><%=board.getViewCnt() %></td>
                 </tr>
             <%} %>
             </tbody>

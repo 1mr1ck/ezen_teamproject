@@ -11,9 +11,9 @@ public class BoardDto {
 	private Timestamp regDate;
 	private Timestamp modDate;
 	private int viewCnt;
-	private String map_url;
+	private String map_addr;
 	
-	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, Timestamp modDate, int viewCnt, String map_url) {
+	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, Timestamp modDate, int viewCnt, String map_addr) {
 		super();
 		this.b_no = b_no;
 		this.title = title;
@@ -22,10 +22,10 @@ public class BoardDto {
 		this.regDate = regDate;
 		this.modDate = modDate;
 		this.viewCnt = viewCnt;
-		this.map_url = map_url;
+		this.map_addr = map_addr;
 	}
 	
-	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, int viewCnt, String map_url) {
+	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, int viewCnt, String map_addr) {
 		super();
 		this.b_no = b_no;
 		this.title = title;
@@ -33,7 +33,7 @@ public class BoardDto {
 		this.user_id = user_id;
 		this.regDate = regDate;
 		this.viewCnt = viewCnt;
-		this.map_url = map_url;
+		this.map_addr = map_addr;
 	}
 	
 	public BoardDto(String user_id, String title, String content) {
@@ -99,11 +99,11 @@ public class BoardDto {
 		this.viewCnt = viewCnt;
 	}
 	
-	public String getMap_url() {
-		return map_url;
+	public String getMap_addr() {
+		return map_addr;
 	}
 	
-	public void setMap_url(String map_url) {
-		this.map_url = map_url;
+	public void setMap_addr(String map_addr) {
+		this.map_addr = map_addr;
 	}
 }

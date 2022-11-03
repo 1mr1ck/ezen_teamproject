@@ -27,6 +27,7 @@
 	if(request.getParameter("no") != null) {
 		int b_no = Integer.parseInt(request.getParameter("no"));
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
+		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no); %>
 		
 	<h1>Tour_Spot</h1>

@@ -36,7 +36,7 @@ public class BoardDao {
 	
 	// Create
 	public void createBoard(BoardDto board) {
-		String sql = "insert into boards values(?, ?, ?, ?, ?, ?, ?, ?);";
+		String sql = "insert into boards values(?, ?, ?, ?, ?, ?, ?, ?)";
 		int b_no = noGenerator();
 		
 		try {
@@ -50,7 +50,7 @@ public class BoardDao {
 			this.pstmt.setTimestamp(5, now);
 			this.pstmt.setTimestamp(6, now);
 			this.pstmt.setInt(7, board.getViewCnt());
-			this.pstmt.setString(8, board.getMap_url());
+			this.pstmt.setString(8, board.getMap_addr());
 			
 			this.pstmt.execute();
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class BoardDao {
 	}
 	
 	private int noGenerator() {
-		String sql = "SELECT MAX(`b_no`) FROM boards;";
+		String sql = "SELECT MAX(`b_no`) FROM boards";
 		int b_no = 0;
 		
 		try {
@@ -95,7 +95,7 @@ public class BoardDao {
 	// All
 	public ArrayList<BoardDto> getBoardAll() {
 		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
-		String sql = "SELECT * FROM boards ORDER BY `b_no` DESC;";
+		String sql = "SELECT * FROM boards ORDER BY `b_no` DESC";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
@@ -111,9 +111,9 @@ public class BoardDao {
 					Timestamp regDate = this.rs.getTimestamp(5);
 					Timestamp modDate = this.rs.getTimestamp(6);
 					int viewCnt = this.rs.getInt(7);
-					String map_url = this.rs.getString(8);
+					String map_addr = this.rs.getString(8);
 					
-					BoardDto board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_url);
+					BoardDto board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_addr);
 					list.add(board);
 						
 					} while(this.rs.next());
@@ -138,7 +138,7 @@ public class BoardDao {
 	// One
 	public BoardDto getBoardByNo(int b_no) {
 		BoardDto board = null;
-		String sql = "SELECT * FROM boards WHERE `b_no` = ?;";
+		String sql = "SELECT * FROM boards WHERE `b_no` = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
@@ -153,9 +153,9 @@ public class BoardDao {
 				Timestamp regDate = this.rs.getTimestamp(5);
 				Timestamp modDate = this.rs.getTimestamp(6);
 				int viewCnt = this.rs.getInt(7);
-				String map_url = this.rs.getString(8);
+				String map_addr = this.rs.getString(8);
 				
-				board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_url);
+				board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_addr);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,9 +171,36 @@ public class BoardDao {
 		return board;
 	}
 	
+	// Update viewCnt
+	public void updateViewCnt(int b_no) {
+		String sql = "update board set viewCnt=viewCnt+1 WHERE `b_no` = ?";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			
+			this.pstmt.setInt(1, b_no);
+			
+			this.pstmt.executeUpdate();
+			
+			System.out.println("조회수 1 증가");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 	// Update
 	public void updateBoard(BoardDto board) {
-		String sql = "update boards set title = ?, content = ? WHERE `b_no` = ?;";
+		String sql = "update boards set title = ?, content = ? WHERE `b_no` = ?";
 		
 		int b_no = board.getB_no();
 		String title = board.getTitle();
@@ -205,7 +232,7 @@ public class BoardDao {
 	
 	// Delete
 	public void removeBoard(BoardDto board) {
-		String sql = "DELETE boards WHERE `b_no` = ?;";
+		String sql = "DELETE boards WHERE `b_no` = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
