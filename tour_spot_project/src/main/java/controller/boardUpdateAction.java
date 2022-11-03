@@ -34,9 +34,9 @@ public class boardUpdateAction extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		BoardDao dao = BoardDao.getInstance();
 		
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		System.out.println(request.getParameter("b_no"));
 		if(request.getParameter("b_no") != null) {
-			int b_no = Integer.parseInt(request.getParameter("b_no"));
 			String title = request.getParameter("title");
 			String content = request.getParameter("content");
 			String map_addr = request.getParameter("main_address");
@@ -44,7 +44,7 @@ public class boardUpdateAction extends HttpServlet {
 			BoardDto board = new BoardDto(b_no, title, content, map_addr);
 			dao.updateBoard(board);
 		}
-		response.sendRedirect("board");
+		response.sendRedirect("boardView?no=" + b_no);
 	}
 
 	/**

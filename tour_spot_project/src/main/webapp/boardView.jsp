@@ -1,3 +1,4 @@
+<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@page import="comment.CommentDto"%>
 <%@page import="comment.CommentDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -24,9 +25,9 @@
 	BoardDto board = null;
 	
 	CommentDao commentDao = CommentDao.getInstance();
+	int b_no = Integer.parseInt(request.getParameter("no"));
 		
 	if(request.getParameter("no") != null) {
-		int b_no = Integer.parseInt(request.getParameter("no"));
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
 		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no);
@@ -39,13 +40,14 @@
             <input type="text" value="<%=board.getTitle() %>" readonly>
             <textarea rows="20" readonly><%=board.getContent() %></textarea>
             <div id="map" style="width:500px;height:400px;"></div>
-            <input type="button" onclick="location.href='board.jsp'" value="글목록">
+            <input type="button" onclick="location.href='board.jsp'" value="글 목록">
             <%
             if(id != null) {
             %>
-            <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글수정">
-            <input type="button" onclick="location.href='boardDeleteForm.jsp?no=<%=board.getB_no() %>'" value="글삭제">
-            <input type="button" onclick="location.href='commentWriteForm.jsp?b_no=<%=board.getB_no() %>'" value="댓글작성">
+            <input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
+            <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글 수정">
+            <input type="button" onclick="Javascript:button_event();" value="글 삭제">
+            <input type="button" onclick="location.href='commentWriteForm.jsp?b_no=<%=board.getB_no() %>'" value="댓글 작성">
             <%} %>
         </form>
     </div>
@@ -71,7 +73,7 @@
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
 				<td><%=comment.getModDate()%></td>
-				<td><button onclick="location.href='commentUpdateForm.jsp?no=<%=comment.getc_no() %>'">수정</button></td>
+				<td><button onclick="location.href='commentUpdateForm.jsp?b_no=<%=board.getB_no()%>&no=<%=comment.getc_no() %>'">수정</button></td>
 				<td><button onclick="location.href='commentDeleteForm.jsp?no=<%=comment.getc_no() %>'">삭제</button></td>
 			</tr>
 			<%} %>
@@ -83,5 +85,16 @@
 	}%> 
 	
 	<script src="resources/map.js"></script>
+	
+	<script type="text/javascript">
+		function button_event() {												// 삭제 확인
+			if(confirm("정말 삭제하시겠습니까?") == true) {							// 확인
+				alert("삭제되었습니다.");
+				location.href="boardDeleteForm.jsp?no=<%=board.getB_no() %>"
+			} else {															// 취소
+				return;
+			}
+		}
+	</script>
 </body>
 </html>

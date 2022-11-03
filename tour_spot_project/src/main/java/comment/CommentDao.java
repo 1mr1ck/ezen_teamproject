@@ -188,6 +188,8 @@ public class CommentDao {
 		String content = comment.getContent();
 		Timestamp modDate = comment.getModDate();
 		System.out.println(c_no);
+		System.out.println(content);
+		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
@@ -212,7 +214,7 @@ public class CommentDao {
 	}
 	// Delete
 	public void deleteComment(int no) {
-		String sql = "DELETE FROM comments WHERE c_no = 18;";
+		String sql = "DELETE FROM comments WHERE c_no = ?;";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);

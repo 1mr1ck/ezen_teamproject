@@ -18,7 +18,7 @@
 	
 	if(request.getParameter("no") != null) {
 		int c_no = Integer.parseInt(request.getParameter("no"));
-		dao.deleteComment(14); %>
+		dao.deleteComment(c_no); %>
 			
 	<h1>Tour_Spot</h1>
 	<div>alert("삭제되었습니다.")</div>

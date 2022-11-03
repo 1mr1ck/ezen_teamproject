@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-@import
-	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100&family=Single+Day&display=swap')
-	;
-
 * {
 	margin: 0;
 	padding: 0;
@@ -19,7 +15,6 @@ body {
 	"nav    nav     nav"
 	"aside  aside   aside" "section section section"
 	"footer footer  footer";
-	font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 header {
