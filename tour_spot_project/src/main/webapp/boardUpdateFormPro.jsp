@@ -18,10 +18,10 @@
 		String content = request.getParameter("content");
 		String map_addr = request.getParameter("map_addr");
 		
-		BoardDto board = new BoardDto(b_no, title, content, map_addr);
+		BoardDto board = new BoardDto(b_no, title, content);
 		dao.updateBoard(board);
 	}
-	response.sendRedirect("board.jsp");
+	response.sendRedirect("board");
 	%>
 </body>
 </html>

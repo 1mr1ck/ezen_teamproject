@@ -14,13 +14,18 @@
 <body>
 	<%
 	request.setCharacterEncoding("utf-8");
+	String id = (String)session.getAttribute("log");
 	
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
+	int b_no = -1;
+	System.out.println(b_no);
+	if(request.getParameter("no") != null) {
+		b_no = Integer.parseInt(request.getParameter("no"));
+		board = dao.getBoardByNo(b_no); 
+	}%>
 	
-	if(request.getParameter("b_no") != null) {
-		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		board = dao.getBoardByNo(b_no); %>
+	<%if(board != null && board.getUser_id().equals(id) && b_no != -1) { %>
 	
     <h1>Tour_Spot</h1>
     <div class="form-container">
@@ -33,7 +38,7 @@
     </div>
 	<%}
 	else {
-		response.sendRedirect("board.jsp"); // borad 조회 실패 -> 페이지 이동
+		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 	}%>
 </body>
 </html>

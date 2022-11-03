@@ -199,7 +199,7 @@ public class BoardDao {
 	
 	// Update
 	public void updateBoard(BoardDto board) {
-		String sql = "update boards set title = ?, content = ? WHERE `b_no` = ?";
+		String sql = "update boards set title = ?, content = ?, moddate = ? WHERE `b_no` = ?";
 		
 		int b_no = board.getB_no();
 		String title = board.getTitle();
@@ -211,10 +211,10 @@ public class BoardDao {
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, title);
 			this.pstmt.setString(2, content);
-			this.pstmt.setInt(3, b_no);
-			
 			modDate = new Timestamp(System.currentTimeMillis());
-			this.pstmt.setTimestamp(4, modDate);
+			this.pstmt.setTimestamp(3, modDate);
+			this.pstmt.setInt(4, b_no);
+			
 			
 			this.pstmt.execute();
 		} catch (Exception e) {
