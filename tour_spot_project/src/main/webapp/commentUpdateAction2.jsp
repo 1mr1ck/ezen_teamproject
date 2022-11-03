@@ -16,6 +16,6 @@
 		int c_no = Integer.parseInt(request.getParameter("no"));
 		comment = commentDao.getCommentOne(c_no);
 	%>
-	
+	///
 </body>
 </html>
