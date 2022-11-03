@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import comment.CommentDao;
 import comment.CommentDto;
@@ -33,13 +34,13 @@ public class commentUpdateAction extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
-		
+		int c_no =1;
+		System.out.println(c_no);
 		String content = request.getParameter("content");
 		
 		if(content != null) {
-			CommentDto comment = new CommentDto(content);
-			dao.updateComment(comment);
-			System.out.println(comment.getc_no() + " 번째 댓글 수정 완료");
+			CommentDto comment = new CommentDto(c_no, content);
+			//System.out.println(c_no + " 번째 댓글 수정 완료");
 			System.out.println("content :  " + content);
 		}else {			
 			System.out.println("댓글 수정 실패");

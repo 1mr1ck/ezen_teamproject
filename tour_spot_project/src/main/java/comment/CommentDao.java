@@ -135,6 +135,7 @@ public class CommentDao {
 	// 댓글 번호로 Read
 		public CommentDto getCommentOne(int no){
 			CommentDto comment = null;
+			System.out.println(no);
 			String sql = "SELECT * FROM comments WHERE `c_no`=?;";
 			try {
 				this.conn = DBManager.getConnection(this.url, this.user, this.password);
@@ -181,16 +182,17 @@ public class CommentDao {
 	
 	// Update
 	public void updateComment(CommentDto comment) {
-		String sql = "update comments set content = ? WHERE c_no = 1;";
+		String sql = "update comments set content = ? WHERE c_no = ?;";
+		
 		int c_no = comment.getc_no();
 		String content = comment.getContent();
 		Timestamp modDate = comment.getModDate();
-		
+		System.out.println(c_no);
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, content);
-//			this.pstmt.setInt(2, c_no);
+			this.pstmt.setInt(2, c_no);
 			this.pstmt.execute();
 			
 //			modDate = new Timestamp(System.currentTimeMillis());
@@ -209,16 +211,14 @@ public class CommentDao {
 		}
 	}
 	// Delete
-	public void deleteComment(CommentDto comment) {
-		int c_no = comment.getc_no();
-		int b_no = comment.getb_no();
+	public void deleteComment(int no) {
+		String sql = "DELETE FROM comments WHERE c_no = ?;";
 		
-		String sql = "DELETE FROM comments WHERE cmoment_no = ? AND b_no = ?;";
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
-			this.pstmt.setInt(1, c_no);
-			this.pstmt.setInt(2, b_no);
+			this.pstmt.setInt(1, no);
+			
 			this.pstmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
