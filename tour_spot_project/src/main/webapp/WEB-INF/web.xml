@@ -18,6 +18,10 @@
 		<servlet-name>boardWrite</servlet-name>
 		<url-pattern>/boardWrite</url-pattern>
 	</servlet-mapping>
+	
+	<!-- server  -->
+	
+	<!-- server -->
 
 	<!-- jsp mapping -->
 	<!-- home mapping -->
