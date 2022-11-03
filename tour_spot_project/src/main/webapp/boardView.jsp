@@ -56,6 +56,8 @@
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>수정일</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -63,11 +65,13 @@
 			for (CommentDto comment : list) {
 			%>
 			<tr>
-				<td><%=comment.getc_no()%></td>
+				<td name="c_no"><%=comment.getc_no()%></td>
 				<td><%=comment.getContent()%></td>
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
 				<td><%=comment.getModDate()%></td>
+				<td><button onclick="location.href='commentUpdateForm.jsp?no=<%=comment.getc_no() %>'">수정</button></td>
+				<td><button onclick="location.href='commentDeleteForm.jsp?no=<%=comment.getc_no() %>'">삭제</button></td>
 			</tr>
 			<%} %>
 		</tbody>
