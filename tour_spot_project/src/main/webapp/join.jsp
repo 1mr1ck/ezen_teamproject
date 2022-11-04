@@ -9,8 +9,11 @@
 </head>
 <body>
 	<%
+	request.setCharacterEncoding("UTF-8");
 	UserDao dao = UserDao.getInstance();
 	int no = dao.noGenerator();
+	
+	System.out.print("profile : " + request.getAttribute("profile"));
 	%>
 	 
 	<!-- 회원코드/이름/나이/성별/아이디/주소/폰번/패스워드 -->
