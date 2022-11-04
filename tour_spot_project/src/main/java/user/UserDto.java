@@ -40,6 +40,11 @@ public class UserDto {
 		this.phone = phone;
 		this.password = password;
 	}
+	//카카오 아이디 중복 검사
+	public UserDto(String token) {
+		super();
+		this.token = token;
+	}
 
 	// getter & setter
 	public int getNo() {
