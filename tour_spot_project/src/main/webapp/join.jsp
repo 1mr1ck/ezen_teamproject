@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>EZEN RENTAL CAR [ JOIN ]</title>
-<link rel="stylesheet" href="resources/join.css">
+<link rel="stylesheet" href="resources/joinUser.css">
 </head>
 <body>
 	<%

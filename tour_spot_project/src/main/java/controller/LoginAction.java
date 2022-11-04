@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,30 +34,30 @@ public class LoginAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html; charset=euc-kr");
+		PrintWriter out = response.getWriter();
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
+		UserDao dao = UserDao.getInstance();
+		UserDto user = null;
+		HttpSession session = request.getSession();
 		
-		if(id != null & password != null) {
-			UserDao dao = UserDao.getInstance();
-			UserDto user = dao.getUserById(id);
-			
-			if(user == null) {
-				// 로그인 실패
-				System.out.println("로그인 실패");
-			}
-			else {
-				// 로그인 성공
-				HttpSession session = request.getSession();
-				session.setAttribute("log", user.getId());
-				request.setCharacterEncoding("utf-8");
-				System.out.println("로그인 성공");
-			}
+		if(id != null) {
+			user = dao.getUserById(id);
+		}
+		
+		if(user != null && user.getPassword().equals(password)) {
+			System.out.println("로그인 성공");
+			session.setAttribute("log", id);
+			out.println("<script>alert('로그인 완료');location.href='home';</script>");
 		}
 		else {
-			response.sendRedirect("home");
+			System.out.println("로그인 실패");
+			out.println("<script>alert('로그인 실패');location.href='index';</script>");
 		}
 		
-		request.getRequestDispatcher("home").forward(request, response);
+		out.flush();
 	}
 
 	/**

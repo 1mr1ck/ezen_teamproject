@@ -9,11 +9,11 @@ body {
 	height: 150vh;
 	display: grid;
 	grid-template-columns: 100px 1fr 100px;
-	grid-template-rows: 120px 40px 100px 1fr 150px;
+	grid-template-rows: 120px 40px 1fr 150px;
 	grid-template-areas: 
 	"header header  header" 
 	"nav    nav     nav"
-	"aside  aside   aside" "section section section"
+	"section section section"
 	"footer footer  footer";
 }
 
@@ -24,10 +24,6 @@ header {
 
 nav {
 	grid-area: nav;
-}
-
-aside {
-	grid-area: aside;
 }
 
 section {

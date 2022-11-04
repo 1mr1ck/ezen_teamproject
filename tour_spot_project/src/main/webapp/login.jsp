@@ -28,6 +28,5 @@
 		</div>
 	</section>
 	<jsp:include page="footer.jsp" />
-	<script src="resources/validation.js"></script>
 </body>
 </html>

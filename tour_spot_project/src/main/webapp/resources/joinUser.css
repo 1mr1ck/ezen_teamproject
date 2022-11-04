@@ -86,3 +86,108 @@ i {
     display: block;
     clear: both
 }
+
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none
+}
+
+.start, .info {
+	width: 650px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.start {
+	padding: 50px 0 0;
+	border-bottom: 3px solid #000;
+}
+
+.info {
+	margin: 20px auto 0;
+}
+
+h2 {
+	text-align: center;
+	font-size: 30px;
+	padding: 30px;
+}
+
+.start>p {
+	font-size: 20px;
+	font-weight: 600;
+	padding: 10px 0 10px;
+}
+
+label {
+	width: 120px;
+	height: 10px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500px;
+	;
+}
+
+#userId, #passWd, #passWdCheck, #userName, #text, #email {
+	width: 650px;
+	height: 40px;
+	border: 1px solid #d8d7d7;
+	margin: 5px 0 15px;
+}
+
+#userNickName {
+	width: 650px;
+	height: 40px;
+	border: 1px solid #d8d7d7;
+	margin-top: 5px;
+}
+
+.join>p {
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-size: 12px;
+}
+
+.join>li>input {
+	padding-left: 5px;
+}
+
+.must {
+	color: red;
+}
+
+.btn {
+	width: 650px;
+	height: 50px;
+	background-color: #f0812d;
+	text-align: center;
+	color: #fff;
+	line-height: 50px;
+	border-radius: 30px;
+	margin: 20px auto 0;
+	display: block;
+	font-size: 15px;
+	font-weight: 600;
+	border: none
+}
+
+.btn:hover {
+	background-color: #a52a2a;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+.join_container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

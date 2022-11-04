@@ -50,13 +50,8 @@
 			<li><a href="rental">차량대여</a></li>
 			<li><a href="board">커뮤니티</a></li>
 			<li><a href="notice">공지사항</a></li>
-			<li><a href="mypage">마이페이지</a></li>
+			<li><a href="userPage">마이페이지</a></li>
 		</ul>
 	</nav>
-	<aside>
-		<img
-			src="https://www.navercorp.com/navercorp_/promotion/tvAds/2021/20210830105726_1.57"
-			width=100% height=100vh>
-	</aside>
 </body>
 </html>

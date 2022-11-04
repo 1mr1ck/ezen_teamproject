@@ -1,4 +1,3 @@
-<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@page import="comment.CommentDto"%>
 <%@page import="comment.CommentDao"%>
 <%@page import="java.util.ArrayList"%>
