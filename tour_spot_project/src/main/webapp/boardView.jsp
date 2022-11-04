@@ -1,3 +1,4 @@
+<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@page import="comment.CommentDto"%>
 <%@page import="comment.CommentDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -72,7 +73,7 @@
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
 				<td><%=comment.getModDate()%></td>
-				<td><button onclick="location.href='commentUpdateForm.jsp?no=<%=comment.getc_no() %>'">수정</button></td>
+				<td><button onclick="location.href='commentUpdateForm.jsp?b_no=<%=board.getB_no()%>&no=<%=comment.getc_no() %>'">수정</button></td>
 				<td><button onclick="location.href='commentDeleteForm.jsp?no=<%=comment.getc_no() %>'">삭제</button></td>
 			</tr>
 			<%} %>

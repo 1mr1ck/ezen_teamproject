@@ -38,6 +38,10 @@ public class CommentDto {
 		this.c_no = c_no;
 		this.content = content;
 	}
+	public CommentDto(int c_no) {
+		super();
+		this.c_no = c_no;
+	}
 	
 	public int getc_no() {
 		return c_no;

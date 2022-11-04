@@ -35,20 +35,16 @@ public class commentDeleteAction extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
 		
-		HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("log");
-		String content = request.getParameter("content");
-		int b_no = Integer.parseInt(request.getParameter("b_no"));
+//		HttpSession session = request.getSession();
+//		String user_id = (String)session.getAttribute("log");
+		int c_no = Integer.parseInt(request.getParameter("c_no"));
 		
-		if(user_id != null && content != null && b_no != 0) {
-			CommentDto comment = new CommentDto(user_id, content, b_no);
-			dao.createComment(comment);	
-			System.out.println(user_id + "님의 댓글 등록 완료");
-			System.out.println("b_no : " + b_no);
-			System.out.println("user_id : " + user_id);
+		if(c_no != 0) {
+			CommentDto comment = new CommentDto(c_no);
+			dao.deleteComment(c_no);
 		}
-		else {			
-			System.out.println(user_id + "님의 댓글 등록 실패");
+		else {
+			
 		}
 		request.getRequestDispatcher("home").forward(request, response);
 	}

@@ -21,14 +21,12 @@
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
 	int b_no = -1;
-	System.out.println(b_no);
 	if(request.getParameter("no") != null) {
 		b_no = Integer.parseInt(request.getParameter("no"));
 		board = dao.getBoardByNo(b_no); 
 	}%>
 	
-	<%if(board != null && board.getUser_id().equals(id) && b_no != -1) { %>
-	if(request.getParameter("no") != null) {
+	<%if(board != null && board.getUser_id().equals(id) && b_no != -1) { 
 		b_no = Integer.parseInt(request.getParameter("no"));
 		board = dao.getBoardByNo(b_no); %>
 	
