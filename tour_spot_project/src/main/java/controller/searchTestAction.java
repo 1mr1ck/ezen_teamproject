@@ -50,7 +50,7 @@ public class searchTestAction extends HttpServlet {
 			}
 		}
 		else {
-			response.getWriter().append("null");
+			response.getWriter().append("null");;
 		}
 	}
 
