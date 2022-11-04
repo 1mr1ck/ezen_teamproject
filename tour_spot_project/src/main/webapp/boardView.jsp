@@ -32,7 +32,7 @@
 		board = dao.getBoardByNo(b_no);
 		%>
 		
-	<h1>Tour_Spot</h1>
+	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
     <div class="form-container">
         <form method="post" action="">
         	<input type="hidden" name="main_address" id="main_address" value="<%=board.getMap_addr()%>">
@@ -70,8 +70,10 @@
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
 				<td><%=comment.getModDate()%></td>
+				<%if(id != null && id.equals(comment.getuser_id())) {%>
 				<td><button onclick="location.href='commentUpdateForm.jsp?b_no=<%=board.getB_no() %>&no=<%=comment.getc_no() %>'">수정</button></td>
 				<td><button onclick="Javascript:comment_delete_event(<%=comment.getc_no() %>);">삭제</button></td>
+				<%} %>
 			</tr>
 			<%} %>
 		</tbody>

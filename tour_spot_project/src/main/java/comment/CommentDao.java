@@ -175,7 +175,6 @@ public class CommentDao {
 		
 		int c_no = comment.getc_no();
 		String content = comment.getContent();
-		//Timestamp modDate = comment.getModDate();
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
