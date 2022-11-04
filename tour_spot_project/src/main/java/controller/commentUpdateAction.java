@@ -35,6 +35,7 @@ public class commentUpdateAction extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
 		int c_no = Integer.parseInt(request.getParameter("c_no"));
+		System.out.println(c_no);
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		String content = request.getParameter("content");
 		

@@ -24,8 +24,8 @@
 	<h1>Tour_Spot</h1>
 	<div class="form-container"></div>
 	<form method="post" action="commentUpdateAction">
-		<input type="hidden" name="b_no" value="<%=b_no%>">
-		test : <input type="text" name="c_no" value="<%=c_no%>">
+		<input type="hidden" name="b_no" value="<%=b_no %>">
+		<input type="text" name="c_no" value="<%=c_no%>">
 		<textarea name="content" rows="20"><%=comment.getContent()%></textarea>
 		<input type="submit" value="댓글수정">
 	</form>
