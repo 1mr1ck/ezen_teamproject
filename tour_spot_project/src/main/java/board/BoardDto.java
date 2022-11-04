@@ -58,7 +58,13 @@ public class BoardDto {
 		this.title = title;
 		this.content = content;
 	}
-
+	
+	public BoardDto(int b_no, String map_addr) {
+		super();
+		this.b_no = b_no;
+		this.map_addr = map_addr;
+	}
+	
 	public int getB_no() {
 		return b_no;
 	}
