@@ -90,4 +90,5 @@ public class CommentDto {
 	public void setModDate(Timestamp modDate) {
 		this.modDate = modDate;
 	}
+	// 확인
 }
