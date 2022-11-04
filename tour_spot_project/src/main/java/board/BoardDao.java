@@ -174,9 +174,9 @@ public class BoardDao {
 	// Search
 	public ArrayList<BoardDto> getBoardSearch(String address) {
 		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
+		String sql = "";
 		
 		try {
-			String sql = "";
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			if(address.equals("전체")) {
 				sql = "SELECT * FROM boards";

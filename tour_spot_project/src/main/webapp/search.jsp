@@ -17,9 +17,10 @@
 	<%
 	request.setCharacterEncoding("utf-8");
 	
+	// String address = request.getParameter("서울");
+	
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardSearch("서울");
-	System.out.println(list.size());
 	%>
 	
 	<div>
