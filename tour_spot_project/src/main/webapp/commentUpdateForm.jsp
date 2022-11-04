@@ -17,13 +17,15 @@
 	CommentDto comment = null;
 	if (request.getParameter("no") != null) {
 		int c_no = Integer.parseInt(request.getParameter("no"));
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		comment = commentDao.getCommentOne(c_no);
 	%>
 
 	<h1>Tour_Spot</h1>
 	<div class="form-container"></div>
-	<form method="post" action="commentUpdateAction2">
-		<input type="text" name="c_no" value="test : <%=comment.getc_no()%>">
+	<form method="post" action="commentUpdateAction">
+		<input type="hidden" name="b_no" value="<%=b_no %>">
+		<input type="text" name="c_no" value="<%=c_no%>">
 		<textarea name="content" rows="20"><%=comment.getContent()%></textarea>
 		<input type="submit" value="댓글수정">
 	</form>

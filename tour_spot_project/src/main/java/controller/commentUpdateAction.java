@@ -34,18 +34,20 @@ public class commentUpdateAction extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
-		int c_no =1;
+		int c_no = Integer.parseInt(request.getParameter("c_no"));
 		System.out.println(c_no);
 		String content = request.getParameter("content");
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		
 		if(content != null) {
 			CommentDto comment = new CommentDto(c_no, content);
+			dao.updateComment(comment);
 			//System.out.println(c_no + " 번째 댓글 수정 완료");
 			System.out.println("content :  " + content);
 		}else {			
 			System.out.println("댓글 수정 실패");
 		}
-		request.getRequestDispatcher("home").forward(request, response);
+		request.getRequestDispatcher("boardView?no="+b_no).forward(request, response);
 	}
 
 	/**

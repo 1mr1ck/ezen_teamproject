@@ -60,6 +60,7 @@
 				<th>수정일</th>
 				<th>수정</th>
 				<th>삭제</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -72,8 +73,9 @@
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
 				<td><%=comment.getModDate()%></td>
-				<td><button onclick="location.href='commentUpdateForm.jsp?no=<%=comment.getc_no() %>'">수정</button></td>
+				<td><button onclick="location.href='commentUpdateForm.jsp?b_no=<%=board.getB_no() %>&no=<%=comment.getc_no() %>'">수정</button></td>
 				<td><button onclick="location.href='commentDeleteForm.jsp?no=<%=comment.getc_no() %>'">삭제</button></td>
+				<td><button onclick="Javascript:comment_delete_event();">삭제</button></td>
 			</tr>
 			<%} %>
 		</tbody>
@@ -91,6 +93,17 @@
 				alert("삭제되었습니다.");
 				location.href="boardDeleteForm.jsp?no=<%=board.getB_no() %>"
 			} else {															// 취소
+				return;
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function comment_delete_event(comment.getc_no) {
+			if(confirm("댓글을 삭제하시겠습니까?") == true) {
+				alert("삭제되었습니다.");
+				<%commentDao.deleteComment(comment.getc_no());%>
+				location.href="commentDeleteForm.jsp?b_no=<%=board.getB_no() %>&no=<%=comment.getc_no()%>"
+			} else {
 				return;
 			}
 		}

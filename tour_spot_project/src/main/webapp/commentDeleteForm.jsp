@@ -18,11 +18,10 @@
 	
 	if(request.getParameter("no") != null) {
 		int c_no = Integer.parseInt(request.getParameter("no"));
-		dao.deleteComment(14); %>
-			
-	<h1>Tour_Spot</h1>
-	<div>alert("삭제되었습니다.")</div>
-	
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
+		dao.deleteComment(c_no);
+	response.sendRedirect("boardView?no="+b_no);
+	 %>
 	<%}
 	else {
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
