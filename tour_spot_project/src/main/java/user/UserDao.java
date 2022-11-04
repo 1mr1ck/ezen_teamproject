@@ -174,7 +174,7 @@ public class UserDao {
 		return user;
 	}
 	
-	//토큰=> 유저
+	//토큰으로 유저 가져오기
 	public UserDto getUserByToken(String token) {
 		UserDto user = null;
 		
