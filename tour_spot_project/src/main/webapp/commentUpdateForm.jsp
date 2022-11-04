@@ -25,8 +25,9 @@
 	<div class="form-container"></div>
 	<form method="post" action="commentUpdateAction">
 		<input type="hidden" name="b_no" value="<%=b_no %>">
-		<input type="text" name="c_no" value="<%=c_no%>">
+		<input type="hidden" name="c_no" value="<%=c_no %>">
 		<textarea name="content" rows="20"><%=comment.getContent()%></textarea>
+		<input type="button" onclick="location.href='boardView.jsp?no=<%=b_no %>'" value="뒤로 가기">
 		<input type="submit" value="댓글수정">
 	</form>
 	<%

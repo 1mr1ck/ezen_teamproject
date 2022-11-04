@@ -50,10 +50,11 @@
             <%} %>
         </form>
     </div>
+    <%if(list.isEmpty() != true){ %>
 	<table border="1">
 		<thead>
 			<tr>
-				<th>내용</th>
+				<th>댓글내용</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>수정일</th>
@@ -78,6 +79,7 @@
 			<%} %>
 		</tbody>
 	</table>
+	<%} %>
 	<%}
 	else {
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동

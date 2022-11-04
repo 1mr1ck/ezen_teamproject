@@ -50,12 +50,6 @@ public class CommentDao {
 			this.pstmt.setTimestamp(5, now);
 			this.pstmt.setTimestamp(6, now);
 			this.pstmt.execute();
-			System.out.println("테스트");
-			System.out.println("c_no : "+no);
-			System.out.println("b_no : "+ comment.getb_no());
-			System.out.println("content:"+comment.getContent());
-			System.out.println("user_id:"+comment.getuser_id());
-			System.out.println("time : "+now);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -191,7 +185,7 @@ public class CommentDao {
 			try {
 				this.conn.close();
 				this.pstmt.close();
-				
+				this.rs.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

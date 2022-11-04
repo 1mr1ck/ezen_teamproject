@@ -16,8 +16,8 @@
 	<div class="form-container">
 		<form method="post" action="commentWriteAction">
 		<input type="hidden" name="b_no" value="<%=b_no %>">
-		<input type="text" name="tb_no" value="test : <%=b_no %>">
-		<textarea name="content" rows="20" placeholder="댓글내용" required></textarea>
+		<textarea name="content" rows="20" placeholder="댓글 내용" required></textarea>
+		<input type="button" onclick="location.href='boardView.jsp?no=<%=b_no %>'" value="뒤로 가기">
         <input type="submit" value="글등록">
 		</form>
 	</div>

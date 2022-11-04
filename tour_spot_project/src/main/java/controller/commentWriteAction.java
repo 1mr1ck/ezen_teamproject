@@ -49,8 +49,6 @@ public class commentWriteAction extends HttpServlet {
 			CommentDto comment = new CommentDto(user_id, content, b_no);
 			dao.createComment(comment);	
 			System.out.println(user_id + "님의 댓글 등록 완료");
-			System.out.println("b_no : " + b_no);
-			System.out.println("user_id : " + user_id);
 		}
 		else {			
 			System.out.println(user_id + "님의 댓글 등록 실패");
