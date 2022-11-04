@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>EZEN RENTAL CAR [LOGIN]</title>
 <link rel="stylesheet" href="resources/login.css">
+<script src="resources/sociallogin.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -24,7 +26,7 @@
 				</table>
 				<input type="submit" value="로그인">
 			</form>
-			<a href="https://kauth.kakao.com/oauth/authorize?client_id=f17145af917afa076cf92e7f58096053&redirect_uri=http://localhost:8081/tour_spot_project/KakaoControllar&response_type=code" ><img src="kakao_login/kakao_login_small.png"></a>
+			<img src="kakao_login/kakao_login_small.png" onclick='getToken()'>
 		</div>
 	</section>
 	<jsp:include page="footer.jsp" />

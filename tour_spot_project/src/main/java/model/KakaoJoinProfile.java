@@ -26,5 +26,10 @@ public class KakaoJoinProfile {
 	public String getProfileImageUrl() {
 		return profileImageUrl;
 	}
-	
+	@Override
+	public String toString() {
+		String combine = 
+				String.format("","" );
+		return combine;
+	}
 }
