@@ -1,31 +1,54 @@
-@charset "UTF-8";
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color:blanchedalmond;
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
-div {
-	width : 500px;
-	height : 200px;
-	border: solid 1px black;
-	    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+body{
+    width : 100vw;
+    height : 100vh;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
 }
 
-table {
-	display: flex;
+.login-wrapper{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display : flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-tr {
-	margin : 5px;
+.login-wrapper > h2{
+    font-size: 24px;
+    color: #6A24FE;
+    margin-bottom: 20px;
+}
+
+#login-form {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form > input{
+    width: 400px;
+    height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+#login-form > input::placeholder{
+    color: #D2D2D2;
+}
+#login-form > input[type="submit"]{
+    color: #fff;
+    font-size: 16px;
+    background-color: #6A24FE;
+    margin-top: 20px;
 }
