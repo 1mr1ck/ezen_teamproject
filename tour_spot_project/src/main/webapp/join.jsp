@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>EZEN RENTAL CAR [ JOIN ]</title>
-<link rel="stylesheet" href="resources/joinUser.css">
 </head>
 <body>
 	<%
@@ -60,11 +59,15 @@
 					</tr>
 					<tr>
 						<td>전화번호</td>
-						<td><input type="text" name="phone"></td>
+						<td>
+						<input type="text" id="userPhone" name="phone1" required> - 
+						<input type="text" id="userPhone" name="phone2" required> - 
+						<input type="text" id="userPhone" name="phone3" required>
+						</td>
 					</tr>
 					<tr>
-						<td>
-							<input type="submit" value="회원가입">
+						<td colspan="2">
+						<input type="submit" value="회원가입">
 						</td>
 					</tr>
 				</table>

@@ -322,27 +322,22 @@ public class UserDao {
 	// U
 	// 유저 정보 수정
 	public void updateUserInfo(UserDto dto) {
+		int no = dto.getNo();
 		String name = dto.getName();
-		Date birthday = dto.getBirthday();
-		String gender = dto.getGender();
-		String id = dto.getId();
 		String address = dto.getAddress();
 		String phone = dto.getPhone();
 		String password = dto.getPassword();
-		String token = dto.getToken();
 		
-		String sql  = "UPDATE users SET `name` = ?, birthday = ?, gender = ?, address = ?, phone = ?, password = ?";
+		String sql  = "UPDATE users SET `password` = ?, `name` = ?, phone = ?, address = ? where `no` = ?";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
-			this.pstmt.setString(1, name);
-			this.pstmt.setDate(2, birthday);
-			this.pstmt.setString(3, gender);
-			this.pstmt.setString(4, id);
-			this.pstmt.setString(5, address);
-			this.pstmt.setString(6, phone);
-			this.pstmt.setString(7, password);
+			this.pstmt.setString(1, password);
+			this.pstmt.setString(2, name);
+			this.pstmt.setString(3, phone);
+			this.pstmt.setString(4, address);
+			this.pstmt.setInt(5, no);
 			
 			this.pstmt.execute();
 		} catch (Exception e) {
