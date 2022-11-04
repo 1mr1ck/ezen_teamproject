@@ -58,7 +58,6 @@ public class LoginAction extends HttpServlet {
 		}
 		
 		out.flush();
-		request.getRequestDispatcher("home").forward(request, response);
 	}
 
 	/**
