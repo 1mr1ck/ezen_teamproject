@@ -172,10 +172,41 @@ public class BoardDao {
 	}
 	
 	// Search
-	public void searchAddr(BoardDto board) {
-		String sql = "";
+	public ArrayList<BoardDto> getBoardSearch(String address) {
+		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
+		String sql = "SELECT * FROM boards WHERE map_addr `LIKE` % ? % ORDER BY `regDate";
 		
-		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);			
+			this.pstmt.setString(1, address);
+			this.rs = this.pstmt.executeQuery();
+			
+			while(this.rs.next()) {
+				int b_no = this.rs.getInt(1);
+				String title = this.rs.getString(2);
+				String content = this.rs.getString(3);
+				String user_id = this.rs.getString(4);
+				Timestamp regDate = this.rs.getTimestamp(5);
+				Timestamp modDate = this.rs.getTimestamp(6);
+				int viewCnt = this.rs.getInt(7);
+				String map_addr = this.rs.getString(8);
+				
+				BoardDto board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_addr);
+				list.add(board);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.rs.close();
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
 	}
 	
 	
