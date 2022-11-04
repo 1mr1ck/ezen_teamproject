@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -20,6 +21,7 @@ import model.KakaoProfile;
 import model.OauthToken;
 import user.UserDao;
 import user.UserDto;
+import util.Script;
 
 @WebServlet("/KakaoControllar")
 public class KakaoControllarAction extends HttpServlet  {
@@ -112,15 +114,19 @@ public class KakaoControllarAction extends HttpServlet  {
 		KakaoProfile profile = gson2.fromJson(sb2.toString(),KakaoProfile.class);
 		
 		//있는 회원인지 아닌지
-		boolean dupl = UserDao.getInstance().contain(new UserDto(profile.getId()));
-		
-		if(dupl) {
+		UserDto userDto = UserDao.getInstance().getUserByToken(profile.getId());
+		HttpSession session = request.getSession();
+		if(userDto!=null) {
 			System.out.println("이미 가입된 회원");
-			
+			session.setAttribute("log", userDto.getId());
+			Script.href("카카오 로그인 완료", "home", response);
 		}
 		else {
-			System.out.println("회원 가입진행 절차");
-			
+			Gson gson3 = new Gson();
+			String jsonProfile = gson3.toJson(profile);
+			response.getWriter().print(jsonProfile);
+			response.sendRedirect("join");
+			System.out.println("회원가입 절차");
 		}
 	}
 }
