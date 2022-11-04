@@ -50,6 +50,7 @@
             <%} %>
         </form>
     </div>
+    <div class="table-container">
     <%if(list.isEmpty() != true){ %>
 	<table border="1">
 		<thead>
@@ -79,6 +80,7 @@
 			<%} %>
 		</tbody>
 	</table>
+	</div>
 	<%} %>
 	<%}
 	else {
