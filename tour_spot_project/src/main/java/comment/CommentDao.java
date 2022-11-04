@@ -153,17 +153,6 @@ public class CommentDao {
 					
 					comment = new CommentDto(c_no, b_no, content, user_id, regDate, modDate);
 				}
-//				while(this.rs.next()) {
-//					int c_no = this.rs.getInt(1);
-//					int b_no = this.rs.getInt(2);
-//					String content = this.rs.getString(3);
-//					String user_id = this.rs.getString(4);
-//					Timestamp regDate = this.rs.getTimestamp(5);
-//					Timestamp modDate = this.rs.getTimestamp(6);
-//					
-//					CommentDto comment = new CommentDto(c_no, b_no, content, user_id, regDate, modDate);
-//					list.add(comment);
-//				}
 				System.out.println("성공");
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -182,23 +171,19 @@ public class CommentDao {
 	
 	// Update
 	public void updateComment(CommentDto comment) {
-		String sql = "update comments set content = ? WHERE c_no = ?;";
+		String sql = "update comments set content = ?, modDate = ? WHERE c_no = ?;";
 		
 		int c_no = comment.getc_no();
 		String content = comment.getContent();
-		Timestamp modDate = comment.getModDate();
-		System.out.println(c_no);
-		System.out.println(content);
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
+			Timestamp modDate = new Timestamp(System.currentTimeMillis());
 			this.pstmt.setString(1, content);
-			this.pstmt.setInt(2, c_no);
+			this.pstmt.setTimestamp(2, modDate);
+			this.pstmt.setInt(3, c_no);
 			this.pstmt.execute();
-			
-//			modDate = new Timestamp(System.currentTimeMillis());
-//			this.pstmt.setTimestamp(4, modDate);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -206,7 +191,7 @@ public class CommentDao {
 			try {
 				this.conn.close();
 				this.pstmt.close();
-				this.rs.close();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

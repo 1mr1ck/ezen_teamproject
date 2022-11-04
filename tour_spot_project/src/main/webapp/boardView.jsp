@@ -32,7 +32,7 @@
 		board = dao.getBoardByNo(b_no);
 		%>
 		
-	<h1>Tour_Spot</h1>
+	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
     <div class="form-container">
         <form method="post" action="">
         	<input type="hidden" name="main_address" id="main_address" value="<%=board.getMap_addr()%>">
@@ -53,13 +53,11 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<th>댓글번호</th>
 				<th>내용</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>수정일</th>
 				<th>수정</th>
-				<th>삭제</th>
 				<th>삭제</th>
 			</tr>
 		</thead>
@@ -68,14 +66,14 @@
 			for (CommentDto comment : list) {
 			%>
 			<tr>
-				<td><%=comment.getc_no()%></td>
 				<td><%=comment.getContent()%></td>
 				<td><%=comment.getuser_id()%></td>
 				<td><%=comment.getRegDate()%></td>
 				<td><%=comment.getModDate()%></td>
+				<%if(id != null && id.equals(comment.getuser_id())) {%>
 				<td><button onclick="location.href='commentUpdateForm.jsp?b_no=<%=board.getB_no() %>&no=<%=comment.getc_no() %>'">수정</button></td>
-				<td><button onclick="location.href='commentDeleteForm.jsp?no=<%=comment.getc_no() %>'">삭제</button></td>
-				<td><button onclick="Javascript:comment_delete_event();">삭제</button></td>
+				<td><button onclick="Javascript:comment_delete_event(<%=comment.getc_no() %>);">삭제</button></td>
+				<%} %>
 			</tr>
 			<%} %>
 		</tbody>
@@ -98,11 +96,10 @@
 		}
 	</script>
 	<script type="text/javascript">
-		function comment_delete_event(comment.getc_no) {
+		function comment_delete_event(c_no) {
 			if(confirm("댓글을 삭제하시겠습니까?") == true) {
 				alert("삭제되었습니다.");
-				<%commentDao.deleteComment(comment.getc_no());%>
-				location.href="commentDeleteForm.jsp?b_no=<%=board.getB_no() %>&no=<%=comment.getc_no()%>"
+				location.href="commentDeleteForm.jsp?b_no=<%=board.getB_no() %>&no="+c_no
 			} else {
 				return;
 			}
