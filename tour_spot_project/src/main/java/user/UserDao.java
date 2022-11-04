@@ -171,10 +171,46 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-		
-		
 		return user;
 	}
+	
+	//토큰=> 유저
+	public UserDto getUserByToken(String token) {
+		UserDto user = null;
+		
+		String sql = "SELECT * FROM users WHERE `token` = ?";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setString(1,token);
+			this.rs = this.pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int no = this.rs.getInt(1);
+				String name = this.rs.getString(2);
+				Date birthday = this.rs.getDate(3);
+				String gender = this.rs.getString(4);
+				String id = this.rs.getString(5);
+				String address = this.rs.getString(6);
+				String phone = this.rs.getString(7);
+				String password = this.rs.getString(8);
+				user = new UserDto(no, name, birthday, gender, id, address, phone, password, token);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+	
 	
 	// id로 회원 정보 가져오기
 	public UserDto getUserById(String id) {
@@ -214,7 +250,7 @@ public class UserDao {
 		return user;
 	}
 	
-	// 카카오 회원 확인
+	// 카카오 회원전용 가입
 	// 없을 시 -> 회원 가입   /  있으면 -> 이 메소드를 활용해 정보를 가져와서 로그인완료.
 	public UserDto getUserByToken(UserDto dto) {
 		UserDto user = null;
@@ -253,6 +289,35 @@ public class UserDao {
 		
 		return user;
 	}
+	//유저 확인 유무
+	public boolean contain(UserDto dto) {
+		boolean checkUser = false;
+		String token = dto.getToken();
+		String sql = "SELECT * FROM users WHERE `token` = ?";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, token);
+			this.rs = this.pstmt.executeQuery();
+			
+			if(rs.next()) {
+				checkUser = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+				this.rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return checkUser;
+	}
+	
 	
 	// U
 	// 유저 정보 수정
