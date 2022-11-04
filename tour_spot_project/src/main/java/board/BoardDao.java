@@ -180,7 +180,7 @@ public class BoardDao {
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			
-			if(address == null || address == "") {
+			if(address == null) {
 				this.pstmt = this.conn.prepareStatement(sql1);			
 			} else {
 				this.pstmt = this.conn.prepareStatement(sql2);
