@@ -85,7 +85,7 @@
 	
 	<script src="resources/map.js"></script>
 	
-	<script type="text/javascript">
+<	<script type="text/javascript">
 		function button_event() {												// 삭제 확인
 			if(confirm("정말 삭제하시겠습니까?") == true) {							// 확인
 				alert("삭제되었습니다.");
