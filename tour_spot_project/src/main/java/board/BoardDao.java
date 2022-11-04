@@ -171,6 +171,14 @@ public class BoardDao {
 		return board;
 	}
 	
+	// Search
+	public void searchAddr(BoardDto board) {
+		String sql = "";
+		
+		
+	}
+	
+	
 	// Update viewCnt
 	public void updateViewCnt(int b_no) {
 		String sql = "update boards set viewCnt=viewCnt+1 WHERE `b_no` = ?";
