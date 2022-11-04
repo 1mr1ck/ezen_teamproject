@@ -174,12 +174,19 @@ public class BoardDao {
 	// Search
 	public ArrayList<BoardDto> getBoardSearch(String address) {
 		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
-		String sql = "SELECT * FROM boards WHERE map_addr `LIKE` % ? % ORDER BY `regDate";
+		String sql1 = "SELECT * FROM boards ORDER BY regDate";
+		String sql2 = "SELECT * FROM boards WHERE map_addr LIKE ? ORDER BY regDate";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
-			this.pstmt = this.conn.prepareStatement(sql);			
-			this.pstmt.setString(1, address);
+			
+			if(address == null || address == "") {
+				this.pstmt = this.conn.prepareStatement(sql1);			
+			} else {
+				this.pstmt = this.conn.prepareStatement(sql2);
+				this.pstmt.setString(1, "%" + address + "%");
+			}
+			
 			this.rs = this.pstmt.executeQuery();
 			
 			while(this.rs.next()) {
