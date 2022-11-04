@@ -12,16 +12,16 @@ import comment.CommentDao;
 import comment.CommentDto;
 
 /**
- * Servlet implementation class commentUpdateAction
+ * Servlet implementation class commentDeleteAction
  */
-@WebServlet("/commentUpdateAction")
-public class commentUpdateAction extends HttpServlet {
+@WebServlet("/commentDeleteAction")
+public class commentDeleteAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public commentUpdateAction() {
+    public commentDeleteAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,20 +34,19 @@ public class commentUpdateAction extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
-		int c_no = Integer.parseInt(request.getParameter("c_no"));
-		System.out.println(c_no);
-		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		String content = request.getParameter("content");
 		
-		if(content != null) {
-			CommentDto comment = new CommentDto(c_no, content);
-			dao.updateComment(comment);
-			//System.out.println(c_no + " 번째 댓글 수정 완료");
-			System.out.println("content :  " + content);
-		}else {			
-			System.out.println("댓글 수정 실패");
+//		HttpSession session = request.getSession();
+//		String user_id = (String)session.getAttribute("log");
+		int c_no = Integer.parseInt(request.getParameter("c_no"));
+		
+		if(c_no != 0) {
+			CommentDto comment = new CommentDto(c_no);
+			dao.deleteComment(c_no);
 		}
-		request.getRequestDispatcher("boardView?no="+b_no).forward(request, response);
+		else {
+			
+		}
+		request.getRequestDispatcher("home").forward(request, response);
 	}
 
 	/**
