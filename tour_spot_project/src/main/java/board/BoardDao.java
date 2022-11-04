@@ -174,7 +174,7 @@ public class BoardDao {
 	// Search
 	public ArrayList<BoardDto> getBoardSearch(String address) {
 		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
-		String sql = "SELECT * FROM boards WHERE map_addr `LIKE` % ? % ORDER BY `regDate";
+		String sql = "SELECT * FROM boards WHERE INSTR(map_addr,?)>0 ORDER BY `regDate`";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
