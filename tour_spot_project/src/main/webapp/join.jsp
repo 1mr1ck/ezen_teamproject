@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>EZEN RENTAL CAR [ JOIN ]</title>
-<link rel="stylesheet" href="resources/joinUser.css">
 </head>
 <body>
 	<%
+	request.setCharacterEncoding("UTF-8");
 	UserDao dao = UserDao.getInstance();
 	int no = dao.noGenerator();
 	
+	System.out.print("profile : " + request.getAttribute("profile"));
 	%>
 	 
 	<!-- 회원코드/이름/나이/성별/아이디/주소/폰번/패스워드 -->
@@ -27,7 +28,7 @@
 					</tr>
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" name="id"></td>
+						<td><input type="text" name="id" id="id"></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
@@ -60,10 +61,17 @@
 					</tr>
 					<tr>
 						<td>전화번호</td>
-						<td><input type="text" name="phone"></td>
+						<td>
+						<input type="text" id="userPhone" name="phone1" required> - 
+						<input type="text" id="userPhone" name="phone2" required> - 
+						<input type="text" id="userPhone" name="phone3" required>
+						</td>
 					</tr>
 					<tr>
+						<td colspan="2">
+						<input type="submit" value="회원가입">
 						<td>
+							<input type="hidden" name="token" id="token">
 							<input type="submit" value="회원가입">
 						</td>
 					</tr>
@@ -71,6 +79,7 @@
 			</form>
 		</div>
 	</section>
+	<script src="resources/join.js" charset="utf-8"></script>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

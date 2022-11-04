@@ -21,9 +21,6 @@
 	String phone1 = phone[0];
 	String phone2 = phone[1];
 	String phone3 = phone[2];
-	if(id == null) {
-		response.sendRedirect("home");
-	} else {
 	%>
 	<jsp:include page="header.jsp" />
 	<section>
@@ -57,6 +54,5 @@
 		</div>
 	</section>
 	<jsp:include page="footer.jsp" />
-	<%} %>
 </body>
 </html>

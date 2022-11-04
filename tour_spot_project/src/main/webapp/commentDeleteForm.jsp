@@ -22,11 +22,6 @@
 		dao.deleteComment(c_no);
 	response.sendRedirect("boardView?no="+b_no);
 	 %>
-		dao.deleteComment(c_no); %>
-			
-	<h1>Tour_Spot</h1>
-	<div>alert("삭제되었습니다.")</div>
-	
 	<%}
 	else {
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동

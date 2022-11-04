@@ -43,5 +43,10 @@ public class KakaoProfile {
 		KakaoAccount account = getKakao_account();
 		return account.getSubProfile();
 	}
+	@Override
+	public String toString() {
+		return "[ 유저 =" + getId() + ", email =" + getEmail() + ", 닉네임 =" + getNickname()
+				+ "]";
+	}
 	
 }

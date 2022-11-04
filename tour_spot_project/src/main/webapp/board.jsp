@@ -21,7 +21,7 @@
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardAll();
 	%>
-	<h1>Tour_Spot</h1>
+	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
 	<div class="table-container">
         <table border="1">
             <thead>

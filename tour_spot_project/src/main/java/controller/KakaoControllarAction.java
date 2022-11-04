@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -20,6 +21,7 @@ import model.KakaoProfile;
 import model.OauthToken;
 import user.UserDao;
 import user.UserDto;
+import util.Script;
 
 @WebServlet("/KakaoControllar")
 public class KakaoControllarAction extends HttpServlet  {
@@ -70,57 +72,72 @@ public class KakaoControllarAction extends HttpServlet  {
 		conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 		//응답 true 설정
 		conn.setDoOutput(true);
-		
-		//스트림 연결해서 값 넣기
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(),"UTF-8"));
-		bw.write(bodyData);
-		bw.flush();
-		bw.close();
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
-		//빌더생성
-		StringBuilder sb = new StringBuilder();
-		String input = "";
-		while((input=br.readLine())!=null) {
-			sb.append(input);
-		}
-		
-		Gson gson = new Gson();
-		OauthToken oauthToken = gson.fromJson(sb.toString(),OauthToken.class);
-		System.out.println("토큰 값 "+oauthToken.getAccess_token());
-		
-		//user 정보 받기
-		String endPoint2 = "https://kapi.kakao.com/v2/user/me";
-		URL urlData2 = new URL(endPoint2);
-		
-		//https 스트림 생성
-		HttpsURLConnection conn2 = (HttpsURLConnection)urlData2.openConnection();
-		conn2.setRequestMethod("GET");
-		conn2.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-		conn2.setRequestProperty("Authorization","Bearer "+oauthToken.getAccess_token());
-		conn2.setDoOutput(true);
-		
-		//IO request
-		BufferedReader br2 = new BufferedReader(new InputStreamReader(conn2.getInputStream(),"UTF-8"));
-		String input2 = "";
-		StringBuilder sb2 = new StringBuilder();
-		while((input2=br2.readLine())!=null) {
-			sb2.append(input2);
+		StringBuilder sb = null;
+		StringBuilder sb2 = null;
+		try {
+			//스트림 연결해서 값 넣기
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(),"UTF-8"));
+			bw.write(bodyData);
+			bw.close();
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+			//빌더생성
+			sb = new StringBuilder();
+			String input = "";
+			while((input=br.readLine())!=null) {
+				sb.append(input);
+			}
+			br.close();
+			
+			Gson gson = new Gson();
+			OauthToken oauthToken = gson.fromJson(sb.toString(),OauthToken.class);
+			System.out.println("토큰 값 "+oauthToken.getAccess_token());
+			
+			//user 정보 받기
+			String endPoint2 = "https://kapi.kakao.com/v2/user/me";
+			URL urlData2 = new URL(endPoint2);
+			
+			//https 스트림 생성
+			HttpsURLConnection conn2 = (HttpsURLConnection)urlData2.openConnection();
+			conn2.setRequestMethod("GET");
+			conn2.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+			conn2.setRequestProperty("Authorization","Bearer "+oauthToken.getAccess_token());
+			conn2.setDoOutput(true);
+			
+			//IO request
+			BufferedReader br2 = new BufferedReader(new InputStreamReader(conn2.getInputStream(),"UTF-8"));
+			String input2 = "";
+			sb2 = new StringBuilder();
+			while((input2=br2.readLine())!=null) {
+				sb2.append(input2);
+			}
+			br2.close();
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 		//객체 담기
 		Gson gson2 = new Gson();
+		System.out.println(sb2.toString());
 		KakaoProfile profile = gson2.fromJson(sb2.toString(),KakaoProfile.class);
-		
-		//있는 회원인지 아닌지
-		boolean dupl = UserDao.getInstance().contain(new UserDto(profile.getId()));
-		
-		if(dupl) {
+		System.out.println(profile);
+		//있는 회원인지 아지
+		UserDto userDto = UserDao.getInstance().getUserByToken(profile.getId());
+		HttpSession session = request.getSession();
+		if(userDto!=null) {
 			System.out.println("이미 가입된 회원");
-			
+			session.setAttribute("log", userDto.getId());
+			Script.href("카카오 로그인 완료", "home", response);
 		}
 		else {
-			System.out.println("회원 가입진행 절차");
-			
+			Gson gson3 = new Gson();
+			String jsonProfile = gson3.toJson(profile);
+//			response.getWriter().write(jsonProfile);
+//			response.sendRedirect("join");
+//			System.out.println("회원가입 절차");
+//			request.setCharacterEncoding("utf-8");
+//			request.setAttribute("profile", profile.getEmail());
+//			request.getRequestDispatcher("join.jsp").forward(request, response);
+			response.sendRedirect("join");
 		}
 	}
 }

@@ -46,17 +46,28 @@ public class JoinAction extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String id = request.getParameter("id");
 		String address = request.getParameter("address");
-		String phone = request.getParameter("phone");
+		String phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
 		String password = request.getParameter("password");
 		String passwordCheck = request.getParameter("passwordCheck");
+		String token = request.getParameter("token");
 		
-		if(password.equals(passwordCheck)) {
-			if(name != null && id != null && phone != null && password != null) {
-				dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
-				dao.createUser(dto);
-				System.out.println(name + "님 회원가입 완료");
-			}
+		if(token != null) {
+			dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
+		} else {
+			dto = new UserDto(no, name, birthday, gender, id, address, phone, password, token);
 		}
+		
+		if(dto != null) {
+			dao.createUser(dto);
+		}
+		
+//		if(password.equals(passwordCheck)) {
+//			if(name != null && id != null && phone != null && password != null) {
+//				dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
+//				dao.createUser(dto);
+//				System.out.println(name + "님 회원가입 완료");
+//			}
+//		}
 		
 		request.getRequestDispatcher("home").forward(request, response);
 	}

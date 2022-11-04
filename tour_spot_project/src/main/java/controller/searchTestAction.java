@@ -1,27 +1,30 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import comment.CommentDao;
-import comment.CommentDto;
+import org.json.JSONArray;
+
+import board.BoardDao;
+import board.BoardDto;
 
 /**
- * Servlet implementation class commentDeleteAction
+ * Servlet implementation class searchTestAction
  */
-@WebServlet("/commentDeleteAction")
-public class commentDeleteAction extends HttpServlet {
+@WebServlet("/searchTestAction")
+public class searchTestAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public commentDeleteAction() {
+    public searchTestAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,22 +34,24 @@ public class commentDeleteAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
-		CommentDao dao = CommentDao.getInstance();
+		String area = request.getParameter("area");
 		
-//		HttpSession session = request.getSession();
-//		String user_id = (String)session.getAttribute("log");
-		int c_no = Integer.parseInt(request.getParameter("c_no"));
+		BoardDao dao = BoardDao.getInstance();
 		
-		if(c_no != 0) {
-			CommentDto comment = new CommentDto(c_no);
-			dao.deleteComment(c_no);
+		if(area != null) {
+			ArrayList<BoardDto> list = dao.getBoardSearch(area);
+			if(list.size() > 0) {
+				JSONArray result = new JSONArray(list);
+				response.getWriter().append(result.toString());
+			} else {
+				response.getWriter().append("null");
+			}
 		}
 		else {
-			
+			response.getWriter().append("null");;
 		}
-		request.getRequestDispatcher("home").forward(request, response);
 	}
 
 	/**
@@ -54,6 +59,8 @@ public class commentDeleteAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);
 	}
 
