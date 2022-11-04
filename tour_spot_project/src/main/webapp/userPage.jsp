@@ -39,7 +39,7 @@
 					<li><input type="password" id="passWd" name="changePw" placeholder="사용 할 비밀번호" /></li>
 					<li><label for="passWdCheck">사용 할 비밀번호 확인</label></li>
 					<li><input type="password" id="passWdCheck" name="changePwCheck" placeholder="비밀번호 확인" ></li>
-					<li><label for="userName">이름</label></li>
+					<li><label for="userName">닉네임</label></li>
 					<li><input type="text" id="userName" name="userName" value="<%=user.getName() %>" required></li>
 					<li><label for="userPhone">휴대번호</label></li>
 					<li class="userPhone">
