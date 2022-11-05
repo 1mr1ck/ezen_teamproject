@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import util.DBManager;
+import util.Print;
 
 public class UserDao {
 	private String url;
@@ -132,8 +133,6 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-		
-		
 		return list;
 	}
 	
@@ -172,6 +171,30 @@ public class UserDao {
 			}
 		}
 		return user;
+	}
+	
+	public String findByUserID(String userID) {
+		int result = -1;
+		String sql = "SELECT count(NO) FROM users WHERE id = ?";
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = conn.prepareStatement(sql);
+			this.pstmt.setString(1, userID);
+			this.rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.conn.close();
+				this.pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return Print.indexOf(result);
 	}
 	
 	//토큰으로 유저 가져오기
