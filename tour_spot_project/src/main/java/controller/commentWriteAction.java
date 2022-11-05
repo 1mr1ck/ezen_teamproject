@@ -74,17 +74,14 @@ public class commentWriteAction extends HttpServlet {
 			// 하나의 dto에 들어있는 컬럼5개의 값들을 다 뺴와야하는데 3개만 뺴옴.
 //			JSONArray result = new JSONArray(list);
 			
-			JSONArray result = new JSONArray();
-			for(CommentDto dto : list) {
-				JSONObject jsonObj = new JSONObject();
-
-				jsonObj.put("user_id", dto.getuser_id());
-				jsonObj.put("b_no", dto.getb_no());
-				jsonObj.put("content", dto.getContent());
-				result.put(jsonObj);
-			}
-			System.out.println(result);
-			response.getWriter().append(result.toString());
+			CommentDto dto = list.get(list.size()-1);
+			
+			JSONObject jsonObj = new JSONObject();
+			
+			jsonObj.put("user_id", dto.getuser_id());
+			jsonObj.put("b_no", dto.getb_no());
+			jsonObj.put("content", dto.getContent());
+			response.getWriter().append(jsonObj.toString());
 		} else {
 			response.getWriter().append("null");				
 		}

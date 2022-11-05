@@ -41,8 +41,6 @@ function testfunc(user_id, b_no) {
 		return;
 	}
 	
-	$('.cmt_list').empty();
-	
 	const content = $(".content").val();
 	console.log(content);
 	$.ajax({
@@ -56,17 +54,12 @@ function testfunc(user_id, b_no) {
 	}).done(function(response) {
 		const list = JSON.parse(response);
 		console.log("response", list);
-
-		list.forEach(e => {
-			const user_id = e.user_id;
-			const content = e.content;
-
-			$('.cmt_list').append(
-				`<tr>
-					<td>${user_id}</td>
-					<td>${content}</td>
-				</tr>`
-			)
-		})
+		
+		$('.cmt_list').append(
+			`<tr>
+				<td>${user_id}</td>
+				<td>${content}</td>
+			</tr>`
+		)
 	});
 }
