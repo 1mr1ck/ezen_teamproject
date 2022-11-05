@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.JSONArray;
+
+import com.google.gson.Gson;
 
 import board.BoardDao;
 import board.BoardDto;
@@ -44,6 +49,8 @@ public class commentWriteAction extends HttpServlet {
 		String user_id = (String)session.getAttribute("log");
 		String content = request.getParameter("content");
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
+		System.out.println(user_id + "/" + content + "/" + b_no);
+		
 		
 		if(user_id != null && content != null && b_no != 0) {
 			CommentDto comment = new CommentDto(user_id, content, b_no);
@@ -53,7 +60,24 @@ public class commentWriteAction extends HttpServlet {
 		else {			
 			System.out.println(user_id + "님의 댓글 등록 실패");
 		}
-		request.getRequestDispatcher("boardView?no="+b_no).forward(request, response);
+		
+		// ajax JSON
+//		if(b_no > 0) {
+//			ArrayList<CommentDto> list = dao.getCommentAll(b_no);
+//			if(list.size() > 0) {
+//				JSONArray result = new JSONArray(list);
+//				response.getWriter().append(result.toString());
+//			} else {
+//				response.getWriter().append("null");
+//			}
+//		}
+//		else {
+//			response.getWriter().append("null");;
+//		}
+		
+		request.getRequestDispatcher("boardView?no=" + b_no).forward(request, response);
+		
+		
 	}
 
 	/**
@@ -61,6 +85,8 @@ public class commentWriteAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 

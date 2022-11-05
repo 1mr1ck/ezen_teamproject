@@ -12,6 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	c4fe4f7a920db65124e99252c9f6071e&libraries=services"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="resources/form.css">
 	<title>Tour_Spot</title>
 </head>
@@ -46,68 +47,34 @@
             <input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
             <input type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no() %>'" value="글 수정">
             <input type="button" onclick="Javascript:button_event();" value="글 삭제">
-            <input type="button" onclick="location.href='commentWriteForm.jsp?b_no=<%=board.getB_no() %>'" value="댓글 작성">
             <%} %>
         </form>
     </div>
-    <div class="table-container">
-    <%if(list.isEmpty() != true){ %>
+    <div class="cmt_container">
+    	<form method="post" action="commentWriteAction">
+    		<input type="hidden" name="id" class="user_id" value="<%=id%>">
+			<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
+    		<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
+    		<input type="submit" value="댓글등록">
+    	</form>
+    </div>
+    <div>
 	<table border="1">
-		<thead>
-			<tr>
-				<th>댓글내용</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>수정일</th>
-				<th>수정</th>
-				<th>삭제</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
-			for (CommentDto comment : list) {
-			%>
-			<tr>
-				<td><%=comment.getContent()%></td>
-				<td><%=comment.getuser_id()%></td>
-				<td><%=comment.getRegDate()%></td>
-				<td><%=comment.getModDate()%></td>
-				<%if(id != null && id.equals(comment.getuser_id())) {%>
-				<td><button onclick="location.href='commentUpdateForm.jsp?b_no=<%=board.getB_no() %>&no=<%=comment.getc_no() %>'">수정</button></td>
-				<td><button onclick="Javascript:comment_delete_event(<%=comment.getc_no() %>);">삭제</button></td>
-				<%} %>
-			</tr>
+		<tbody class=".cmt_list">
+			<%for(CommentDto cmt : list) {%>
+				<tr>
+					<td><%=cmt.getuser_id() %></td>
+					<td><%=cmt.getContent() %></td>
+				</tr>
 			<%} %>
 		</tbody>
 	</table>
 	</div>
-	<%} %>
 	<%}
 	else {
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 	}%> 
-	
 	<script src="resources/map.js"></script>
-	
-<	<script type="text/javascript">
-		function button_event() {												// 삭제 확인
-			if(confirm("정말 삭제하시겠습니까?") == true) {							// 확인
-				alert("삭제되었습니다.");
-				location.href="boardDeleteForm.jsp?no=<%=board.getB_no() %>"
-			} else {															// 취소
-				return;
-			}
-		}
-	</script>
-	<script type="text/javascript">
-		function comment_delete_event(c_no) {
-			if(confirm("댓글을 삭제하시겠습니까?") == true) {
-				alert("삭제되었습니다.");
-				location.href="commentDeleteForm.jsp?b_no=<%=board.getB_no() %>&no="+c_no
-			} else {
-				return;
-			}
-		}
-	</script>
+	<script src="resources/comment.js"></script>
 </body>
 </html>
