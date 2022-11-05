@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
@@ -49,35 +50,46 @@ public class commentWriteAction extends HttpServlet {
 		String user_id = (String)session.getAttribute("log");
 		String content = request.getParameter("content");
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		System.out.println(user_id + "/" + content + "/" + b_no);
 		
 		
 		if(user_id != null && content != null && b_no != 0) {
 			CommentDto comment = new CommentDto(user_id, content, b_no);
 			dao.createComment(comment);	
-			System.out.println(user_id + "님의 댓글 등록 완료");
+			System.out.println("댓글 등록 성공");
 		}
 		else {			
 			System.out.println(user_id + "님의 댓글 등록 실패");
 		}
 		
-		// ajax JSON
-//		if(b_no > 0) {
-//			ArrayList<CommentDto> list = dao.getCommentAll(b_no);
-//			if(list.size() > 0) {
-//				JSONArray result = new JSONArray(list);
-//				response.getWriter().append(result.toString());
-//			} else {
-//				response.getWriter().append("null");
-//			}
-//		}
-//		else {
-//			response.getWriter().append("null");;
-//		}
+//		[
+//		  {
+//		    "modDate": "2022-11-05 20:29:28.0",
+//		    "regDate": "2022-11-05 20:29:28.0",
+//		    "content": "123"
+//		  }
+//		]
 		
-		request.getRequestDispatcher("boardView?no=" + b_no).forward(request, response);
+		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
+		if(list.size() > 0) {
+			// 하나의 dto에 들어있는 컬럼5개의 값들을 다 뺴와야하는데 3개만 뺴옴.
+//			JSONArray result = new JSONArray(list);
+			
+			JSONArray result = new JSONArray();
+			for(CommentDto dto : list) {
+				JSONObject jsonObj = new JSONObject();
+
+				jsonObj.put("user_id", dto.getuser_id());
+				jsonObj.put("b_no", dto.getb_no());
+				jsonObj.put("content", dto.getContent());
+				result.put(jsonObj);
+			}
+			System.out.println(result);
+			response.getWriter().append(result.toString());
+		} else {
+			response.getWriter().append("null");				
+		}
 		
-		
+		//request.getRequestDispatcher("boardView?no=" + b_no).forward(request, response);
 	}
 
 	/**

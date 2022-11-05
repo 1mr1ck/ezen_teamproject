@@ -12,7 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	c4fe4f7a920db65124e99252c9f6071e&libraries=services"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="resources/form.css">
 	<title>Tour_Spot</title>
 </head>
@@ -20,6 +20,7 @@
 	<%
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("log");
+	System.out.println("id : " + id);
 	
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
@@ -31,7 +32,7 @@
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
 		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no);
-		%>
+	%>
 		
 	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
     <div class="form-container">
@@ -51,16 +52,15 @@
         </form>
     </div>
     <div class="cmt_container">
-    	<form method="post" action="commentWriteAction">
-    		<input type="hidden" name="id" class="user_id" value="<%=id%>">
-			<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
-    		<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
-    		<input type="submit" value="댓글등록">
-    	</form>
+    	<input type="hidden" name="id" class="user_id" value="<%=id%>">
+		<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
+    	<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
+    	<button name="createCmt-btn" onclick="createComment('<%=id%>', '<%=b_no%>')">등록</button>
+    	<button name="testButton" onclick="testfunc(`<%=id%>`, `<%=b_no%>`)">테스트</button>
     </div>
     <div>
 	<table border="1">
-		<tbody class=".cmt_list">
+		<tbody class="cmt_list">
 			<%for(CommentDto cmt : list) {%>
 				<tr>
 					<td><%=cmt.getuser_id() %></td>
@@ -76,5 +76,15 @@
 	}%> 
 	<script src="resources/map.js"></script>
 	<script src="resources/comment.js"></script>
+		<script type="text/javascript">
+		function button_event() {												// 삭제 확인
+			if(confirm("정말 삭제하시겠습니까?") == true) {							// 확인
+				alert("삭제되었습니다.");
+				location.href="boardDeleteForm.jsp?no=<%=board.getB_no() %>"
+			} else {															// 취소
+				return;
+			}
+		}
+	</script>
 </body>
 </html>

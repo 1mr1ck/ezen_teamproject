@@ -18,7 +18,7 @@ function getSpotByRegion() {
 	}).done(function(response) {
 		console.log(area);
 		const list = JSON.parse(response);
-		console.log("response", response);
+		console.log("response", list);
 
 		$('.spotTitle').append(
 			`<tr>
