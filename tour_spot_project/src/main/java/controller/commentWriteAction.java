@@ -86,7 +86,7 @@ public class commentWriteAction extends HttpServlet {
 			response.getWriter().append("null");				
 		}
 		
-		//request.getRequestDispatcher("boardView?no=" + b_no).forward(request, response);
+		////request.getRequestDispatcher("boardView?no=" + b_no).forward(request, response);
 	}
 
 	/**
