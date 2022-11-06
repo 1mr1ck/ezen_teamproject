@@ -8,7 +8,7 @@
 <title>사용자들이 직접 만드는 관광지</title>
 </head>
 <body>
-	<div class="login-wrapper">
+	<div class="login-wrapper"> 
 		<h2>Login</h2>
 		<form method="post" action="LoginAction" id="login-form">
 			<input type="text" name="id" placeholder="Email"> 
