@@ -41,8 +41,6 @@ public class commentDeleteAction extends HttpServlet {
 		CommentDao dao = CommentDao.getInstance();
 		
 		HttpSession session = request.getSession();
-		String cmt_id = request.getParameter("user_id");
-		String user_id = (String)session.getAttribute("log");
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		int c_no = Integer.parseInt(request.getParameter("c_no"));
 		
