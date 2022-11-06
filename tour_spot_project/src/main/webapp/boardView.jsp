@@ -73,10 +73,8 @@
 					<td class="id"><%=cmt.getuser_id() %></td>
 					<td class="content"><%=cmt.getContent() %></td>
 					<%if(id.equals(cmt.getuser_id())) {%>
-					<td><button name="update-cmt"
-							onclick="updateCmt(`<%=b_no%>`, `<%=cmt.getc_no()%>`)">수정</button></td>
-					<td><button name="delete-cmt"
-							onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
+					<td><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
+					<td><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
 					<%} %>
 				</tr>
 				<%} %>

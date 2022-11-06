@@ -34,19 +34,7 @@ public class commentUpdateAction extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
-		int c_no = Integer.parseInt(request.getParameter("c_no"));
-		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		String content = request.getParameter("content");
 		
-		if(content != null) {
-			CommentDto comment = new CommentDto(c_no, content);
-			dao.updateComment(comment);
-			System.out.println("댓글 수정 완료");
-			System.out.println("수정내용 :  " + content);
-		}else {			
-			System.out.println("댓글 수정 실패");
-		}
-		request.getRequestDispatcher("boardView?no="+b_no).forward(request, response);
 	}
 
 	/**
@@ -54,6 +42,8 @@ public class commentUpdateAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 
