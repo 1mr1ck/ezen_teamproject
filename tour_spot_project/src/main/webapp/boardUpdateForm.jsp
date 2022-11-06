@@ -49,7 +49,6 @@
 		response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 		System.out.println("조회실패");
 	}%>
-	
 	<script src="resources/searchMap.js"></script>
 </body>
 </html>
