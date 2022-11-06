@@ -83,7 +83,6 @@ public class commentWriteAction extends HttpServlet {
 				jsonObj.put("content", dto.getContent());
 				jsonObj.put("c_no", dto.getc_no());
 				result.put(jsonObj);
-				System.out.println("c_no : "  + dto.getc_no() + "\n\n\n\n\n");
 			}
 			response.getWriter().append(result.toString());
 		} else {

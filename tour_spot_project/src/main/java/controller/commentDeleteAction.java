@@ -58,7 +58,6 @@ public class commentDeleteAction extends HttpServlet {
 				jsonObj.put("content", dto.getContent());
 				jsonObj.put("c_no", dto.getc_no());
 				result.put(jsonObj);
-				System.out.println("c_no : "  + dto.getc_no() + "\n\n\n\n\n");
 			}
 //			System.out.println(result);
 			response.getWriter().append(result.toString());
