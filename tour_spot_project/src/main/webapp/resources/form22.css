@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 5%;
+}
+
+section{
+	background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA4MTZfMjcy%2FMDAxNTk3NTg1MzU1MzY5.zRHHLX_2IbjD5l_Y0E3JAq4QnIPc3H-8u5pxg_u3zOUg.v_N-koVajLWSBuDVaFxuwm14hqN1MHN3QdPJA0lei-Qg.PNG.studygir%2Ftklregf_%252848%2529.png&type=a340');
+	background-size:cover;
+}
+
+.form-container {
+	width: 70vw;
+	margin: 10px auto auto auto; /* 상 우 하 좌 */
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+.table-container {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	margin: 10px auto auto auto;
+}
+
+table {
+	border-collapse: collapse;
+	border: solid 1px lightblue;
+}
+
+.main {
+	width:100%;
+	display: flex;
+	border:0;
+}
+.content, .map_image{
+	width:100%;
+	display: flex;
+	border:0;
+}
+.nav{
+	margin-top: 15px;
+	 width:100%;
+	 height:50px;
+}
+
+.nav ul li{
+	list-style:none;
+	text-align: center;
+	height: 20px;
+	width: 20%;
+	float: left;
+	padding: 10px 0 0 0;
+}
+
+.nav ul li a{
+	height: 20px;
+	font-size: 20px;
+	text-decoration-line : none;
+	
+}
+
+.map_image{
+	margin-top: 15px;
+}
+.board_menu input{
+	width: 10%;
+	float: right;
+	margin: 5px 5px 5px 5px;
+}
+.cnt table{
+	width: 100%;
+}
+
+th, td, button {
+	padding: 5px;
+}
+
+input, textarea {
+	padding: 5px;
+	margin-top: 10px;
+	border: solid 1px lightblue;
+	outline: none;
+}
+
+.cmt_button{
+	margin-top: 10px;
+}
+.cmt_button button{
+	float: right;
+}
+
+.cmt table{
+	width:100%;
+}
+
+.cmt_container textarea{
+	margin-top: 25px;
+	height: 59px;
+	border: solid 1px lightblue;
+	border-radius: 5px;
+	resize: none;
+}
+.cmt_container textarea:is(:focus, :valid){
+	border-width: 2px;
+}
+.cmt_container textarea::-webkit-scrollbar{
+	width:0px;
+}
+
+.cmt table{
+	border: none;
+	border-collapse: separate;
+	border-spacing: 0 20px;
+}
+.cmt table tr td{
+	border: none;
+}
+.cmt_id{
+	width: 50%;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.cmt_modDate{
+	width: 50%;
+	float:right;
+	color: rgb(179, 177, 177);
+}
+input[type=submit], input[type=button] {
+	cursor: pointer;
+}
+
+.content textarea {
+	width: 100%;
+	padding: 15px;
+}
