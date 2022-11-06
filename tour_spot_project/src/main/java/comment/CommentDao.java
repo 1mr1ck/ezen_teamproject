@@ -92,7 +92,7 @@ public class CommentDao {
 	// 게시글 번호로 Read
 	public ArrayList<CommentDto> getCommentAll(int no){
 		ArrayList<CommentDto> list = new ArrayList<CommentDto>();
-		String sql = "SELECT * FROM comments WHERE `b_no`=?;";
+		String sql = "SELECT * FROM comments WHERE `b_no`=? ORDER BY c_no DESC;";
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
@@ -193,6 +193,7 @@ public class CommentDao {
 	}
 	// Delete
 	public void deleteComment(int no) {
+		System.out.println("no : " + no);
 		String sql = "DELETE FROM comments WHERE c_no = ?;";
 		
 		try {
