@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 body {
     width : 100vw;
@@ -9,12 +8,11 @@ body {
     justify-content: center;
 }
 .wrap_out {
-	margin-top : 80px;
     width : 50%;
     height: 100vw;
     display : flex;
     justify-content: center;
-    align-items: flex-start;
+   	align-items: flex-start;
 }
 .wrap_in {
     width : 60%;
@@ -81,11 +79,14 @@ h3 {
     display : flex;
 }
 .addr_search_button {
+    position: relative;
+    width: 50px;
     border: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 .addr_search_button:hover{
-    background-color: rgb(194, 141, 244);
+    background-color: rgb(229, 223, 236);
 }
 .info_phone{
     display : flex;
@@ -121,13 +122,67 @@ li input {
     cursor: pointer;
 }
 .info_bnt_submit {
+    margin-top : 20px;
     border-radius: 10px;
     height : 2.8em;
     width : 100%;
     border : 1px solid rgb(200,200,200);
-    cursor: no-drop;
+    cursor: pointer;
 }
 .info_bnt_submit.show {
     cursor: pointer;
     background-color: rgb(150,150,150);
+}
+.ininfo_two {
+    display: flex;
+    justify-content: space-between;
+}
+.info_gender{
+    flex-grow: 2;
+    
+}
+.info_date {
+    flex-grow: 3;
+    margin-left: 20px;
+}
+.info_box.gender{
+    position: relative;
+}
+.info_box>select{
+    height: 90%;
+    width: 90%;
+    position: absolute;
+    top:5%;
+    left:5%;
+    border: 0;
+    outline: 0;
+}
+.addr_search_button>i {
+    position: absolute;
+    font-size: 15px;
+    top:25%;
+    left:5%;
+}
+.info_box.hidden {
+    display : none;
+}
+.name_button {
+    display: flex;
+}
+.name_button>p {
+    width: 100px;
+    position: relative;
+}
+.name_button>p>i {
+    position: absolute;
+    top : 20%;
+    left : 10%;
+}
+.info_phone_last {
+    position: relative;
+}
+.iconPhone {
+    position: absolute;
+    right: 7%;
+    top: 25%;
 }

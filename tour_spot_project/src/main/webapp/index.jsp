@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/index.css">
 <title>사용자들이 직접 만드는 관광지</title>
+<script src="resources/sociallogin.js" charset="utf-8"></script>
 </head>
 <body>
 	<div class="login-wrapper"> 
@@ -15,6 +16,7 @@
 			<input type="password" name="password" placeholder="Password">
 			<input type="submit" value="Login">
 		</form>
+			<img src="kakao_login/kakao_login_large_wide.png" onclick='getToken()' style="width: 400px;">
 	</div>
 </body>
 </html>
