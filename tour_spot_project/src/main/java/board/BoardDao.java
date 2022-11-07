@@ -134,7 +134,51 @@ public class BoardDao {
 		}
 		return list;
 	}
-	
+	// Read
+		// All
+		public ArrayList<BoardDto> getBoardUserAll(String UserId) {
+			ArrayList<BoardDto> list = new ArrayList<BoardDto>();
+			String sql = "SELECT * FROM boards where user_id = ? ORDER BY `b_no` DESC";
+			
+			try {
+				this.conn = DBManager.getConnection(this.url, this.user, this.password);
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, UserId);
+				this.rs = this.pstmt.executeQuery();
+				
+				if(this.rs.next()) {
+					do {
+						int b_no = this.rs.getInt(1);
+						String title = this.rs.getString(2);
+						String content = this.rs.getString(3);
+						String user_id = this.rs.getString(4);
+						Timestamp regDate = this.rs.getTimestamp(5);
+						Timestamp modDate = this.rs.getTimestamp(6);
+						int viewCnt = this.rs.getInt(7);
+						String map_addr = this.rs.getString(8);
+						
+						BoardDto board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_addr);
+						list.add(board);
+							
+						} while(this.rs.next());
+				} else {
+					System.out.println("Empty");
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					this.rs.close();
+					this.pstmt.close();
+					this.conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return list;
+		}
+		
 	// One
 	public BoardDto getBoardByNo(int b_no) {
 		BoardDto board = null;

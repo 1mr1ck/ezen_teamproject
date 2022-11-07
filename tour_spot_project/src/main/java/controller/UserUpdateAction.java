@@ -43,7 +43,9 @@ public class UserUpdateAction extends HttpServlet {
 		String changePwCheck = request.getParameter("changePwCheck");
 		String name = request.getParameter("userName");
 		String phone = request.getParameter("userPhone1") + "-" + request.getParameter("userPhone2") + "-" + request.getParameter("userPhone3");
-		String address = request.getParameter("userAddress");
+		String address1 = request.getParameter("userAddress1");
+		String address2 = request.getParameter("userAddress2");
+		String address = address1 + address2;
 		System.out.printf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n",id,nowPw,changePw,changePwCheck,name,phone,address);
 		
 		UserDao dao = UserDao.getInstance();
