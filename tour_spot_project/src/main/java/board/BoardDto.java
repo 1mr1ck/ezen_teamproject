@@ -12,6 +12,20 @@ public class BoardDto {
 	private Timestamp modDate;
 	private int viewCnt;
 	private String map_addr;
+	private String img_url;
+	
+	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, Timestamp modDate, int viewCnt, String map_addr, String img_url) {
+		super();
+		this.b_no = b_no;
+		this.title = title;
+		this.content = content;
+		this.user_id = user_id;
+		this.regDate = regDate;
+		this.modDate = modDate;
+		this.viewCnt = viewCnt;
+		this.map_addr = map_addr;
+		this.img_url = img_url;
+	}
 	
 	public BoardDto(int b_no, String title, String content, String user_id, Timestamp regDate, Timestamp modDate, int viewCnt, String map_addr) {
 		super();
@@ -36,12 +50,13 @@ public class BoardDto {
 		this.map_addr = map_addr;
 	}
 	
-	public BoardDto(String user_id, String title, String content, String map_addr) {
+	public BoardDto(String user_id, String title, String content, String map_addr, String img_url) {
 		super();
 		this.user_id = user_id;
 		this.title = title;
 		this.content = content;
 		this.map_addr = map_addr;
+		this.img_url = img_url;
 	}
 	
 	public BoardDto(int b_no, String title, String content, String map_addr) {
@@ -126,5 +141,13 @@ public class BoardDto {
 	
 	public void setMap_addr(String map_addr) {
 		this.map_addr = map_addr;
+	}
+	
+	public String getImg_url() {
+		return img_url;
+	}
+	
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
 	}
 }

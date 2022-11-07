@@ -42,9 +42,11 @@ public class boardWriteAction extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String map_addr = request.getParameter("main_address");
+		String spot_url = request.getParameter("spot_url");
+		
 		
 		if(title != null && content != null) {
-			BoardDto dto = new BoardDto(id, title, content, map_addr);
+			BoardDto dto = new BoardDto(id, title, content, map_addr, spot_url);
 			dao.createBoard(dto);
 		}
 		

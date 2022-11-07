@@ -72,7 +72,6 @@ function deleteCmt(b_no, c_no) {
 			output += '<td class="id">' + cmt_user_id + '</td>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
-				output += '<td><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
 				output += '<td><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
@@ -83,7 +82,7 @@ function deleteCmt(b_no, c_no) {
 	});
 }
 
-// 수정 글입력창 생성
+/*// 수정 글입력창 생성
 function updateCmt(b_no, c_no) {
 	$('.cmt_list').empty();
 	const id = $(".user_id").val();
@@ -216,4 +215,4 @@ function updateComment(b_no, c_no) {
 
 		});
 	});
-}
+}*/

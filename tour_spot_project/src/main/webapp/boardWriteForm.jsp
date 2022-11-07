@@ -17,11 +17,11 @@
 		<form method="post" action="boardWrite">
 			<input type="text" name="title" placeholder="제목" required>
 			<textarea name="content" rows="20" placeholder="글내용" required></textarea>
-			<input type="text" name="postcode" id="postcode" placeholder="우편번호">
+			<input type="text" name="postcode" id="postcode" placeholder="우편번호" required>
 			<input type="button" onclick="addressSearch()" value="우편번호 찾기"> 
-			<input type="text" name="main_address" id="main_address" placeholder="주소">
+			<input type="text" name="main_address" id="main_address" placeholder="주소" required>
 			<input type="text" name="detail_address" id="detail_address" placeholder="상세주소">
-			<input type="text" name="spot_img" id="spot_img" placeholder="이미지 url을 적어주세요.">
+			<input type="text" name="spot_url" id="spot_img" placeholder="이미지 url을 적어주세요.">
 			<div id="map" style="width:500px;height:400px;"></div>
 			<input type="submit" value="글등록">
 		</form>

@@ -15,6 +15,7 @@
 			<input type="text" name="id" placeholder="Email"> 
 			<input type="password" name="password" placeholder="Password">
 			<input type="submit" value="Login">
+			<input type="button" onclick="location.href='home'" value="비회원">
 		</form>
 			<img src="kakao_login/kakao_login_large_wide.png" onclick='getToken()' style="width: 400px;">
 	</div>
