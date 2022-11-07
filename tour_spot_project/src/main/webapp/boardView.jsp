@@ -63,7 +63,7 @@
 		<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
 		<textarea id="content" class="content" name="content"
 			placeholder="댓글을 입력하세요." rows="1"></textarea>
-		<button name="create_cmt" onclick="createCmt(`<%=b_no%>`)">댓글등록</button>
+		<button name="create_cmt" onclick="createCmt('<%=b_no%>')">댓글등록</button>
 	</div>
 	<div>
 		<table border="1">
@@ -71,11 +71,11 @@
 				<%for(CommentDto cmt : list) {%>
 				<tr>
 					<td class="id"><%=cmt.getuser_id() %></td>
-					<td class="content"><%=cmt.getContent() %></td>
-					<%if(id.equals(cmt.getuser_id())) {%>
-					<td><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
-					<td><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
-					<%} %>
+						<td class="content" id="cnt"><%=cmt.getContent() %></td>
+						<%if(id.equals(cmt.getuser_id())) {%>
+						<td><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
+						<td><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
+						<%} %>
 				</tr>
 				<%} %>
 			</tbody>

@@ -3,7 +3,6 @@ package controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,14 +25,14 @@ import user.UserDao;
 /**
  * Servlet implementation class commentWrite
  */
-@WebServlet("/commentWriteAction")
-public class commentWriteAction extends HttpServlet {
+@WebServlet("/commentCancleAction")
+public class commentCancleAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public commentWriteAction() {
+    public commentCancleAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,34 +46,15 @@ public class commentWriteAction extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
 		
-		HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("log");
-		String content = request.getParameter("content");
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
+		System.out.println(b_no);
 		
-		
-		if(user_id != null && content != null && b_no != 0) {
-			CommentDto comment = new CommentDto(user_id, content, b_no);
-			dao.createComment(comment);	
-			System.out.println("댓글 등록 성공");
-		}
-		else {			
-			System.out.println(user_id + "님의 댓글 등록 실패");
-		}
-		
-//		[
-//		  {	
-//		    "modDate": "2022-11-05 20:29:28.0",
-//		    "regDate": "2022-11-05 20:29:28.0",
-//		    "content": "123"
-//		  }
-//		]
 		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
 		if(list.size() > 0) {
 			// 하나의 dto에 들어있는 컬럼6개의 값들을 다 뺴와야하는데 3개만 뺴옴.
-			JSONArray result = new JSONArray();
-			
 //			JSONArray result = new JSONArray(list);
+			
+			JSONArray result = new JSONArray();
 			
 			for(CommentDto dto : list) {
 				JSONObject jsonObj = new JSONObject();

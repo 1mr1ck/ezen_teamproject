@@ -169,7 +169,8 @@ public class CommentDao {
 		
 		int c_no = comment.getc_no();
 		String content = comment.getContent();
-		
+		System.out.println("dao cnt : " + content);
+			
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
 			this.pstmt = this.conn.prepareStatement(sql);
