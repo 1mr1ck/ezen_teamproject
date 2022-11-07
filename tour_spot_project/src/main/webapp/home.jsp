@@ -10,10 +10,17 @@
 	<jsp:include page="header.jsp"/>
     <section style="height: 100vh;">
     	<div class="search-box">
-			<input type="text" class="search-txt" name="" placeholder="주소 검색">
-			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+			<input type="text" class="search-txt" name="area" placeholder="주소 검색">
+			<button id="search-btn" onclick="getSpotByRegion()">검색</button>
+			<div class="search-content">
+				<table>
+					<thead class="spotTitle"></thead>
+					<tbody class="spotInfo"></tbody>
+				</table>
+			</div>
 		</div>
     </section>
     <jsp:include page="footer.jsp"/>
+    <script src="resources/searchByRegion.js"></script>
 </body>
 </html>

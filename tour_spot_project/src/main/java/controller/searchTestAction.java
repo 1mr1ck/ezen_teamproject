@@ -37,6 +37,7 @@ public class searchTestAction extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		String area = request.getParameter("area");
+		System.out.println("area : " + area);
 		
 		BoardDao dao = BoardDao.getInstance();
 		

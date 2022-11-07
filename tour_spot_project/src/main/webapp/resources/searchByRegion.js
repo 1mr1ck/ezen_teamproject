@@ -7,7 +7,8 @@ function getSpotByRegion() {
 	$('.spotTitle').empty();
 	$('.spotInfo').empty();
 
-	const area = $('.area').val();
+	const area = $('.search-txt').val();
+	console.log(area);
 	// ajax();
 	$.ajax({
 		method: "POST",
