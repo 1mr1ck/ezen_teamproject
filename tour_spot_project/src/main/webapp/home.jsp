@@ -8,7 +8,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-    <section>
+    <section style="height: 100vh;">
     	<div class="search">
 			<input type="text" class="search-txt" name="area" placeholder="주소 검색">
 			<button id="search-btn" onclick="getSpotByRegion()">검색</button>

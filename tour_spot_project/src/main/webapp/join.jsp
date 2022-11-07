@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="resources/userJoin.css">
 <title>EZEN RENTAL CAR [ JOIN ]</title>
 </head>
-<body>
+<body> 
 	<%
 	request.setCharacterEncoding("UTF-8");
 	UserDao dao = UserDao.getInstance();

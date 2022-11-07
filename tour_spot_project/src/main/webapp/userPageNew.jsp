@@ -10,7 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<link rel="stylesheet" href="https://cdnj	s.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<script src="https://kit.fontawesome.com/fa861a7902.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="resources/userJoinTest.css">
@@ -29,7 +29,7 @@
 		response.sendRedirect("home");
 	} else {
 	%>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="headerMypage.jsp" />
 	<section class="userWrap">
 		<ul class="userNav_list">
 			<li><a href="userPageNew.jsp">정보 수정</a></li>
@@ -137,7 +137,7 @@
         </form>
         </div>
 	</section>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="footerMyPage.jsp" />
 	<%} %>
 	<script src="resources/userPageTest.js" charset="utf-8"></script>
 </body>
