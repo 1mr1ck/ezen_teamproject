@@ -17,6 +17,7 @@
 	<title>Tour_Spot</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 	<%
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardAll();

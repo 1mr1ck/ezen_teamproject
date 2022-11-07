@@ -11,9 +11,10 @@
 
 .title{
 	border: 0; 
-	height: 80px;
+	height: 50px;
+	width:100%;
 	font-size: 30px;
-	background-color:transparent;
+	background-color:#f3f3f3;
 	margin-top:50px;
 	margin-bottom:10px;
 	font-weight:500;
@@ -30,8 +31,6 @@ h1 {
 
 section{
 	padding-bottom: 10px;
-	background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA4MTZfMjcy%2FMDAxNTk3NTg1MzU1MzY5.zRHHLX_2IbjD5l_Y0E3JAq4QnIPc3H-8u5pxg_u3zOUg.v_N-koVajLWSBuDVaFxuwm14hqN1MHN3QdPJA0lei-Qg.PNG.studygir%2Ftklregf_%252848%2529.png&type=a340');
-	background-size:cover;
 }
 
 .form-container {
@@ -61,6 +60,8 @@ table {
 	border:0;
 	margin-top:20px;
 	margin-bottom:20px;
+	border-top:1px;
+	border-bottom:1px;
 }
 
 .main table tr td{

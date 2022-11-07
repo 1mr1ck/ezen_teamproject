@@ -35,21 +35,7 @@
 		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no);
 	%>
-
-	<header>
-		<h1>
-			<a href="home" style="text-decoration: none">Tour_Spot</a>
-		</h1>
-	</header>
-	<div class="nav" style="background-color: aliceblue;">
-		<ul>
-			<li><a href="guide">서비스안내</a></li>
-			<li><a href="rental">차량대여</a></li>
-			<li><a href="board">커뮤니티</a></li>
-			<li><a href="notice">공지사항</a></li>
-			<li><a href="userPage">마이페이지</a></li>
-		</ul>
-	</div>
+	<jsp:include page="header.jsp" />
 	<section>
 		<div class="form-container">
 			<form method="post" action="">
