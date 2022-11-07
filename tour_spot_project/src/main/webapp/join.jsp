@@ -28,7 +28,7 @@
         <form class="wrap_outer" method="POST" action="JoinAction">
             <div class="wrap_out">
                 <div class="wrap_in">
-                <!--아이디 , 비밀번호 비밀번호 확인-->
+                <!--아이디 , 비밀번호 비밀번호 확인!-->
                     <!-- 비밀번호 -->
                     <div class="ininfo">
                         <h3>아이디</h3>
