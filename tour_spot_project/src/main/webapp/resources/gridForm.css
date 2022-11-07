@@ -85,58 +85,32 @@ nav .start-마이페이지, a:nth-child(5):hover ~.animation {
 	left: 80%;
 }
 
-.search-box {
-	padding: 10px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	height: 30px;
-	border: 1px solid #51e3d4;
-	border-radius: 30px;
-	transition: 0.4s;
-	width: 30px;
+.search {
+  position: relative;
+  width: 300px;
+  margin: 100px auto;
 }
 
-.search-box:hover {
-	box-shadow: 0px 0px .5px 1px #51e3d4;
-	width: 282px;
+input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
 }
 
-.search-btn {
-	text-decoration: none;
-	float: right;
-	width: 30px;
-	height: 30px;
-	background-color: fff;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #51e3d4;
-}
-
-.search-txt {
-	display: flex;
-	padding: 0;
-	width: 0px;
-	border: none;
-	background: none;
-	outline: none;
-	float: left;
-	font-size: 1rem;
-	line-height: 30px;
-	transition: .4s;
-}
-
-.search-box:hover>.search-txt {
-	width: 200px;
-	padding: 0 6px;
+img {
+  position : absolute;
+  width: 18px;
+  top: 10px;
+  right: 0px;
+  margin: 0;
 }
 
 .footer {
 	display: block;
- 	position: relative;
+ 	position: absolute;
+ 	top : 100%;
  	left: 0;
  	bottom: 0;
  	width: 100%;

@@ -8,8 +8,11 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-    <section style="height: 100vh;">
-    	
+    <section>
+		<div class="search">
+			<input type="text" placeholder="주소 검색">
+			<a href="search.jsp"><img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"></a>
+		</div>
     </section>
     <jsp:include page="footer.jsp"/>
 </body>

@@ -36,34 +36,35 @@ public class BoardDao {
 	
 	// Create
 	public void createBoard(BoardDto board) {
-		String sql = "insert into boards values(?, ?, ?, ?, ?, ?, ?, ?)";
-		int b_no = noGenerator();
-		
-		try {
-			this.conn = DBManager.getConnection(this.url, this.user, this.password);
-			this.pstmt = this.conn.prepareStatement(sql);
-			Timestamp now = new Timestamp(System.currentTimeMillis());
-			this.pstmt.setInt(1, b_no);
-			this.pstmt.setString(2, board.getTitle());
-			this.pstmt.setString(3, board.getContent());
-			this.pstmt.setString(4, board.getUser_id());
-			this.pstmt.setTimestamp(5, now);
-			this.pstmt.setTimestamp(6, null);
-			this.pstmt.setInt(7, board.getViewCnt());
-			this.pstmt.setString(8, board.getMap_addr());
-			
-			this.pstmt.execute();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				this.pstmt.close();
-				this.conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+        String sql = "insert into boards values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        int b_no = noGenerator();
+        
+        try {
+            this.conn = DBManager.getConnection(this.url, this.user, this.password);
+            this.pstmt = this.conn.prepareStatement(sql);
+            Timestamp now = new Timestamp(System.currentTimeMillis());
+            this.pstmt.setInt(1, b_no);
+            this.pstmt.setString(2, board.getTitle());
+            this.pstmt.setString(3, board.getContent());
+            this.pstmt.setString(4, board.getUser_id());
+            this.pstmt.setTimestamp(5, now);
+            this.pstmt.setTimestamp(6, null);
+            this.pstmt.setInt(7, board.getViewCnt());
+            this.pstmt.setString(8, board.getMap_addr());
+            this.pstmt.setString(9, board.getImg_url());
+            
+            this.pstmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                this.pstmt.close();
+                this.conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 	
 	private int noGenerator() {
 		String sql = "SELECT MAX(`b_no`) FROM boards";

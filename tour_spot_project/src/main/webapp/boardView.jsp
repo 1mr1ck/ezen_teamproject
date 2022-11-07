@@ -23,33 +23,16 @@
 	request.setCharacterEncoding("utf-8");
 	String id = (String) session.getAttribute("log");
 	System.out.println("id : " + id);
-
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
-
 	CommentDao commentDao = CommentDao.getInstance();
 	int b_no = Integer.parseInt(request.getParameter("no"));
-
 	if (request.getParameter("no") != null) {
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
 		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no);
 	%>
-
-	<header>
-		<h1>
-			<a href="home" style="text-decoration: none">Tour_Spot</a>
-		</h1>
-	</header>
-	<div class="nav" style="background-color: aliceblue;">
-		<ul>
-			<li><a href="guide">서비스안내</a></li>
-			<li><a href="rental">차량대여</a></li>
-			<li><a href="board">커뮤니티</a></li>
-			<li><a href="notice">공지사항</a></li>
-			<li><a href="userPage">마이페이지</a></li>
-		</ul>
-	</div>
+	<jsp:include page="header.jsp" />
 	<section>
 		<div class="form-container">
 			<form method="post" action="">
@@ -112,7 +95,6 @@
 						<tr>
 							<td class="content"><%=cmt.getContent()%></td>
 							<%if(id != null && id.equals(cmt.getuser_id())) {%>
-							<td class="content_button"><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
 							<td class="content_button"><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
 							<%} %>
 						</tr>
