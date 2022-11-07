@@ -88,6 +88,16 @@
 		<servlet-name>boardWriteForm</servlet-name>
 		<url-pattern>/boardWriteForm</url-pattern>
 	</servlet-mapping>
+	
+	<!-- notice -->
+	<servlet>
+		<servlet-name>notice</servlet-name>
+		<jsp-file>/notice.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>notice</servlet-name>
+		<url-pattern>/notice</url-pattern>
+	</servlet-mapping>	
 
 	<!-- userPage -->
 	<servlet>

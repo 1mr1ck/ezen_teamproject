@@ -68,7 +68,7 @@
 					</div>
 				</div>
 				<div class="board_menu">
-					<input class="list-button" type="button" onclick="location.href='board.jsp'" value="글 목록">
+					<input class="list-button" type="button" onclick="location.href='board'" value="글 목록">
 					<%if (id != null) {%>
 					<input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
 					<input class="list-button" type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no()%>'" value="글 수정">

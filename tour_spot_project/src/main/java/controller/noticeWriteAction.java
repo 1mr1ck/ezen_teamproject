@@ -48,6 +48,8 @@ public class noticeWriteAction extends HttpServlet {
 			NoticeDto dto = new NoticeDto(id, title, content);
 			dao.createNotice(dto);
 		}
+		
+		request.getRequestDispatcher("notice").forward(request, response);
 	}
 
 	/**

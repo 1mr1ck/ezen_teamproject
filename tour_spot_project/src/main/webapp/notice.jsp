@@ -8,10 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="resources/table.css">
 <title>Insert title here</title>
 </head>
 <body>
 	<%
+	String id = (String)session.getAttribute("log");
 	NoticeDao dao = NoticeDao.getInstance();
 	ArrayList<NoticeDto> list = dao.getNoticeAll();
 	%>
@@ -33,7 +35,7 @@
 				<%for(NoticeDto notice : list) {%>
 				<tr>
 					<td><%=notice.getN_no() %></td>
-					<td><a href="noticeView?no=<%=notice.getN_no()%>"><%=notice.getTitle() %></a></td>
+					<td><a href="noticeView.jsp?no=<%=notice.getN_no()%>"><%=notice.getTitle() %></a></td>
 					<td><%=notice.getUser_id() %></td>
 					<td><%=notice.getRegDate() %></td>
 					<td><%=notice.getRegDate() %></td>
@@ -42,7 +44,9 @@
 				<%} %>
 			</tbody>
 		</table>
-		<button onclick="location.href='noticeWriteForm'">글쓰기</button>
+		<%if(id.equals("admin")) {%>
+		<button onclick="location.href='noticeWriteForm.jsp'">글쓰기</button>
+		<%}%>
 	</div>
 	<jsp:include page="footer.jsp" />
 </html>

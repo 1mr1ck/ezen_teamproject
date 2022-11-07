@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import board.BoardDto;
 import util.DBManager;
 
 public class NoticeDao {
@@ -37,7 +38,7 @@ public class NoticeDao {
 	
 	// 생성
 	public void createNotice(NoticeDto notice) {
-		String sql = "insert into boards values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into notices values(?, ?, ?, ?, ?, ?)";
 		int n_no = noGenerator();
 		
 		try {
@@ -46,8 +47,8 @@ public class NoticeDao {
 			Timestamp now = new Timestamp(System.currentTimeMillis());
 			this.pstmt.setInt(1, n_no);
 			this.pstmt.setString(2, notice.getUser_id());
-			this.pstmt.setString(2, notice.getTitle());
-			this.pstmt.setString(3, notice.getContent());
+			this.pstmt.setString(3, notice.getTitle());
+			this.pstmt.setString(4, notice.getContent());
 			this.pstmt.setTimestamp(5, now);
 			this.pstmt.setInt(6, 0);
 			
@@ -94,7 +95,7 @@ public class NoticeDao {
 	// All
 	public ArrayList<NoticeDto> getNoticeAll() {
 		ArrayList<NoticeDto> list = new ArrayList<NoticeDto>();
-		String sql = "SELECT * FROM boards ORDER BY `n_no` DESC";
+		String sql = "SELECT * FROM notices ORDER BY `n_no` DESC";
 		
 		try {
 			this.conn = DBManager.getConnection(this.url, this.user, this.password);
@@ -151,6 +152,7 @@ public class NoticeDao {
 				int viewCnt = this.rs.getInt(6);
 				
 				notice = new NoticeDto(n_no, user_id, title, content, regDate, viewCnt);
+				System.out.println(notice.getN_no());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -180,6 +182,28 @@ public class NoticeDao {
 			
 			System.out.println("조회수 1 증가");
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.pstmt.close();
+				this.conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// d
+	public void deleteNotice(NoticeDto notice) {
+		String sql = "DELETE FROM notices WHERE n_no = ?";
+		
+		try {
+			this.conn = DBManager.getConnection(this.url, this.user, this.password);
+			this.pstmt = conn.prepareStatement(sql);
+			this.pstmt.setInt(1, notice.getN_no());
+			
+			this.pstmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
