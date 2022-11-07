@@ -22,7 +22,7 @@
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardAll();
 	%>
-	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
+	<jsp:include page="header.jsp"/>
 	<div class="table-container">
         <table border="1">
             <thead>
@@ -52,5 +52,6 @@
         </table>
         <button onclick="location.href='boardWriteForm'">글쓰기</button>
     </div>
+     <jsp:include page="footer.jsp"/>
 </body>
 </html>

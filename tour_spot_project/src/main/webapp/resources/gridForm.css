@@ -1,5 +1,4 @@
 header {
-	background-color: #15181d;
 	padding: 1em 0em;
 	border-radius: 8px;
 	height: 100px;
@@ -11,7 +10,7 @@ h1{
 
 #header {
 	text-align: center;
-	color: #80CEBE;
+	color: #51e3d4;
 }
 
 nav {
@@ -19,7 +18,7 @@ nav {
 	margin: auto;
 	width: auto;
 	height: 50px;
-	background: #34495e;
+	background: #0080FE;
 	border-radius: 8px;
 	font-size: 0;
 	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
@@ -41,7 +40,7 @@ nav .animation {
 	height: 5px;
 	bottom: 0;
 	z-index: 0;
-	background: #1abc9c;
+	background: #51e3d4;
 	border-radius: 8px;
 	transition: all .5s ease 0s;
 }
@@ -147,7 +146,5 @@ nav .start-마이페이지, a:nth-child(5):hover ~.animation {
  	bottom: 0;
  	width: 100%;
  	text-align: center;
- 	border-top: solid 1px #bbbbbb;
- 	font-size:11px;
- 	font-weight:100;
+ 	border-top: 1px solid black;
 }
