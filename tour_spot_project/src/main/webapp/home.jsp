@@ -8,16 +8,16 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-    <section style="height: 100vh;">
+    <section>
     	<div class="search">
 			<input type="text" class="search-txt" name="area" placeholder="주소 검색">
 			<button id="search-btn" onclick="getSpotByRegion()">검색</button>
-			<div class="search-content">
-				<table>
-					<thead class="spotTitle"></thead>
-					<tbody class="spotInfo"></tbody>
-				</table>
-			</div>
+		</div>
+		<div class="search-content">
+			<table>
+				<thead class="spotTitle"></thead>
+				<tbody class="spotInfo"></tbody>
+			</table>
 		</div>
     </section>
     <script src="resources/searchByRegion.js"></script>
