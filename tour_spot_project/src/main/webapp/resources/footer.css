@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+footer{
+	width:100%;
+	border-top: solid 1px #bbbbbb;	
+}
+
+footer div{ 
+	width: 50vw;
+	font-size:11px;
+	margin-left:15%;
+	font-weight:100
+}
+
