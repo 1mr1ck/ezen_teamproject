@@ -12,6 +12,7 @@
 	<div class="login-wrapper"> 
 		<h2>Login</h2>
 		<form method="post" action="LoginAction" id="login-form">
+			<!--<input type="hidden" name="command" value="login"> -->
 			<input type="text" name="id" placeholder="Email"> 
 			<input type="password" name="password" placeholder="Password">
 			<input type="submit" value="Login">

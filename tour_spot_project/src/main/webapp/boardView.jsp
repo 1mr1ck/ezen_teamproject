@@ -83,6 +83,7 @@
 				<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
 			</div>
 			<div class="cmt_button">
+				<input type="hidden" class="command" name="command" value="CommentWrite">
 				<button name="create_cmt" onclick="createCmt(`<%=b_no%>`)">댓글등록</button>
 			</div>
 			<div class="cmt">
@@ -96,6 +97,7 @@
 						<tr>
 							<td class="content"><%=cmt.getContent()%></td>
 							<%if(id != null && id.equals(cmt.getuser_id())) {%>
+							<td class="content_button"><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
 							<td class="content_button"><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
 							<%} %>
 						</tr>

@@ -3,15 +3,18 @@ function createCmt(b_no) {
 	const id = $(".user_id").val();
 	const content = $(".content").val();
 	const modDate = $(".modDate").val();
+	const command = $(".command").val();
+	console.log("cmd : " + command);
 
 	console.log(content);
 	$.ajax({
-		method: "POST",
-		url: "commentWriteAction",
+		method: "post",
+		url: "Service",
 		data: {
 			content: content,
 			b_no: b_no,
-			modDate : modDate
+			modDate : modDate,
+			command : command
 		}
 	}).done(function(response) {
 		const list = JSON.parse(response);
@@ -48,7 +51,6 @@ function createCmt(b_no) {
 
 // 삭제
 function deleteCmt(b_no, c_no) {
-	$('.cmt_list').empty();
 	const id = $(".user_id").val();
 	const content = $(".content").val();
 
@@ -92,15 +94,14 @@ function deleteCmt(b_no, c_no) {
 	});
 }
 
-/*// 수정 글입력창 생성
+// 수정 글입력창 생성
 function updateCmt(b_no, c_no) {
-	$('.cmt_list').empty();
 	const id = $(".user_id").val();
 	const content = $(".content").val();
 
 	$.ajax({
 		method: "POST",
-		url: "commentUpdateAction",
+		url: "commentUpdate1",
 		data: {
 			content: content,
 			b_no: b_no,
@@ -117,17 +118,22 @@ function updateCmt(b_no, c_no) {
 			const b_no = e.b_no;
 			const content = e.content;
 			const cmt_no = e.c_no;
+			const modDate = e.modDate;
 
-			output += '<tr>' + '<td class="id">' + cmt_user_id + '</td>';
+			output += '<tr>';
+			output += '<td class="id" style="width: 50%;">' + cmt_user_id + '</td>';
+			output += '<td colspan="2" class="modDate">' + modDate + '</td>';
+			output += '</tr>';
+			output += '<tr>';
 			if (c_no == cmt_no) {
-				output += '<td><<input id="sibal" class="upcontent" name="upcontent" value="' + content + '"></td>';
-				output += '<td><button name="update-cmt" onclick="updateComment(' + b_no + ', ' + c_no + ')">수정</button></td>';
-				output += '<td><button name="update-cmt" onclick="updateCancle(' + b_no + ')">취소</button></td>';
+				output += '<td><input id="upcontent" class="upcontent" name="upcontent" value="' + content + '"></td>';
+				output += '<td class="content_button"><button name="update-cmt" onclick="updateComment(' + b_no + ', ' + c_no + ')">수정</button></td>';
+				output += '<td class="content_button"><button name="update-cmt" onclick="updateCancle(' + b_no + ')">취소</button></td>';
 			} else {
 				output += '<td class="content">' + content + '</td>';
 				if (id == (cmt_user_id)) {
-					output += '<td><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
-					output += '<td><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
+					output += '<td class="content_button"><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
+					output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 				};
 			}
 			output += '</tr>';			
@@ -138,7 +144,7 @@ function updateCmt(b_no, c_no) {
 
 // 수정 취소
 function updateCancle(b_no) {
-	$('.cmt_list').empty();
+	/*$('.cmt_list').empty();*/
 	
 	const id = $(".user_id").val();
 	const content = $(".content").val();
@@ -164,13 +170,17 @@ function updateCancle(b_no) {
 			const b_no = e.b_no;
 			const content = e.content;
 			const c_no = e.c_no;
+			const modDate = e.modDate;
 
 			output += '<tr>';
-			output += '<td class="id">' + cmt_user_id + '</td>';
+			output += '<td class="id" style="width: 50%;">' + cmt_user_id + '</td>';
+			output += '<td colspan="2" class="modDate">' + modDate + '</td>';
+			output += '</tr>';
+			output += '<tr>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
-				output += '<td><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
-				output += '<td><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
+				output += '<td class="content_button"><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
+				output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
 
@@ -182,11 +192,11 @@ function updateCancle(b_no) {
 
 // 수정 완료 업데이트
 function updateComment(b_no, c_no) {
-	$('.cmt_list').empty();
+	/*$('.cmt_list').empty();*/
 	
 	const id = $(".user_id").val();
 	const content = $(".content").val();
-	const upcontent = $("#sibal").val();
+	const upcontent = $("#upcontent").val();
 	console.log(upcontent);
 
 	$.ajax({
@@ -211,13 +221,17 @@ function updateComment(b_no, c_no) {
 			const b_no = e.b_no;
 			const content = e.content;
 			const c_no = e.c_no;
+			const modDate = e.modDate;
 
 			output += '<tr>';
-			output += '<td class="id">' + cmt_user_id + '</td>';
+			output += '<td class="id" style="width: 50%;">' + cmt_user_id + '</td>';
+			output += '<td colspan="2" class="modDate">' + modDate + '</td>';
+			output += '</tr>';
+			output += '<tr>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
-				output += '<td><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
-				output += '<td><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
+				output += '<td class="content_button"><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
+				output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
 
@@ -225,4 +239,4 @@ function updateComment(b_no, c_no) {
 
 		});
 	});
-}*/
+}
