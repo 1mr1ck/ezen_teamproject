@@ -51,7 +51,6 @@ form {
 
 table {
 	border-collapse: collapse;
-	border: solid 1px lightblue;
 }
 
 .main {
@@ -122,7 +121,12 @@ th, td, button {
 	padding: 5px;
 }
 
-input, textarea {
+input {
+	padding: 5px;
+	border: solid 1px lightblue;
+	outline: none;
+}
+textarea{
 	padding: 5px;
 	margin-top: 15px;
 	border: solid 1px lightblue;
