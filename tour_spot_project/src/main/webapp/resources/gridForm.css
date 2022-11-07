@@ -1,15 +1,12 @@
 header {
-	background-color: #4b0082;
+	background-color: #15181d;
 	padding: 1em 0em;
 	border-radius: 8px;
 }
 
 #header {
 	text-align: center;
-}
-
-section {
-	height: 100vh;
+	color: #80CEBE;
 }
 
 nav {
