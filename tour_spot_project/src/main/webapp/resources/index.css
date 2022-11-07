@@ -9,6 +9,8 @@ body{
     height : 100vh;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
+    background-image: url('https://source.unsplash.com/random');
+    background-size: cover;
 }
 
 .login-wrapper{
