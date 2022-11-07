@@ -199,8 +199,9 @@ public class BoardDao {
 				Timestamp modDate = this.rs.getTimestamp(6);
 				int viewCnt = this.rs.getInt(7);
 				String map_addr = this.rs.getString(8);
+				String img_url = this.rs.getString(9);
 				
-				board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_addr);
+				board = new BoardDto(b_no, title, content, user_id, regDate, modDate, viewCnt, map_addr, img_url);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

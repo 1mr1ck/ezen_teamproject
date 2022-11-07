@@ -43,7 +43,7 @@
 						readonly>
 				</div>
 				<div class="main">
-					<table style="width: 100%; border: 0;">
+					<table style="width: 100%; height: 60px;border-top: solid 1px; border-bottom: solid 1px; border-left: none; border-right: none;">
 						<tr>
 							<%if (board.getModDate() == null) {%>
 							<td class="user" style="text-align: left;"><%=board.getUser_id()%></td>
@@ -63,7 +63,8 @@
 				<div class="map_image">
 					<div id="map" style="width: 48%; height: 300px;"></div>
 					<div id="image" style="margin-left: 10px;overflow:hidden;">
-						<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzA3MjFfMjQz%2FMDAxNTAwNjIwNjk5MDUx.9E-vadugvbuKTG-ilXowM8qWKPvP6bk9aYfDEXTI534g.NmpLC7cwniZXHb4kCbhOkejDZkDk9CTksQpQ53pTrOcg.JPEG.eodi-road%2Fbridge-1032399_1920.jpg&type=a340" />
+					<%System.out.println("test" + board.getImg_url()); %>
+						<img src="<%=board.getImg_url()%>" />
 					</div>
 				</div>
 				<div class="board_menu">

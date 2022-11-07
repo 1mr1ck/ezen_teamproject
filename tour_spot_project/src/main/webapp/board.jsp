@@ -21,7 +21,10 @@
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardAll();
 	%>
+<<<<<<< HEAD
 	<jsp:include page="header.jsp" />
+=======
+>>>>>>> refs/remotes/origin/#KMY_CSS_TEST
 	<div class="table-container">
 		<table border="1">
 			<thead>

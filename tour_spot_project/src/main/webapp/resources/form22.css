@@ -12,7 +12,7 @@
 .title{
 	border: 0; 
 	height: 50px;
-	width:100%;
+	width:99%;
 	font-size: 30px;
 	background-color:#f3f3f3;
 	margin-top:50px;
@@ -60,8 +60,6 @@ table {
 	border:0;
 	margin-top:20px;
 	margin-bottom:20px;
-	border-top:1px;
-	border-bottom:1px;
 }
 
 .main table tr td{
@@ -148,12 +146,9 @@ input, textarea {
 	border-radius: 5px;
 	resize: none;
 }
-.cmt_container textarea:is(:focus, :valid){
-	border-width: 2px;
-}
-.cmt_container textarea::-webkit-scrollbar{
-	width:0px;
-}
+.cmt_container textarea:focus {
+        outline: none;
+    }
 
 .cmt table{
 	border: none;
