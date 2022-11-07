@@ -42,7 +42,6 @@
 		<%} %>
 		<div id="header">
 			<h1><a href="home" style="text-decoration: none">Tour_Spot</a></h1>
-			
 		</div>
 	</header>
 	
