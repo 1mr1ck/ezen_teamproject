@@ -141,7 +141,7 @@ body {
 					<li><input type="email" id="email" name="email"
 						placeholder="이메일" /></li>
 					<li>
-						<button class="btn" type="submit">회원가입</button>
+						<button class="btn" type="submit">회원가입11</button>
 					</li>
 				</ul>
 			</form>
