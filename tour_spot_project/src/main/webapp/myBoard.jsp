@@ -28,7 +28,7 @@
 		<nav class="userNav">
 			<div class="userNav_main">
 				<ul class="userNav_list">
-					<li><a href="userPageTest.jsp">정보 수정</a></li>
+					<li><a href="userPageNew.jsp">정보 수정</a></li>
 					<li><a href="myBoard.jsp">내가 쓴 게시글</a></li>
 					<li><a href="">내가 쓴 댓글</a></li>
 				</ul>
@@ -64,5 +64,6 @@
         </table>
     </div>
     </section>
+    <jsp:include page="footer.jsp" />
 </body>
 </html>
