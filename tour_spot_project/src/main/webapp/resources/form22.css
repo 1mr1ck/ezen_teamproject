@@ -5,6 +5,10 @@
 	padding: 0;
 }
 
+section{
+	padding-bottom: 10px;
+}
+
 .title, .con textarea, .id, .content {
 	font-family: 'Open Sans', sans-serif;
 }

@@ -4,7 +4,7 @@
 <html>
 <link rel="stylesheet" href="resources/footer.css">
 <body>
-<footer style="margin-top:10px; width: 100%;"> 
+<footer style="width: 100%;"> 
 <div style="margin-top:10px; margin-bottom:10px; width: 50vw; margin-left:25%">
 	주식회사 팀오투 | 대표자: 홍성주 | 사업자등록번호: 286-88-00238 <br>
 	사업자정보확인주소: 서울특별시 강남구 테헤란로2길 21 9층, 10층(역삼동, 타워300빌딩) | <br>
