@@ -58,7 +58,7 @@
 		function button_event() { // 삭제 확인
 			if (confirm("정말 삭제하시겠습니까?") == true) { // 확인
 				alert("삭제되었습니다.");
-				location.href = "noticeDeleteForm.jsp?no=<%=dto.getN_no() %>"
+				location.href = "noticeDeleteAction?no=<%=dto.getN_no() %>"
 			} else {															// 취소
 				return;
 			}
