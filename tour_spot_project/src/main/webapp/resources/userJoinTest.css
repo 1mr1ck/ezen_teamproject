@@ -2,17 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 @import "reset.css";
 
-body {
+/* body {
     width : 100vw;
     height: 100vw;
-}
-
-/* .userNav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom : 40px;
 } */
+
 .userNav_list{
    display: flex;
    font-size: 15px;
@@ -53,14 +47,6 @@ ul {
 span {
     display : block;
 }
-.info_box {
-    border-radius: 10px;
-    height : 2.8em;
-    width : 100%;
-    border : 1px solid rgb(200,200,200);
-    position: relative;
-    cursor: pointer;
-}
 .info_box:focus-within {
     border : 2px solid rgb(128, 141, 206);
 }
@@ -87,7 +73,18 @@ span {
     height: 2.8em !important;;
     border-radius: 10px;
     border : 1px solid rgb(200,200,200);
+    padding: 3.4px 0 3.4px 0;
 }
+
+.info_box {
+    border-radius: 10px;
+    height : 2.8em;
+    width : 100%;
+    border : 1px solid rgb(200,200,200);
+    position: relative;
+    cursor: pointer;
+}
+
 input:focus {
     outline: none;
 }
