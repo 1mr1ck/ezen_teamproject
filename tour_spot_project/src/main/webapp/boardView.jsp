@@ -75,19 +75,16 @@
 					</table>
 				</div>
 				<div class="con">
-					<textarea rows="30"
-						style="overflow: auto; font-size: 15px; background-color: transparent; border: 0;"
-						rows=30 readonly><%=board.getContent()%></textarea>
+					<textarea rows="20" readonly><%=board.getContent()%></textarea>
 				</div>
 				<div class="map_image">
 					<div id="map" style="width: 48%; height: 300px;"></div>
-					<div id="image" style="margin-left: 10px;">
-						<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20151213_181%2Fjhunkim319_1449977956807ksWaB_JPEG%2F%25B2%25C9_%25B9%25E8%25B0%25E6_%25C0%25CC%25B9%25CC%25C1%25F614.jpg&type=a340" />
+					<div id="image" style="margin-left: 10px;overflow:hidden;">
+						<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzA3MjFfMjQz%2FMDAxNTAwNjIwNjk5MDUx.9E-vadugvbuKTG-ilXowM8qWKPvP6bk9aYfDEXTI534g.NmpLC7cwniZXHb4kCbhOkejDZkDk9CTksQpQ53pTrOcg.JPEG.eodi-road%2Fbridge-1032399_1920.jpg&type=a340" />
 					</div>
 				</div>
 				<div class="board_menu">
-					<input class="list-button" type="button"
-						onclick="location.href='board.jsp'" value="글 목록">
+					<input class="list-button" type="button" onclick="location.href='board.jsp'" value="글 목록">
 					<%if (id != null) {%>
 					<input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
 					<input class="list-button" type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no()%>'" value="글 수정">
@@ -98,31 +95,26 @@
 			<div class="cmt_container">
 				<input type="hidden" name="id" class="user_id" value="<%=id%>">
 				<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
-				<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
-				<button name="create_cmt" onclick="createCmt('<%=b_no%>')">댓글등록</button>
-			</div>
-			<div>
-				<input type="hidden" name="id" class="user_id" value="<%=id%>">
-				<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
 				<h4>댓글</h4>
 				<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
 			</div>
 			<div class="cmt_button">
 				<button name="create_cmt" onclick="createCmt(`<%=b_no%>`)">댓글등록</button>
 			</div>
-
 			<div class="cmt">
 				<table border="1">
 					<tbody class="cmt_list" id="cmt_list">
 						<%for (CommentDto cmt : list) {%>
 						<tr>
 							<td class="id" style="width: 50%;"><%=cmt.getuser_id()%></td>
-							<td class="content" id="cnt"><%=cmt.getContent()%></td>
-							<%if (id.equals(cmt.getuser_id())) {%>
-							<td><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
-							<td><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
-							<%}%>
 							<td colspan="2" class="modDate"><%=cmt.getModDate()%></td>
+						</tr>
+						<tr>
+							<td class="content"><%=cmt.getContent()%></td>
+							<%if(id != null && id.equals(cmt.getuser_id())) {%>
+							<td class="content_button"><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
+							<td class="content_button"><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
+							<%} %>
 						</tr>
 						<%}%>
 					</tbody>
