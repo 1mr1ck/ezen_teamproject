@@ -2,6 +2,7 @@
 function createCmt(b_no) {
 	const id = $(".user_id").val();
 	const content = $(".content").val();
+	const modDate = $(".modDate").val();
 
 	console.log(content);
 	$.ajax({
@@ -9,7 +10,8 @@ function createCmt(b_no) {
 		url: "commentWriteAction",
 		data: {
 			content: content,
-			b_no: b_no
+			b_no: b_no,
+			modDate : modDate
 		}
 	}).done(function(response) {
 		const list = JSON.parse(response);
@@ -24,13 +26,17 @@ function createCmt(b_no) {
 			const b_no = e.b_no;
 			const content = e.content;
 			const c_no = e.c_no;
+			const modDate = e.modDate;
+			console.log(modDate);
 
 			output += '<tr>';
-			output += '<td class="id">' + cmt_user_id + '</td>';
+			output += '<td class="id" style="width: 50%;">' + cmt_user_id + '</td>';
+			output += '<td colspan="2" class="modDate">' + modDate + '</td>';
+			output += '</tr>';
+			output += '<tr>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
-				output += '<td><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
-				output += '<td><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
+				output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
 
@@ -67,12 +73,16 @@ function deleteCmt(b_no, c_no) {
 			const b_no = e.b_no;
 			const content = e.content;
 			const c_no = e.c_no;
+			const modDate = e.modDate;
 
 			output += '<tr>';
-			output += '<td class="id">' + cmt_user_id + '</td>';
+			output += '<td class="id" style="width: 50%;">' + cmt_user_id + '</td>';
+			output += '<td colspan="2" class="modDate">' + modDate + '</td>';
+			output += '</tr>';
+			output += '<tr>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
-				output += '<td><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
+				output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
 

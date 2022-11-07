@@ -82,6 +82,7 @@ public class commentWriteAction extends HttpServlet {
 				jsonObj.put("b_no", dto.getb_no());
 				jsonObj.put("content", dto.getContent());
 				jsonObj.put("c_no", dto.getc_no());
+				jsonObj.put("modDate", dto.getModDate());
 				result.put(jsonObj);
 			}
 			response.getWriter().append(result.toString());

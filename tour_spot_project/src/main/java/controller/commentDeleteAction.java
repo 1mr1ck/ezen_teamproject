@@ -40,7 +40,6 @@ public class commentDeleteAction extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
 		
-		HttpSession session = request.getSession();
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		int c_no = Integer.parseInt(request.getParameter("c_no"));
 		
@@ -57,6 +56,7 @@ public class commentDeleteAction extends HttpServlet {
 				jsonObj.put("b_no", dto.getb_no());
 				jsonObj.put("content", dto.getContent());
 				jsonObj.put("c_no", dto.getc_no());
+				jsonObj.put("modDate", dto.getModDate());
 				result.put(jsonObj);
 			}
 //			System.out.println(result);

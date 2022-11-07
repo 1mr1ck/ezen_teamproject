@@ -36,7 +36,7 @@ public class BoardDao {
 	
 	// Create
 	public void createBoard(BoardDto board) {
-		String sql = "insert into boards values(?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into boards values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		int b_no = noGenerator();
 		
 		try {
@@ -51,6 +51,7 @@ public class BoardDao {
 			this.pstmt.setTimestamp(6, null);
 			this.pstmt.setInt(7, board.getViewCnt());
 			this.pstmt.setString(8, board.getMap_addr());
+			this.pstmt.setString(9, board.getImg_url());
 			
 			this.pstmt.execute();
 		} catch (Exception e) {

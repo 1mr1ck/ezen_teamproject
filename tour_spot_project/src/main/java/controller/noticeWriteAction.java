@@ -1,31 +1,29 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.mysql.cj.protocol.x.Notice;
 
-import comment.CommentDao;
-import comment.CommentDto;
+import notice.NoticeDao;
+import notice.NoticeDto;
 
 /**
- * Servlet implementation class commentUpdateSet
+ * Servlet implementation class noticeWriteAction
  */
-@WebServlet("/commentUpdateSet")
-public class commentUpdateSet extends HttpServlet {
+@WebServlet("/noticeWriteAction")
+public class noticeWriteAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public commentUpdateSet() {
+    public noticeWriteAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,31 +35,18 @@ public class commentUpdateSet extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
-		CommentDao dao = CommentDao.getInstance();
-		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		int c_no = Integer.parseInt(request.getParameter("c_no"));
-		String content = request.getParameter("upcontent");
-		System.out.println("c_no : " + c_no + "\ncontent : " + content);
 		
-		CommentDto modDto = dao.getCommentOne(c_no);
-		modDto.setContent(content);
-		dao.updateComment(modDto);
+		NoticeDao dao = NoticeDao.getInstance();
 		
-		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
-		if(list.size() > 0) {			
-			JSONArray result = new JSONArray();
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("log");
+		
+		if(id.equals("admin")) {
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
 			
-			for(CommentDto dto : list) {
-				JSONObject jsonObj = new JSONObject();
-				jsonObj.put("user_id", dto.getuser_id());
-				jsonObj.put("b_no", dto.getb_no());
-				jsonObj.put("content", dto.getContent());
-				jsonObj.put("c_no", dto.getc_no());
-				result.put(jsonObj);
-			}
-			response.getWriter().append(result.toString());
-		} else {
-			response.getWriter().append("null");				
+			NoticeDto dto = new NoticeDto(id, title, content);
+			dao.createNotice(dto);
 		}
 	}
 
