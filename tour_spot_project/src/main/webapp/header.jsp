@@ -32,8 +32,7 @@
 		<%if(id != null) { %>
 			<table>
 				<tr>
-					<td><input type="button" onclick="location.href='index'"
-						value="홈으로"></td>
+					<td><input type="button" onclick="location.href='index'" value="홈으로"></td>
 					<td><input type="button" onclick="location.href='LogoutAction'" value="로그아웃"></td>
 					<td><input type="button" onclick="location.href='UserDeleteAction'" value="회원탈퇴테스트용"></td>
 					<td><input type="button" onclick="location.href='userPage'" value="회원정보수정테스트용"></td>					
