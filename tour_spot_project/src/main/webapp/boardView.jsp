@@ -112,7 +112,6 @@
 						<tr>
 							<td class="content"><%=cmt.getContent()%></td>
 							<%if(id != null && id.equals(cmt.getuser_id())) {%>
-							<td class="content_button"><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
 							<td class="content_button"><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
 							<%} %>
 						</tr>
