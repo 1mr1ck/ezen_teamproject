@@ -126,7 +126,7 @@ public class KakaoControllarAction extends HttpServlet  {
 		if(userDto!=null) {
 			System.out.println("이미 가입된 회원");
 			session.setAttribute("log", userDto.getId());
-			Script.href("카카오 로그인 완료", "home", response);
+			response.sendRedirect("home");
 		}
 		else {
 			request.setCharacterEncoding("utf-8");

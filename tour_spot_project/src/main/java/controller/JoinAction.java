@@ -55,7 +55,7 @@ public class JoinAction extends HttpServlet {
 		
 		System.out.println(name+birth+gender+id+address+phone+password+token);
 		
-		if(token != null) {
+		if(token == null) {
 			dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
 		} else {
 			dto = new UserDto(no, name, birthday, gender, id, address, phone, password, token);
