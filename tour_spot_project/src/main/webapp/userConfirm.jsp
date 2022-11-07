@@ -14,7 +14,7 @@
 	<script src="https://kit.fontawesome.com/fa861a7902.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="resources/index.css">
 	<script src="resources/sociallogin.js" charset="utf-8"></script>
-</head>
+</head> 
 <body>
 	<jsp:include page="header.jsp" />
 	<section class="userWrap">
