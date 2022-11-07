@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import "reset.css";
 
 body {
     width : 100vw;
     height: 100vw;
 }
 
-.userNav {
+/* .userNav {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom : 40px;
-}
+} */
 .userNav_list{
    display: flex;
    font-size: 15px;
@@ -33,6 +34,7 @@ ul {
 }
 .userNav_list li {
     font-size : 20px;
+    list-style: none;
 }
 .wrap_outer {
     display : flex;
