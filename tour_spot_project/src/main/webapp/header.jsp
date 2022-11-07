@@ -3,13 +3,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="resources/grid.css">
-<title>관광지</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>관광지</title>
+	<link rel="stylesheet" href="resources/gridForm.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
@@ -22,12 +23,9 @@
 		<%if(id == null) {%>
 		<table>
 			<tr>
-				<td><input type="button" onclick="location.href='index'"
-					value="홈으로"></td>
-				<td><input type="button" onclick="location.href='login'"
-					value="로그인"></td>
-				<td><input type="button" onclick="location.href='join'"
-					value="회원가입"></td>
+				<td><input type="button" onclick="location.href='index'" value="홈으로"></td>
+				<td><input type="button" onclick="location.href='login'" value="로그인"></td>
+				<td><input type="button" onclick="location.href='join'" value="회원가입"></td>
 			</tr>
 		</table>
 		<%} %>
@@ -43,16 +41,19 @@
 				</tr>
 			</table>
 		<%} %>
-		<h1>추천하는 관광지</h1>
+		<div id="header">
+			<h1>Tour_Spot</h1>
+		</div>
 	</header>
+	
 	<nav>
-		<ul>
-			<li><a href="guide">서비스안내</a></li>
-			<li><a href="rental">차량대여</a></li>
-			<li><a href="board">커뮤니티</a></li>
-			<li><a href="notice">공지사항</a></li>
-			<li><a href="userPage">마이페이지</a></li>
-		</ul>
+		<a href="guide">서비스안내</a>
+		<a href="rental">차량대여</a>
+		<a href="board">커뮤니티</a>
+		<a href="notice">공지사항</a>
+		<a href="userPage">마이페이지</a>
+		<div class="animation start-home"></div>
 	</nav>
+
 </body>
 </html>

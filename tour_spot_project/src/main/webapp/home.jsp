@@ -9,9 +9,11 @@
 <body>
 	<jsp:include page="header.jsp"/>
     <section>
-    	
+    	<div class="search-box">
+			<input type="text" class="search-txt" name="" placeholder="주소 검색">
+			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+		</div>
     </section>
     <jsp:include page="footer.jsp"/>
 </body>
-</html>	
-
+</html>
