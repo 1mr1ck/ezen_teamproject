@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="resources/footer.css">
+<link rel="stylesheet" href="resources/boardfooter.css">
 <body>
 	<footer class="footer">
 		주식회사 팀오투 | 대표자: 홍성주 | 사업자등록번호: 286-88-00238 <br> 사업자정보확인주소: 서울특별시

@@ -41,7 +41,8 @@
 			</table>
 		<%} %>
 		<div id="header">
-			<h1>Tour_Spot</h1>
+			<h1><a href="home" style="text-decoration: none">Tour_Spot</a></h1>
+			
 		</div>
 	</header>
 	

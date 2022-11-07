@@ -111,14 +111,3 @@ img {
   right: 0px;
   margin: 0;
 }
-
-.footer {
-	display: block;
- 	position: absolute;
- 	top : 100%;
- 	left: 0;
- 	bottom: 0;
- 	width: 100%;
- 	text-align: center;
- 	border-top: 1px solid black;
-}

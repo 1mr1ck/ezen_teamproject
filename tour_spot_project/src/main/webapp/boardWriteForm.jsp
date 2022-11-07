@@ -12,20 +12,7 @@
 <title>Tour_Spot</title>
 </head>
 <body>
-	<header>
-		<h1>
-			<a href="home" style="text-decoration: none">Tour_Spot</a>
-		</h1>
-	</header>
-	<div class="nav" style="background-color: aliceblue;">
-		<ul>
-			<li><a href="guide">서비스안내</a></li>
-			<li><a href="rental">차량대여</a></li>
-			<li><a href="board">커뮤니티</a></li>
-			<li><a href="notice">공지사항</a></li>
-			<li><a href="userPage">마이페이지</a></li>
-		</ul>
-	</div>
+<jsp:include page="header.jsp" />
 	<section>
 	<div class="form-container">
 		<form method="post" action="boardWrite">
@@ -35,13 +22,13 @@
 			</div>
 			<div class="address">
 				<h5>우편번호</h5>
-				<input class="address_num" style="margin-top:5px; width:30%" type="text" name="postcode" id="postcode" placeholder="우편번호">
+				<input class="address_num" style="margin-top:5px; width:30%;border:0;" type="text" name="postcode" id="postcode" placeholder="우편번호">
 				<input class="address_find" type="button" onclick="addressSearch()" value="우편번호 찾기"> 
 			</div>
-				<input style="margin-top:5px;" type="text" name="main_address" id="main_address" placeholder="주소">
-				<input style="margin-top:5px;" type="text" name="detail_address" id="detail_address" placeholder="상세주소">
+				<input style="margin-top:10px;width:96%;border:0;" type="text" name="main_address" id="main_address" placeholder="주소">
+				<input style="margin-top:5px;width:96%;border:0;" type="text" name="detail_address" id="detail_address" placeholder="상세주소">
 				<h5 style="margin-top:20px;">이미지</h5>
-				<input style="margin-top:5px;" type="text" name="spot_img" id="spot_img" placeholder="이미지 url을 적어주세요.">
+				<input style="margin-top:5px;width:96%;border:0;" type="text" name="spot_img" id="spot_img" placeholder="이미지 url을 적어주세요.">
 			<div class="mapBox">
 				<div id="map" style="width:100%;height:400px;"></div>
 			</div>
@@ -54,6 +41,6 @@
 	<script src="resources/searchMap.js"></script>
 	<script src="resources/map.js"></script>
 	</section>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="boardfooter.jsp" />
 </body>
 </html>
