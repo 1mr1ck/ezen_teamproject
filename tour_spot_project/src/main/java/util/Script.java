@@ -20,4 +20,14 @@ public class Script {
 			e.printStackTrace();
 		}
 	}
+	public static void print(String msg,HttpServletResponse response) {
+		try {
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println(msg);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

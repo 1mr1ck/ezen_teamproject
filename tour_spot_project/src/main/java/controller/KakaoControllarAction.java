@@ -129,15 +129,10 @@ public class KakaoControllarAction extends HttpServlet  {
 			Script.href("카카오 로그인 완료", "home", response);
 		}
 		else {
-//			Gson gson3 = new Gson();
-//			String jsonProfile = gson3.toJson(profile);
-//			response.getWriter().write(jsonProfile);
-//			response.sendRedirect("join");
-//			System.out.println("회원가입 절차");
 			request.setCharacterEncoding("utf-8");
 			request.setAttribute("profile", profile);
+			Script.print("회원가입으로 이동합니다",response);
 			request.getRequestDispatcher("join.jsp").forward(request, response);
-//			response.sendRedirect("join");
 		}
 	}
 }

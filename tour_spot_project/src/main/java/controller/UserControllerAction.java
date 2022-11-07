@@ -45,6 +45,10 @@ public class UserControllerAction extends HttpServlet {
 		String id = request.getParameter("id");
 		System.out.print(id);
 		String result = UserDao.getInstance().findByUserID(id);
-		response.getWriter().write(result);
+		try{
+			response.getWriter().write(result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

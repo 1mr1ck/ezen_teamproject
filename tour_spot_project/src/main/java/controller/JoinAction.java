@@ -45,11 +45,15 @@ public class JoinAction extends HttpServlet {
 		
 		String gender = request.getParameter("gender");
 		String id = request.getParameter("id");
-		String address = request.getParameter("address");
+		String address1 = request.getParameter("address1");
+		String address2 = request.getParameter("address2");
+		String address = address1+" "+address2;
 		String phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
 		String password = request.getParameter("password");
-		String passwordCheck = request.getParameter("passwordCheck");
+	//  String passwordCheck = request.getParameter("passwordCheck");
 		String token = request.getParameter("token");
+		
+		System.out.println(name+birth+gender+id+address+phone+password+token);
 		
 		if(token != null) {
 			dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
