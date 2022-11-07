@@ -121,6 +121,6 @@
 			</script>
 		</div>
 	</section>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="boardfooter.jsp" />
 </body>
 </html>

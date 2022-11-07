@@ -144,3 +144,11 @@ nav .start-마이페이지, a:nth-child(5):hover ~.animation {
 	text-align: center;
 	border-top: 1px solid black;
 }
+
+img {
+  position : absolute;
+  width: 18px;
+  top: 10px;
+  right: 0px;
+  margin: 0;
+}
