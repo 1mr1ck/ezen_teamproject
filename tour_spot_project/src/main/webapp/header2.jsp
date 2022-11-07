@@ -28,7 +28,7 @@
 			<li><a href="rental">차량대여</a></li>
 			<li><a href="board">커뮤니티</a></li>
 			<li><a href="notice">공지사항</a></li>
-			<li><a href="userPage">마이페이지</a></li>
+			<li><a href="userPageTest.jsp">마이페이지</a></li>
 		</ul>
 	</nav>
 	</div>

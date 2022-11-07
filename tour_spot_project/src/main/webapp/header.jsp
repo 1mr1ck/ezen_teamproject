@@ -51,7 +51,7 @@
 		<a href="rental">차량대여</a>
 		<a href="board">커뮤니티</a>
 		<a href="notice">공지사항</a>
-		<a href="userPage">마이페이지</a>
+		<a href="userPageNew.jsp">마이페이지</a>
 		<div class="animation start-home"></div>
 	</nav>
 
