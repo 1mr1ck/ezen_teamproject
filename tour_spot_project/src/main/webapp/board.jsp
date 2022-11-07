@@ -22,7 +22,6 @@
 	BoardDao dao = BoardDao.getInstance();
 	ArrayList<BoardDto> list = dao.getBoardAll();
 	%>
-	<jsp:include page="header.jsp"/>
 	<div class="table-container">
         <table border="1">
             <thead>

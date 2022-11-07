@@ -7,7 +7,6 @@
 <title>추천하는 관광지</title>
 </head>
 <body>
-<<<<<<< HEAD
 	<jsp:include page="header.jsp"/>
     <section style="height: 100vh;">
     	<div class="search-box">
