@@ -23,13 +23,10 @@
 	request.setCharacterEncoding("utf-8");
 	String id = (String) session.getAttribute("log");
 	System.out.println("id : " + id);
-
 	BoardDao dao = BoardDao.getInstance();
 	BoardDto board = null;
-
 	CommentDao commentDao = CommentDao.getInstance();
 	int b_no = Integer.parseInt(request.getParameter("no"));
-
 	if (request.getParameter("no") != null) {
 		ArrayList<CommentDto> list = commentDao.getCommentAll(b_no);
 		dao.updateViewCnt(b_no);
