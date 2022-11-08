@@ -68,11 +68,11 @@ public class UserUpdateAction extends HttpServlet {
 					dao.updateUserInfo(dto);
 					out.println("<script>alert('정보 수정 완료');location.href='home';</script>");
 				} else {
-					out.println("<script>alert('사용 할 비밀번호와 확인이 일치하지 않습니다.');location.href='userPage';</script>");
+					out.println("<script>alert('사용 할 비밀번호와 확인이 일치하지 않습니다.');location.href='userPageNew';</script>");
 				}				
 			}
 		} else {
-			out.println("<script>alert('현재 비밀번호를 잘못 입력하였습니다.');location.href='userPage';</script>");
+			out.println("<script>alert('현재 비밀번호를 잘못 입력하였습니다.');location.href='userPageNew';</script>");
 		}
 		
 		out.close();

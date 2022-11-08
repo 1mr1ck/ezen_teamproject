@@ -45,7 +45,7 @@
 		</div>
 		<div class="board_menu">
 			<input class="list-button" type="button" onclick="location.href='notice'" value="글 목록">
-			<%if (id.equals("admin")) {%>
+			<%if(id != null && id.equals("admin")) {%>
 			<form method="post" action="service">
 				<input type="hidden" name="no" id="no" value="<%=dto.getN_no()%>">
 				<input type="hidden" name="command" value="NoticeDelete">

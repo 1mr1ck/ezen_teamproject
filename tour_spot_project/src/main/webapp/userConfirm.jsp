@@ -20,8 +20,9 @@
 	<section class="userWrap">
 		<div class="login-wrapper" style="height:80vh;"> 
 			<h2 id="del_check_pw">정보 확인</h2>
-			<form method="post" action="MyPage" id="login-form">
+			<form method="post" action="service" id="login-form">
 				<input type="text" name="id" placeholder="Email"> 
+				<input type="hidden" name="command" value="MypageGo">
 				<input type="password" name="password" placeholder="Password">
 				<input type="submit" value="Login">
 			</form>

@@ -126,16 +126,6 @@
 		</div>
 	</section>
 	<jsp:include page="boardfooter.jsp" />
-	<script type="text/javascript">
-		function button_event() { // 삭제 확인
-			if (confirm("정말 삭제하시겠습니까?") == true) { // 확인
-				alert("삭제되었습니다.");
-				location.href = "boardDeleteAction?no=<%=board.getB_no() %>"
-			} else {															// 취소
-				return;
-			}
-		}
-	</script>
 	<script src="resources/map.js"></script>
 	<script src="resources/comment.js"></script>
 </body>

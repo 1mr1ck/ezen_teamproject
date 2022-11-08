@@ -19,10 +19,12 @@ public class UserDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
+	private DBManager manager = new DBManager();
+	
 	private UserDao() {
-		this.url = "jdbc:mysql://database-1.cyt1kuyu4cld.ap-northeast-2.rds.amazonaws.com:3306/ezen_project";
-        this.user = "admin";
-        this.password = "d86L*vzYl7h$";
+		this.url = manager.getUrl();
+        this.user = manager.getUser();
+        this.password = manager.getPassword();
         
         this.conn = null;
         this.pstmt = null;

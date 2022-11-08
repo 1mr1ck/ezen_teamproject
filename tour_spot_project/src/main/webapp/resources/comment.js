@@ -108,7 +108,7 @@ function updateCmt(b_no, c_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentUpdate",
+		url: "service?command=CommentUpdate",
 		data: {
 			content: content,
 			b_no: b_no,
@@ -158,7 +158,7 @@ function updateCancle(b_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentUpdateNo",
+		url: "service?command=CommentUpdateNo",
 		data: {
 			content : content,
 			b_no: b_no
@@ -208,7 +208,7 @@ function updateComment(b_no, c_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentUpdateYes",
+		url: "service?command=CommentUpdateYes",
 		data: {
 			upcontent : upcontent,
 			content: content,

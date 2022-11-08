@@ -12,7 +12,7 @@ function getSpotByRegion() {
 	// ajax();
 	$.ajax({
 		method: "POST",
-		url: "searchTestAction",
+		url: "service?command=SearchByRegion",
 		data: {
 			area: area
 		}

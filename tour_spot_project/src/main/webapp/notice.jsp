@@ -44,8 +44,10 @@
 				<%} %>
 			</tbody>
 		</table>
-		<%if(id.equals("admin")) {%>
-		<button onclick="location.href='noticeWriteForm.jsp'">글쓰기</button>
+		<%if(id != null) {%>
+			<%if(id.equals("admin")) {%>
+			<button onclick="location.href='noticeWriteForm.jsp'">글쓰기</button>
+			<%}%>
 		<%}%>
 	</div>
 	<jsp:include page="footer.jsp" />
