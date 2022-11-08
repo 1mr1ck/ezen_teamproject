@@ -12,8 +12,9 @@ let start = 0;
 setList(3);
 function setStartList(startPage){
 	$('tr').remove();
-	let start = startPage-1;
-	let endPage = $('.resetList').val();
+	let endVal = $('.resetList').val();
+	let endPage = parseInt(endVal);
+	console.log("목록 번호",endPage);
 	$.ajax({
 	    method : "post",
 	    url : 'boardListAction',
@@ -26,8 +27,12 @@ function setStartList(startPage){
 		//번호 클릭이 결국 => 시작 지점.
 		//시작 지점+마지막 지점이===length 마지막 지점이 length, 시작시점도 0;
 		//시작 지점+마지막 지점이>length 시작지점 0 마지막 지점은 length
-		
-		for(let i=start ; i<start+endPage-1 ; i++){
+		let start = getStartNo(startPage,endPage,list.length);
+		console.log('start 번호',start);
+		console.log('start 타입',typeof start);
+		console.log('길이 타입',typeof endPage);
+		console.log('마지막 번호',(start+endPage));
+		for(let i=start ; i<(start+endPage) ; i++){
 			getBoard(list[i]);
 		}
 	})
@@ -80,10 +85,16 @@ function getBoard(jsonObject,boardNo){
 	$(".rows").html( myrow );
 }
 function getStartNo(startIdx,viewLength,length){
-	if(startIdx+viewLength<numB){
+	console.log('startIdx type',typeof startIdx);
+	console.log('viewLength type',typeof viewLength);
+	console.log('length type',typeof length);
+	let start = (startIdx-1)*viewLength;
+	if(start+viewLength<length){
 		return startIdx;
 	}
-	return (length-viewLength<0) ? 0 : length-viewLength;
+	let limit = length-viewLength;
+	console.log('limit : ',limit);
+	return limit<0 ? 0 : limit;
 }
 
 /*
@@ -101,8 +112,13 @@ function appendButton(){
 		let totalBoards = parseInt(e);
 		let lastPage = Math.ceil(totalBoards/size);
 		for(let i=0; i<lastPage ; i++){
-			boardHtml+=<a href="setStartList(startPage)">i</a>
-		}		
-	})
+			boardHtml+=<a href="aaaa">(i+1)</a>;
+		}
+	});
 }
+*/
+/*
+처음에 밑에 1~ 5까지 출력
+5를 누르거나 다음을 누르면 다음 페이지 출력
+갯수가 늘지 않으면 그대로 유지
 */
