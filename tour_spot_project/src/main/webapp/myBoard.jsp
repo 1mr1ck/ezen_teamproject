@@ -31,7 +31,6 @@
 		<li><a href="myComment.jsp">내가 쓴 댓글</a></li>
 		<li><a href="">회원탈퇴</a></li>
 	</ul>
-	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
 	<input id="totalBoards" type="hidden">
 	<select class="resetList" onchange="resetList(this.value)">
 		<option value='1' >목록 : 1개씩</option>
@@ -42,12 +41,12 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>번호</th>
+                    <th style="border-left: hidden;">번호</th>
                     <th width="200px">제목</th>
                     <th>작성자</th>
                     <th>작성날짜</th>
                     <th>수정날짜</th>
-                    <th>조회수</th>
+                    <th style="border-right: hidden;">조회수</th>
                 </tr>
             </thead>
             <tbody class="rows">
