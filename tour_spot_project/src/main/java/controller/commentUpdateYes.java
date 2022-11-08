@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,30 +8,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
-
-import board.BoardDao;
-import board.BoardDto;
 import comment.CommentDao;
 import comment.CommentDto;
-import user.UserDao;
 
 /**
- * Servlet implementation class commentWrite
+ * Servlet implementation class commentUpdateSet
  */
-@WebServlet("/commentCancleAction")
-public class commentCancleAction extends HttpServlet {
+@WebServlet("/commentUpdateYes")
+public class commentUpdateYes extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public commentCancleAction() {
+    public commentUpdateYes() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,15 +38,17 @@ public class commentCancleAction extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		CommentDao dao = CommentDao.getInstance();
-		
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		System.out.println(b_no);
+		int c_no = Integer.parseInt(request.getParameter("c_no"));
+		String content = request.getParameter("upcontent");
+		System.out.println("c_no : " + c_no + "\ncontent : " + content);
+		
+		CommentDto modDto = dao.getCommentOne(c_no);
+		modDto.setContent(content);
+		dao.updateComment(modDto);
 		
 		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
-		if(list.size() > 0) {
-			// 하나의 dto에 들어있는 컬럼6개의 값들을 다 뺴와야하는데 3개만 뺴옴.
-//			JSONArray result = new JSONArray(list);
-			
+		if(list.size() > 0) {			
 			JSONArray result = new JSONArray();
 			
 			for(CommentDto dto : list) {
@@ -69,8 +64,6 @@ public class commentCancleAction extends HttpServlet {
 		} else {
 			response.getWriter().append("null");				
 		}
-		
-		////request.getRequestDispatcher("boardView?no=" + b_no).forward(request, response);
 	}
 
 	/**

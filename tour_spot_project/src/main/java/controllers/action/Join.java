@@ -1,6 +1,7 @@
 package controllers.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -16,6 +17,9 @@ public class Join implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=euc-kr");
+		request.setCharacterEncoding("utf-8");
 		UserDao dao = UserDao.getInstance();
 		UserDto dto = null;
 		
@@ -39,23 +43,15 @@ public class Join implements Action {
 		
 		if(token == null) {
 			dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
+			dao.createUser(dto);
+			out.println("<script>alert('회원가입 완료');location.href='home';</script>");
 		} else {
 			dto = new UserDto(no, name, birthday, gender, id, address, phone, password, token);
+			out.println("<script>alert('회원가입 완료');location.href='home';</script>");
 		}
 		
-		if(dto != null) {
-			dao.createUser(dto);
-		}
 		
-//		if(password.equals(passwordCheck)) {
-//			if(name != null && id != null && phone != null && password != null) {
-//				dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
-//				dao.createUser(dto);
-//				System.out.println(name + "님 회원가입 완료");
-//			}
-//		}
-		
-		request.getRequestDispatcher("home").forward(request, response);
+		out.flush();
 	}
 
 }

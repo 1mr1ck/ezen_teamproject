@@ -35,7 +35,7 @@
 	<jsp:include page="header.jsp" />
 	<section>
 		<div class="form-container">
-			<form method="post" action="">
+			<form method="post" action="service">
 				<input type="hidden" name="main_address" id="main_address"
 					value="<%=board.getMap_addr()%>">
 				<div style="width: 100%;">
@@ -71,8 +71,9 @@
 					<input class="list-button" type="button" onclick="location.href='board'" value="글 목록">
 					<%if (id != null) {%>
 					<input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
+					<input type="hidden" name="command" id="no" value="BoardDelete">
 					<input class="list-button" type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no()%>'" value="글 수정">
-					<input class="list-button" type="button" onclick="Javascript:button_event();" value="글 삭제">
+					<input class="list-button" type="submit" value="글 삭제">
 					<%}%>
 				</div>
 			</form>
@@ -98,7 +99,10 @@
 							<td class="content"><%=cmt.getContent()%></td>
 							<%if(id != null && id.equals(cmt.getuser_id())) {%>
 							<td class="content_button"><button name="update-cmt" onclick="updateCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">수정</button></td>
-							<td class="content_button"><button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button></td>
+							<td class="content_button">
+								<input type="hidden" class="command" name="command" value="CommentDelete">
+								<button name="delete-cmt" onclick="deleteCmt('<%=b_no%>', '<%=cmt.getc_no()%>')">삭제</button>
+							</td>
 							<%} %>
 						</tr>
 						<%}%>
@@ -109,20 +113,20 @@
 			response.sendRedirect("board"); // borad 조회 실패 -> 페이지 이동
 			}
 			%>
-			<script src="resources/map.js"></script>
-			<script src="resources/comment.js"></script>
-			<script type="text/javascript">
-				function button_event() { // 삭제 확인
-					if (confirm("정말 삭제하시겠습니까?") == true) { // 확인
-						alert("삭제되었습니다.");
-						location.href = "boardDeleteAction?no=<%=board.getB_no() %>"
-					} else {															// 취소
-						return;
-					}
-				}
-			</script>
 		</div>
 	</section>
 	<jsp:include page="boardfooter.jsp" />
+	<script type="text/javascript">
+		function button_event() { // 삭제 확인
+			if (confirm("정말 삭제하시겠습니까?") == true) { // 확인
+				alert("삭제되었습니다.");
+				location.href = "boardDeleteAction?no=<%=board.getB_no() %>"
+			} else {															// 취소
+				return;
+			}
+		}
+	</script>
+	<script src="resources/map.js"></script>
+	<script src="resources/comment.js"></script>
 </body>
 </html>

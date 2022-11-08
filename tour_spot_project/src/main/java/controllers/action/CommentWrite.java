@@ -61,7 +61,6 @@ public class CommentWrite implements Action {
 				jsonObj.put("c_no", dto.getc_no());
 				jsonObj.put("modDate", dto.getModDate());
 				result.put(jsonObj);
-				System.out.println(jsonObj);
 			}
 			response.getWriter().append(result.toString());
 		} else {

@@ -28,12 +28,13 @@
 	</div>
 	<section>
 	<div class="form-container">
-		<form method="post" action="noticeWriteAction">
+		<form method="post" action="service">
 			<div class="main">
 				<input class="title" type="text" name="title" placeholder="제목" required>
 				<textarea class="content" name="content" rows="20" placeholder="글내용" required></textarea>
 			</div>
 			<div class="writeButton">
+				<input type="hidden" name="command" value="NoticeWrite">
 				<input class="button" type="submit" value="글등록">
 			</div>
 		</form>

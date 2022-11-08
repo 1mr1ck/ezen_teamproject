@@ -32,7 +32,8 @@
 	
     <h1>Tour_Spot</h1>
     <div class="form-container">
-        <form method="post" action="boardUpdateAction">
+        <form method="post" action="service">
+        	<input type="hidden" name="command" value="BoardUpdate">
         	<input type="hidden" name="b_no" value="<%=b_no%>">
             <input type="text" name="title" value="<%=board.getTitle() %>">
             <textarea name="content" rows="20"><%=board.getContent() %></textarea>

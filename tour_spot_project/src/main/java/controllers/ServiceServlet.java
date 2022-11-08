@@ -12,7 +12,7 @@ import controllers.action.Action;
 /**
  * Servlet implementation class ServiceServlet
  */
-@WebServlet("/Service")
+@WebServlet("/ServiceServlet")
 public class ServiceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,13 +29,12 @@ public class ServiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String command = request.getParameter("command");
-		System.out.println("command : " +  command);
+		System.out.println("서비스에 커맨드 넘어옴 ?  : " +  command);
 		ActionFactory af = ActionFactory.getInstance();
 		Action action = af.getAction(command);
-		System.out.println("Action, command : " + action + ", " + command);
 		
 		if(action != null) {
 			action.execute(request, response);
@@ -47,6 +46,8 @@ public class ServiceServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 	

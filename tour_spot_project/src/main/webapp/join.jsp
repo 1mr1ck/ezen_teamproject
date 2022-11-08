@@ -25,7 +25,8 @@
 	<!-- 회원코드/이름/나이/성별/아이디/주소/폰번/패스워드 -->
 	<jsp:include page="header.jsp" />
 	<section>
-        <form class="wrap_outer" method="POST" action="JoinAction">
+   		<form class="wrap_outer" method="POST" action="service">
+   			<input type="hidden" name="command" value="Join">
             <div class="wrap_out">
                 <div class="wrap_in">
                 <!--아이디 , 비밀번호 비밀번호 확인!-->

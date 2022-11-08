@@ -9,7 +9,7 @@ function createCmt(b_no) {
 	console.log(content);
 	$.ajax({
 		method: "post",
-		url: "Service",
+		url: "service?command=CommentWrite",
 		data: {
 			content: content,
 			b_no: b_no,
@@ -39,6 +39,7 @@ function createCmt(b_no) {
 			output += '<tr>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
+				output += '<td class="content_button"><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
 				output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
@@ -47,7 +48,7 @@ function createCmt(b_no) {
 
 		});
 	});
-}
+};
 
 // 삭제
 function deleteCmt(b_no, c_no) {
@@ -56,7 +57,7 @@ function deleteCmt(b_no, c_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentDeleteAction",
+		url: "service?command=CommentDelete",
 		data: {
 			content: content,
 			b_no: b_no,
@@ -68,6 +69,10 @@ function deleteCmt(b_no, c_no) {
 
 		var lists = document.getElementById("cmt_list");
 		var output = "";
+		
+		if(list === null) {
+			lists.innerHTML = output;
+		} else {
 
 
 		list.forEach(e => {
@@ -84,6 +89,7 @@ function deleteCmt(b_no, c_no) {
 			output += '<tr>';
 			output += '<td class="content">' + content + '</td>';
 			if (id == (cmt_user_id)) {
+				output += '<td class="content_button"><button name="update-cmt" onclick="updateCmt(' + b_no + ', ' + c_no + ')">수정</button></td>';
 				output += '<td class="content_button"><button name="delete-cmt" onclick="deleteCmt(' + b_no + ', ' + c_no + ')">삭제</button></td>';
 			};
 			output += '</tr>';
@@ -91,6 +97,7 @@ function deleteCmt(b_no, c_no) {
 			lists.innerHTML = output;
 
 		});
+		}
 	});
 }
 
@@ -101,7 +108,7 @@ function updateCmt(b_no, c_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentUpdate1",
+		url: "commentUpdate",
 		data: {
 			content: content,
 			b_no: b_no,
@@ -112,7 +119,7 @@ function updateCmt(b_no, c_no) {
 
 		var lists = document.getElementById("cmt_list");
 		var output = "";
-
+		
 		list.forEach(e => {
 			const cmt_user_id = e.user_id;
 			const b_no = e.b_no;
@@ -151,7 +158,7 @@ function updateCancle(b_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentCancleAction",
+		url: "commentUpdateNo",
 		data: {
 			content : content,
 			b_no: b_no
@@ -201,7 +208,7 @@ function updateComment(b_no, c_no) {
 
 	$.ajax({
 		method: "POST",
-		url: "commentUpdateSet",
+		url: "commentUpdateYes",
 		data: {
 			upcontent : upcontent,
 			content: content,

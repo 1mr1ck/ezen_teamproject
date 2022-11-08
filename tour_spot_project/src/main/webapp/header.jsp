@@ -23,8 +23,8 @@
 		<%if(id == null) {%>
 		<table>
 			<tr>
-				<td><input type="button" onclick="location.href='index'" value="홈으로"></td>
-				<td><input type="button" onclick="location.href='login'" value="로그인"></td>
+				<td><input type="button" onclick="location.href='home'" value="홈으로"></td>
+				<td><input type="button" onclick="location.href='index'" value="로그인"></td>
 				<td><input type="button" onclick="location.href='join'" value="회원가입"></td>
 			</tr>
 		</table>
@@ -33,9 +33,12 @@
 			<table>
 				<tr>
 					<td><input type="button" onclick="location.href='index'" value="홈으로"></td>
-					<td><input type="button" onclick="location.href='LogoutAction'" value="로그아웃"></td>
-					<td><input type="button" onclick="location.href='UserDeleteAction'" value="회원탈퇴테스트용"></td>
-					<td><input type="button" onclick="location.href='userPage'" value="회원정보수정테스트용"></td>					
+					<td>
+						<form method="POST" action="service">
+							<input type="submit" value="로그아웃">
+							<input type="hidden" name="command" value="Logout">
+						</form>
+					</td>
 					<td><%=dto.getName() %>님 환영합니다.</td>
 				</tr>
 			</table>
