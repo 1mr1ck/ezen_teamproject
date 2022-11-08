@@ -37,15 +37,16 @@ public class UserUpdateAction extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		request.setCharacterEncoding("utf-8");
-		String id = request.getParameter("userId");
-		String nowPw = request.getParameter("passWd");
-		String changePw = request.getParameter("changePw");
-		String changePwCheck = request.getParameter("changePwCheck");
-		String name = request.getParameter("userName");
+		String id = request.getParameter("userId");//
+		String nowPw = request.getParameter("passWd");//
+		String changePw = request.getParameter("changePw");//
+		String changePwCheck = request.getParameter("changePwCheck");//
+		String name = request.getParameter("userName");//
 		String phone = request.getParameter("userPhone1") + "-" + request.getParameter("userPhone2") + "-" + request.getParameter("userPhone3");
 		System.out.println(phone);
-		String address1 = request.getParameter("userAddress1");
-		String address2 = request.getParameter("userAddress2");
+		String address1 = request.getParameter("address1");
+		String address2 = request.getParameter("address2");
+		if(address2==null) address2="";
 		String address = address1 + address2;
 		System.out.printf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n",id,nowPw,changePw,changePwCheck,name,phone,address);
 		

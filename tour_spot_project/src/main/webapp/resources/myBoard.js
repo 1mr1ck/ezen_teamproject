@@ -90,7 +90,7 @@ function getStartNo(startIdx,viewLength,length){
 	console.log('length type',typeof length);
 	let start = (startIdx-1)*viewLength;
 	if(start+viewLength<length){
-		return startIdx;
+		return start;
 	}
 	let limit = length-viewLength;
 	console.log('limit : ',limit);
