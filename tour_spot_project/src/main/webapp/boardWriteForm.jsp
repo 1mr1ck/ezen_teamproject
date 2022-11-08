@@ -12,7 +12,7 @@
 <title>Tour_Spot</title>
 </head>
 <body>
-<jsp:include page="/views/header.jsp" />
+<jsp:include page="header.jsp" />
 	<section>
 	<div class="form-container">
 		<form method="post" action="service">
@@ -42,6 +42,6 @@
 	<script src="resources/searchMap.js"></script>
 	<script src="resources/map.js"></script>
 	</section>
-	<jsp:include page="/views/boardfooter.jsp" />
+	<jsp:include page="boardfooter.jsp" />
 </body>
 </html>

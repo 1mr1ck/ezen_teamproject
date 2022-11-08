@@ -32,7 +32,7 @@
 		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no);
 	%>
-	<jsp:include page="/views/header.jsp" />
+	<jsp:include page="header.jsp" />
 	<section>
 		<div class="form-container">
 			<form method="post" action="service">
@@ -125,7 +125,7 @@
 			%>
 		</div>
 	</section>
-	<jsp:include page="/views/boardfooter.jsp" />
+	<jsp:include page="boardfooter.jsp" />
 	<script src="resources/map.js"></script>
 	<script src="resources/comment.js"></script>
 </body>

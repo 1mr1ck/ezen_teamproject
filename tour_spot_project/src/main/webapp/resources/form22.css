@@ -109,7 +109,8 @@ table {
 }
 
 .board_menu input{
-	width: 10%;
+	height: 30px;
+	width: 55px;
 	float: right;
 	margin: 5px 5px 5px 5px;
 }
@@ -175,6 +176,10 @@ textarea{
 }
 .content{
 	width:80%;
+}
+
+td.content{
+	font-size: 11px;
 }
 .content_button{
 	width:5%;

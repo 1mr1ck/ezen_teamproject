@@ -29,7 +29,7 @@
 		response.sendRedirect("home");
 	} else {
 	%>
-	<jsp:include page="/views/headerMypage.jsp" />
+	<jsp:include page="headerMypage.jsp" />
 	<section class="userWrap">
 		<ul class="userNav_list">
 			<li><a href="userPageNew.jsp">정보 수정</a></li>
@@ -139,7 +139,7 @@
         </form>
         </div>
 	</section>
-	<jsp:include page="/views/footerMyPage.jsp" />
+	<jsp:include page="footerMyPage.jsp" />
 	<%} %>
 	<script src="resources/userPageTest.js" charset="utf-8"></script>
 </body>

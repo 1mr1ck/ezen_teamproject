@@ -22,7 +22,7 @@
 	ArrayList<BoardDto> list = dao.getBoardAll();
 	String id = (String) session.getAttribute("log");
 	%>
-	<jsp:include page="/views/header.jsp" />
+	<jsp:include page="header.jsp" />
 	<div class="table-container">
 		<table border="1">
 			<thead>
@@ -59,6 +59,6 @@
 			<%} %>
 		</div>
 	</div>
-	<jsp:include page="/views/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

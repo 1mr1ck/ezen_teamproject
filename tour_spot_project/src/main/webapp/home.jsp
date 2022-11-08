@@ -7,7 +7,7 @@
 <title>추천하는 관광지</title>
 </head>
 <body>
-	<jsp:include page="/views/header.jsp"/>
+	<jsp:include page="header.jsp"/>
     <section style="height: 100vh;">
     	<div class="search">
 			<input type="text" class="search-txt" name="area" placeholder="주소 검색">
@@ -21,6 +21,6 @@
 		</div>
     </section>
     <script src="resources/searchByRegion.js"></script>
-    <jsp:include page="/views/footer.jsp"/>
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>

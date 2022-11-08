@@ -14,7 +14,7 @@
 	<title>Tour_Spot</title>
 </head>
 <body>
-<jsp:include page="/views/header.jsp" />
+<jsp:include page="header.jsp" />
 	<section>
 	<%
 	request.setCharacterEncoding("utf-8");
@@ -62,6 +62,6 @@
 	}%>
 	<script src="resources/searchMap.js"></script>
 	</section>
-	<jsp:include page="/views/boardfooter.jsp" />
+	<jsp:include page="boardfooter.jsp" />
 </body>
 </html>

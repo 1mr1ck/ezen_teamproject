@@ -23,7 +23,7 @@
 	KakaoProfile profile = (KakaoProfile) request.getAttribute("profile");
 	%>
 	<!-- 회원코드/이름/나이/성별/아이디/주소/폰번/패스워드 -->
-	<jsp:include page="/views/header.jsp" />
+	<jsp:include page="header.jsp" />
 	<section>
    		<form class="wrap_outer" method="POST" action="service">
    			<input type="hidden" name="command" value="Join">
@@ -121,6 +121,6 @@
         </form>
     </section>
 	<script src="resources/join.js" charset="utf-8"></script>
-	<jsp:include page="/views/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
