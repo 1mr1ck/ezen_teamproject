@@ -23,7 +23,6 @@
 		<%if(id == null) {%>
 		<table>
 			<tr>
-				<td><input type="button" onclick="location.href='home'" value="홈으로"></td>
 				<td><input type="button" onclick="location.href='index'" value="로그인"></td>
 				<td><input type="button" onclick="location.href='join'" value="회원가입"></td>
 			</tr>
@@ -32,7 +31,6 @@
 		<%if(id != null) { %>
 			<table>
 				<tr>
-					<td><input type="button" onclick="location.href='index'" value="홈으로"></td>
 					<td>
 						<form method="POST" action="service">
 							<input type="submit" value="로그아웃">
@@ -49,8 +47,7 @@
 	</header>
 	
 	<nav>
-		<a href="guide">서비스안내</a>
-		<a href="rental">차량대여</a>
+		<a href="home">홈으로</a>
 		<a href="board">커뮤니티</a>
 		<a href="notice">공지사항</a>
 		<a href="userConfirm.jsp">마이페이지</a>
