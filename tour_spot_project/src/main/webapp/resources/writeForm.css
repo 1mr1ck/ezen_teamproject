@@ -30,7 +30,7 @@ section{
 	text-decoration-line : none;
 }
 
-.title, .content, input{
+.title, .content,section input{
 	width:98%;
 	padding: 5px;
 	overflow: auto;

@@ -61,15 +61,19 @@
 					<textarea rows="20" readonly><%=board.getContent()%></textarea>
 				</div>
 				<div class="map_image">
-					<div id="map" style="width: 48%; height: 300px;"></div>
+					<%if(!board.getMap_addr().equals("")) {%>
+						<div id="map" style="width: 48%; height: 300px;"></div>
+					<%} %>
 					<div id="image" style="margin-left: 10px;overflow:hidden;">
 					<%System.out.println("test" + board.getImg_url()); %>
+					<%if(!board.getImg_url().equals("")) {%>
 						<img src="<%=board.getImg_url()%>" />
+					<%} %>
 					</div>
 				</div>
 				<div class="board_menu">
 					<input class="list-button" type="button" onclick="location.href='board'" value="글 목록">
-					<%if (id != null) {%>
+					<%if (id != null && id.equals(board.getUser_id())) {%>
 					<input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
 					<input class="list-button" type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no()%>'" value="글 수정">
 					<input class="list-button" type="button" onclick="Javascript:button_event();" value="글 삭제">
@@ -80,11 +84,17 @@
 				<input type="hidden" name="id" class="user_id" value="<%=id%>">
 				<input type="hidden" name="b_no" class="b_no" value="<%=b_no%>">
 				<h4>댓글</h4>
-				<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>
+				<%if(id != null){ %>
+					<textarea id="content" class="content" name="content" placeholder="댓글을 입력하세요." rows="1"></textarea>				
+				<%}else{ %>
+					<textarea id="content" class="content" name="content" placeholder="로그인을 하세요." rows="1"></textarea>				
+				<%} %>				
 			</div>
 			<div class="cmt_button">
 				<input type="hidden" class="command" name="command" value="CommentWrite">
-				<button name="create_cmt" onclick="createCmt(`<%=b_no%>`)">댓글등록</button>
+				<%if(id != null){ %>
+					<button name="create_cmt" onclick="createCmt(`<%=b_no%>`)">댓글등록</button>
+				<%} %>
 			</div>
 			<div class="cmt">
 				<table border="1">

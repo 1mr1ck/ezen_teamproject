@@ -13,7 +13,7 @@
 	border: 0; 
 	height: 50px;
 	width:99%;
-	font-size: 30px;
+	font-size: 25px;
 	background-color:#f3f3f3;
 	margin-top:50px;
 	margin-bottom:10px;
@@ -121,9 +121,8 @@ th, td, button {
 	padding: 5px;
 }
 
-input {
+section input {
 	padding: 5px;
-	border: solid 1px lightblue;
 	outline: none;
 }
 textarea{
