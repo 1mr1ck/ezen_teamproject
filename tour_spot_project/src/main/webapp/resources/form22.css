@@ -12,7 +12,7 @@
 .title{
 	border: 0; 
 	height: 50px;
-	width:99%;
+	width:100%;
 	font-size: 25px;
 	background-color:#f3f3f3;
 	margin-top:50px;
@@ -122,7 +122,6 @@ th, td, button {
 }
 
 section input {
-	padding: 5px;
 	outline: none;
 }
 textarea{

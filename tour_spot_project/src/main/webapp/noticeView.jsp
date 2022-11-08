@@ -28,7 +28,7 @@
 	<section>
 		<div class="form-container">
 			<div style="width : 100%;">
-				<input class="title" type="text" value="<%=dto.getTitle() %> readonly">
+				<input class="title" type="text" value="<%=dto.getTitle() %>" readonly>
 			</div>
 			<div class="main">
 				<table style="width: 100%; height: 60px;border-top: solid 1px; border-bottom: solid 1px; border-left: none; border-right: none;">
@@ -46,9 +46,11 @@
 				<input class="list-button" type="button" onclick="location.href='notice'" value="글 목록">
 				<%if(id != null && id.equals("admin")) {%>
 				<form method="post" action="service">
+					<div>
 					<input type="hidden" name="no" id="no" value="<%=dto.getN_no()%>">
 					<input type="hidden" name="command" value="NoticeDelete">
 					<input class="list-button" type="submit" value="글 삭제">
+					</div>
 				</form>
 				<%}%>
 			</div>
