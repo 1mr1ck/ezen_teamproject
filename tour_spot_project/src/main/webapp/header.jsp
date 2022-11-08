@@ -20,7 +20,7 @@
 	UserDto dto = dao.getUserById(id);
 	%>
 	<header>
-		<img src=https://cdn-icons-png.flaticon.com/512/2979/2979445.png alt="뀨잉" />
+		<img src=https://cdn-icons-png.flaticon.com/512/2979/2979445.png alt="비행기">
 		<%if(id == null) {%>
 		<table>
 			<tr>

@@ -1,10 +1,10 @@
 .footer {
+ 	position: absolute;
 	display: block;
- 	top : 100%;
+ 	top : 118%;
  	left: 0;
  	bottom: 0;
  	width: 100%;
  	text-align: center;
  	border-top: 1px solid black;
- 	position: absolute;
 }
