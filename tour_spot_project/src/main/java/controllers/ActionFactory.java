@@ -12,10 +12,12 @@ import controllers.action.CommentWrite;
 import controllers.action.Join;
 import controllers.action.Login;
 import controllers.action.Logout;
+import controllers.action.MyInfoUpdate;
 import controllers.action.MypageGo;
 import controllers.action.NoticeDelete;
 import controllers.action.NoticeWrite;
 import controllers.action.SearchByRegion;
+import controllers.action.UserDuplCheck;
 
 public class ActionFactory {
 	
@@ -37,6 +39,7 @@ public class ActionFactory {
 		if(command.equals("Join")) { action = new Join(); }
 		else if(command.equals("Login")) { action = new Login(); }
 		else if(command.equals("Logout")) { action = new Logout(); }
+		else if(command.equals("UserDuplCheck")) { action = new UserDuplCheck(); }
 		// Comment 
 		else if(command.equals("CommentWrite")) { action = new CommentWrite(); }
 		else if(command.equals("CommentDelete")) { action = new CommentDelete(); }
@@ -54,6 +57,7 @@ public class ActionFactory {
 		else if(command.equals("SearchByRegion")) { action = new SearchByRegion(); }
 		// Mypage
 		else if(command.equals("MypageGo")) { action = new MypageGo(); }
+		else if(command.equals("MyInfoUpdate")) { action = new MyInfoUpdate(); }
 		
 		System.out.println("액션팩토리 저장 잘됨 ? " + action);
 		return action;

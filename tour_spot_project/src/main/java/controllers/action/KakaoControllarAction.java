@@ -1,4 +1,4 @@
-package controller;
+package controllers.action;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -29,7 +29,7 @@
 		response.sendRedirect("home");
 	} else {
 	%>
-	<jsp:include page="headerMypage.jsp" />
+	<jsp:include page="/views/headerMypage.jsp" />
 	<section class="userWrap">
 		<ul class="userNav_list">
 			<li><a href="userPageNew.jsp">정보 수정</a></li>
@@ -39,7 +39,7 @@
 		</ul>
 		<!-- 아아디/현재비번/사용할비번/사용할비번확인/이름/휴대번호/주소 -->
 		<div class="info">
-		<form class="wrap_outer" method="POST" action="UserUpdateAction">
+		<form class="wrap_outer" method="POST" action="service">
             <div class="wrap_out">
                 <div class="wrap_in">
                 <!--아이디 , 비밀번호 비밀번호 확인-->
@@ -132,13 +132,14 @@
                     </div>
                     <span class="errorNumber errorCheck"></span>
                     <!-- 회원가입 -->
+                    <input type="hidden" name="command" value="MyInfoUpdate">
                     <button class="info_bnt_submit">정보수정</button>
                 </div>
             </div>
         </form>
         </div>
 	</section>
-	<jsp:include page="footerMyPage.jsp" />
+	<jsp:include page="/views/footerMyPage.jsp" />
 	<%} %>
 	<script src="resources/userPageTest.js" charset="utf-8"></script>
 </body>

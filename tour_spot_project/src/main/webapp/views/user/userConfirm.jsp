@@ -16,7 +16,7 @@
 	<script src="resources/sociallogin.js" charset="utf-8"></script>
 </head> 
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="/views/header.jsp" />
 	<section class="userWrap">
 		<div class="login-wrapper" style="height:80vh;"> 
 			<h2 id="del_check_pw">정보 확인</h2>
@@ -28,6 +28,6 @@
 			</form>
 		</div>
 	</section>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="/views/footer.jsp" />
 </body>
 </html>

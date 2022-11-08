@@ -23,7 +23,7 @@
 	//BoardDao dao = BoardDao.getInstance();
 	//ArrayList<BoardDto> list = dao.getBoardUserAll(userId);
 	%>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="/views/header.jsp"/>
 	<section class="userWrap">
 	<ul class="userNav_list">
 		<li><a href="userPageNew.jsp">정보 수정</a></li>
@@ -60,7 +60,7 @@
     	<button onclick='setStartList(3)'>클릭 3</button>
     </div>
     </section>
-    <jsp:include page="footer.jsp" />
+    <jsp:include page="/views/footer.jsp" />
     <script src="resources/myBoard.js" charset="utf-8"></script>
 </body>
 </html>

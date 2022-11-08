@@ -18,7 +18,7 @@
 	ArrayList<NoticeDto> list = dao.getNoticeAll();
 	%>
 </body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="/views/header.jsp" />
 	<div class="table-container">
 		<table border="1">
 			<thead>
@@ -52,5 +52,5 @@
 		<%}%>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="/views/footer.jsp" />
 </html>
