@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/table.css">
+<link rel="stylesheet" href="resources/boardTable.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -44,9 +44,11 @@
 				<%} %>
 			</tbody>
 		</table>
+		<div style="width:100%;">
 		<%if(id.equals("admin")) {%>
 		<button onclick="location.href='noticeWriteForm.jsp'">글쓰기</button>
 		<%}%>
+		</div>
 	</div>
 	<jsp:include page="footer.jsp" />
 </html>
