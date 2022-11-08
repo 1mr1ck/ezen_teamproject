@@ -61,6 +61,6 @@
     </div>
     </section>
     <jsp:include page="footer.jsp" />
-    <script src="resources/myBoard.js" charset="utf-8"></script>
+    <script src="resources/myComment.js" charset="utf-8"></script>
 </body>
 </html>
