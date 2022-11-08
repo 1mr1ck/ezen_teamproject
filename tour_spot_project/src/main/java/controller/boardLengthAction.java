@@ -44,8 +44,7 @@ public class boardLengthAction extends HttpServlet {
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		String userId = request.getParameter("user_id");
-		String userId = "onmy123";
+		String userId = request.getParameter("user_id");
 		System.out.println(userId);
 		int num = BoardDao.getInstance().getCountBoard(userId);
 		System.out.println(num);

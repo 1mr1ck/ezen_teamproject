@@ -10,8 +10,9 @@ let start = 0;
 //객체 불러오기
 
 setList(3);
+let user_id = (".myBoardID").val();
+console.log(user_id);
 function setStartList(startPage){
-	$('tr').remove();
 	let endVal = $('.resetList').val();
 	let endPage = parseInt(endVal);
 	console.log("목록 번호",endPage);
@@ -19,8 +20,8 @@ function setStartList(startPage){
 	    method : "post",
 	    url : 'boardListAction',
 	    data : {
-	        user_id : 'onmy123'
-	    }
+	        user_id : `${userId}`
+	    } 
 	}).done(e=>{
 	    const list = JSON.parse(e);
 		//list lengh => 게시판 목록수
@@ -53,7 +54,7 @@ function setList(value){
 	    method : "post",
 	    url : 'boardListAction',
 	    data : {
-	        user_id : 'onmy123'
+	        user_id : `${userId}`
 	    }
 	}).done(e=>{
 	    const list = JSON.parse(e);
@@ -72,6 +73,19 @@ function setList(value){
 		myrow="";
 	})
 }
+
+function getBoardEach(jsonObject){
+	//
+	console.log("너의이름은  ",jsonObject.user_Id);
+	myHtml+="<td>"+jsonObject.b_no+"</td>"
+	myHtml+="<td>"+"<a href='boardView?no="+jsonObject.b_no+"'>"+jsonObject.content+"</a></td>"
+	myHtml+="<td>"+jsonObject.user_id+"</td>"
+	myHtml+="<td>"+jsonObject.regDate+"</td>"
+	myrow+="<tr class='row'>"+myHtml+"</tr>";
+	$(".rows").html(myrow);
+	myHtml="";
+}
+
 function getBoard(jsonObject,boardNo){
 	$.each( jsonObject, function( i, item ) {
 		if(i!=='title'){

@@ -8,10 +8,11 @@ let myHtml = "";
 let myrow = "";
 let start = 0;
 //객체 불러오기
-
+let userId = $('.myCommentID').val();
+console.log("사용자 확인 : ",userId);
 setList(3);
 function setStartList(startPage){
-	$('tr').remove();
+	//$('tr').remove();
 	let endVal = $('.resetList').val();
 	let endPage = parseInt(endVal);
 	console.log("목록 번호",endPage);
@@ -19,7 +20,7 @@ function setStartList(startPage){
 	    method : "post",
 	    url : 'UserCommentAction',
 	    data : {
-	        user_Id : 'onmy123'
+	        user_id : `${userId}`
 	    }
 	}).done(e=>{
 	    const list = JSON.parse(e);
@@ -49,7 +50,7 @@ function setList(value){
 	    method : "post",
 	    url : 'UserCommentAction',
 	    data : {
-	        user_Id : 'onmy123'
+	        user_Id : `${userId}`
 	    }
 	}).done(e=>{
 	    const list = JSON.parse(e);
