@@ -52,7 +52,7 @@
 		<a href="home">홈으로</a>
 		<a href="board">커뮤니티</a>
 		<a href="notice">공지사항</a>
-		<a href="userConfirm.jsp">마이페이지</a>
+		<a href="userConfirm">마이페이지</a>
 		<div class="animation start-home"></div>
 	</nav>
 

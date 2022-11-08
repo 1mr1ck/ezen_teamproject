@@ -11,11 +11,10 @@
 	<div class="login-wrapper"> 
 		<h2>EXIT</h2>
 		<form method="POST" id="login-form" action="service">
-			<input type="hidden" name="command" value="Login">
+			<input type="hidden" name="command" value="UserDelete">
 			<input type="text" name="id" placeholder="Email"> 
 			<input type="password" name="password" placeholder="Password">
 			<input type="submit" value="회원탈퇴">
-			<input type="button" onclick="location.href='home'" value="비회원">
 		</form>
 	</div>
 </body>

@@ -32,7 +32,7 @@
 		dao.updateViewCnt(b_no);
 		board = dao.getBoardByNo(b_no);
 	%>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="/views/header.jsp" />
 	<section>
 		<div class="form-container">
 			<form method="post" action="service">
@@ -76,7 +76,7 @@
 					<%if (id != null && id.equals(board.getUser_id())) {%>
 					<input type="hidden" name="no" id="no" value="<%=board.getB_no()%>">
 					<input type="hidden" name="command" id="no" value="BoardDelete">
-					<input class="list-button" type="button" onclick="location.href='boardUpdateForm.jsp?no=<%=board.getB_no()%>'" value="글 수정">
+					<input class="list-button" type="button" onclick="location.href='boardUpdateForm?no=<%=board.getB_no()%>'" value="글 수정">
 					<input class="list-button" type="submit" value="글 삭제">
 					<%}%>
 				</div>
@@ -125,7 +125,7 @@
 			%>
 		</div>
 	</section>
-	<jsp:include page="boardfooter.jsp" />
+	<jsp:include page="/views/boardfooter.jsp" />
 	<script src="resources/map.js"></script>
 	<script src="resources/comment.js"></script>
 </body>

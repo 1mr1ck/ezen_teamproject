@@ -24,7 +24,7 @@
 	if(n_no > 0) {
 		dto = dao.getNoticeByNo(n_no);
 	%>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="/views/header.jsp" />
 	<section style="height:50vw;">
 		<div class="form-container">
 			<div style="width : 100%;">
@@ -59,6 +59,6 @@
 	<%} else {
 	response.sendRedirect("notice");
 	}%>
-	<jsp:include page="boardfooter.jsp" />
+	<jsp:include page="/views/boardfooter.jsp" />
 </body>
 </html>
