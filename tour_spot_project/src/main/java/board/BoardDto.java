@@ -58,6 +58,12 @@ public class BoardDto {
 		this.map_addr = map_addr;
 		this.img_url = img_url;
 	}
+	public BoardDto(int b_no,String title,String content,String user_id,Timestamp regDate,int viewCnt) {
+		this(b_no,title,content);
+		this.user_id = user_id;
+		this.regDate = regDate;
+		this.viewCnt = viewCnt;
+	}
 	
 	public BoardDto(int b_no, String title, String content, String map_addr) {
 		super();

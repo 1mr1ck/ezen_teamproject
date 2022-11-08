@@ -35,6 +35,7 @@
 			<li><a href="userPageNew.jsp">정보 수정</a></li>
 			<li><a href="myBoard.jsp">내가 쓴 게시글</a></li>
 			<li><a href="">내가 쓴 댓글</a></li>
+			<li><a href="">회원탈퇴</a></li>
 		</ul>
 		<!-- 아아디/현재비번/사용할비번/사용할비번확인/이름/휴대번호/주소 -->
 		<div class="info">
@@ -46,7 +47,7 @@
                     <div class="ininfo">
                         <h3>아이디</h3>
                         <span class="info_box">
-                            <input class="requiredValue"type="text" id="join_id" name="id" value="<%=id %>" maxlength="20" readonly>
+                            <input class="requiredValue"type="text" id="join_id" name="userId" value="<%=id %>" maxlength="20" readonly>
                             <span class="info_box_icon idicon">@email.com</span>
                         </span>
                         <span class="errorID errorCheck"></span>

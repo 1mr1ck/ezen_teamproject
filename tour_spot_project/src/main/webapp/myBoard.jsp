@@ -20,8 +20,8 @@
 	<%
 	HttpSession sesion = request.getSession();
 	String userId = (String) sesion.getAttribute("log");
-	BoardDao dao = BoardDao.getInstance();
-	ArrayList<BoardDto> list = dao.getBoardUserAll(userId);
+	//BoardDao dao = BoardDao.getInstance();
+	//ArrayList<BoardDto> list = dao.getBoardUserAll(userId);
 	%>
 	<jsp:include page="header.jsp"/>
 	<section class="userWrap">
@@ -29,8 +29,15 @@
 		<li><a href="userPageNew.jsp">정보 수정</a></li>
 		<li><a href="myBoard.jsp">내가 쓴 게시글</a></li>
 		<li><a href="">내가 쓴 댓글</a></li>
+		<li><a href="">회원탈퇴</a></li>
 	</ul>
 	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
+	<input id="totalBoards" type="hidden">
+	<select class="resetList" onchange="resetList(this.value)">
+		<option value='1' >목록 : 1개씩</option>
+		<option value='2' >목록 : 2개씩</option>
+		<option value='3' selected >목록 : 3개씩</option>
+	</select>
 	<div class="table-container">
         <table border="1">
             <thead>
@@ -43,23 +50,17 @@
                     <th>조회수</th>
                 </tr>
             </thead>
-            <tbody>
-            <%for(BoardDto board : list) {
-            	Timestamp modDate = board.getModDate();%>
-                <tr>
-                    <td><%=board.getB_no() %></td>
-                    <td><a href="boardView?no=<%=board.getB_no()%>"><%=board.getTitle() %></a></td>
-                    <td><%=board.getUser_id() %></td>
-                    <td><%=board.getRegDate() %></td>
-                    <td><%if(modDate != null) {%>
-                   			<%=modDate%> <%} %></td>
-                    <td><%=board.getViewCnt() %></td>
-                </tr>
-            <%} %>
+            <tbody class="rows">
             </tbody>
         </table>
     </div>
+    <div class="navLink">
+    	<button onclick='setStartList(1)'>클릭 1</button>
+    	<button onclick='setStartList(2)'>클릭 2</button>
+    	<button onclick='setStartList(3)'>클릭 3</button>
+    </div>
     </section>
     <jsp:include page="footer.jsp" />
+    <script src="resources/myBoard.js" charset="utf-8"></script>
 </body>
 </html>
