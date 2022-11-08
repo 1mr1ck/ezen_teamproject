@@ -20,6 +20,7 @@
 	UserDto dto = dao.getUserById(id);
 	%>
 	<header>
+		<img src=https://cdn-icons-png.flaticon.com/512/2979/2979445.png alt="뀨잉" />
 		<%if(id == null) {%>
 		<table>
 			<tr>
@@ -37,10 +38,11 @@
 							<input type="hidden" name="command" value="Logout">
 						</form>
 					</td>
-					<td><%=dto.getName() %>님 환영합니다.</td>
+					<td id="welcome"><%=dto.getName() %>님 환영합니다.</td>
 				</tr>
 			</table>
 		<%} %>
+		
 		<div id="header">
 			<h1><a href="home" style="text-decoration: none">Tour_Spot</a></h1>
 		</div>
