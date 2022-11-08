@@ -14,7 +14,6 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
-import board.BoardDto;
 import comment.CommentDao;
 import comment.CommentDto;
 

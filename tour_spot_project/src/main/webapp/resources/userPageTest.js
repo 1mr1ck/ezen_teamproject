@@ -10,7 +10,7 @@ $('#join_id').keyup(()=>{
 function findID(text){
     $.ajax({
         method:"POST",
-        url : '/tour_spot_project/join/check',
+        url : 'service/command=UserDuplCheck"',
         data : {
 			id : `${text}`
 		}
