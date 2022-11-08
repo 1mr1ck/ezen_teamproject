@@ -25,7 +25,7 @@
 		dto = dao.getNoticeByNo(n_no);
 	%>
 	<jsp:include page="header.jsp" />
-	<section>
+	<section style="height:50vw;">
 		<div class="form-container">
 			<div style="width : 100%;">
 				<input class="title" type="text" value="<%=dto.getTitle() %>" readonly>
@@ -59,5 +59,6 @@
 	<%} else {
 	response.sendRedirect("notice");
 	}%>
+	<jsp:include page="boardfooter.jsp" />
 </body>
 </html>

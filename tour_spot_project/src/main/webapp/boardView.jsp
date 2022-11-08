@@ -62,9 +62,9 @@
 				</div>
 				<div class="map_image">
 					<%if(!board.getMap_addr().equals("")) {%>
-						<div id="map" style="width: 48%; height: 300px;"></div>
+						<div id="map" style="width: 100%; height: 300px;"></div>
 					<%} %>
-					<div id="image" style="margin-left: 10px;overflow:hidden;">
+					<div id="image" style="width:100%;margin-left: 10px;overflow:hidden;">
 					<%System.out.println("test" + board.getImg_url()); %>
 					<%if(!board.getImg_url().equals("")) {%>
 						<img src="<%=board.getImg_url()%>" />

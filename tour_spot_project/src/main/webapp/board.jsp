@@ -27,28 +27,28 @@
 		<table border="1">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th width="200px">제목</th>
+					<th style="border-left: hidden;">번호</th>
+					<th>제목</th>
 					<th>작성자</th>
 					<th>작성날짜</th>
 					<th>수정날짜</th>
-					<th>조회수</th>
+					<th style="border-right: hidden;">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%for(BoardDto board : list) {
             	Timestamp modDate = board.getModDate();%>
 				<tr>
-					<td><%=board.getB_no() %></td>
-					<td><a href="boardView?no=<%=board.getB_no()%>"><%=board.getTitle() %></a></td>
-					<td><%=board.getUser_id() %></td>
-					<td><%=board.getRegDate() %></td>
-					<td>
+					<td style="border-left: hidden; width: 35px; text-align: center;"><%=board.getB_no() %></td>
+					<td style="width: 350px;"><a href="boardView?no=<%=board.getB_no()%>"><%=board.getTitle() %></a></td>
+					<td style="width: 140px; text-align: center;"><%=board.getUser_id() %></td>
+					<td style="width:130px; text-align: center;"><%=board.getRegDate() %></td>
+					<td style="width:130px; text-align: center;">
 						<%if(modDate != null) {%> 
 						<%=modDate%>
 						<%}	%>
 					</td>
-					<td><%=board.getViewCnt() %></td>
+					<td style="border-right: hidden; width: 60px; text-align: center;"><%=board.getViewCnt() %></td>
 				</tr>
 				<%} %>
 			</tbody>
