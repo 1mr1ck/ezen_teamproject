@@ -141,8 +141,7 @@ nav .start-마이페이지, a:nth-child(5):hover ~.animation {
 	display: flex;
 	position: absolute;
 	top: 55%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	left: 600px;
 	flex-direction: column;
 	width: fit-content;
 	margin: 10px auto auto auto;
