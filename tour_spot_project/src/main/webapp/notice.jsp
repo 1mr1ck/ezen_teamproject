@@ -47,7 +47,7 @@
 		<div style="width:100%;">
 		<%if(id != null) {%>
 			<%if(id.equals("admin")) {%>
-			<button onclick="location.href='noticeWriteForm.jsp'">글쓰기</button>
+			<button onclick="location.href='noticeWriteForm.jsp'">글쓰기기</button>
 			<%}%>
 		<%}%>
 		</div>
