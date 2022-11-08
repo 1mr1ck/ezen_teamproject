@@ -23,23 +23,23 @@
 		<table border="1">
 			<thead>
 				<tr>
-					<th>번호</th>
+					<th style="border-left: hidden;">번호</th>
 					<th width="200px">제목</th>
 					<th>작성자</th>
 					<th>작성날짜</th>
 					<th>등록날짜</th>
-					<th>조회수</th>
+					<th style="border-right: hidden;">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%for(NoticeDto notice : list) {%>
 				<tr>
-					<td><%=notice.getN_no() %></td>
-					<td><a href="noticeView.jsp?no=<%=notice.getN_no()%>"><%=notice.getTitle() %></a></td>
-					<td><%=notice.getUser_id() %></td>
-					<td><%=notice.getRegDate() %></td>
-					<td><%=notice.getRegDate() %></td>
-					<td><%=notice.getViewCnt() %></td>
+					<td style="border-left: hidden; width: 35px; text-align: center;"><%=notice.getN_no() %></td>
+					<td style="width: 350px;"><a href="noticeView.jsp?no=<%=notice.getN_no()%>"><%=notice.getTitle() %></a></td>
+					<td style="width: 140px; text-align: center;"><%=notice.getUser_id() %></td>
+					<td style="width:130px; text-align: center;"><%=notice.getRegDate() %></td>
+					<td style="width:130px; text-align: center;"><%=notice.getRegDate() %></td>
+					<td style="border-right: hidden; width: 60px; text-align: center;""><%=notice.getViewCnt() %></td>
 				</tr>
 				<%} %>
 			</tbody>
