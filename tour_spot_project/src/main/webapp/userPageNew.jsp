@@ -34,7 +34,7 @@
 		<ul class="userNav_list">
 			<li><a href="userPageNew.jsp">정보 수정</a></li>
 			<li><a href="myBoard.jsp">내가 쓴 게시글</a></li>
-			<li><a href="">내가 쓴 댓글</a></li>
+			<li><a href="myComment.jsp">내가 쓴 댓글</a></li>
 			<li><a href="">회원탈퇴</a></li>
 		</ul>
 		<!-- 아아디/현재비번/사용할비번/사용할비번확인/이름/휴대번호/주소 -->
@@ -102,7 +102,7 @@
                         <!--생년월일-->
                         <div class="ininfo info_date">
                             <h3>생년월일(선택)</h3>
-                            <span><input class="info_box_input calendar" type="date" id="join_date" name="birthday" value="<%=user.getBirthday()==null?"":user.getBirthday()%>"></span>
+                            <span><input class="info_box_input calendar" type="date" id="join_date" name="birthday" value="<%=user.getBirthday()==null?"":user.getBirthday()%>" readonly></span>
                             <span class="errorDate errorCheck"></span>
                         </div>
                     </article>
@@ -112,7 +112,7 @@
                             <h3>주소(선택)</h3> <p class="addr_search_button"><i class="fa-solid fa-magnifying-glass">검색</i></p>
                         </div>
                         <span class="info_box hidden" id="addrhidden">
-                            <input class="info_box_input"  type="text" id="join_addr1" name="address1" readonly>
+                            <input class="info_box_input"  type="text" id="join_addr1" name="address1" value="<%=user.getAddress() %>" readonly>
                         </span>
                         <span class="info_box">
                             <input class="info_box_input"  type="text" id="join_addr2" name="address2" placeholder="<%=user.getAddress() %>">
@@ -123,9 +123,9 @@
                     <div class="ininfo">
                         <h3>전화번호</h3>
                         <ul class="info_phone">
-                            <li><input type="text" class="checkPhone1 phoneNum requiredValue" name="phone1" value="<%=phone1 %>" placeholder="01X"></li>
-                            <li><input type="text" class="checkPhone2 phoneNum requiredValue" name="phone2" value="<%=phone2 %>" placeholder="9999"></li>
-                            <li class="info_phone_last"><input type="text" class="checkPhone3 phoneNum requiredValue" name="phone3" value="<%=phone3 %>" placeholder="9999">
+                            <li><input type="text" class="checkPhone1 phoneNum requiredValue" name="userPhone1" value="<%=phone1 %>" placeholder="01X"></li>
+                            <li><input type="text" class="checkPhone2 phoneNum requiredValue" name="userPhone2" value="<%=phone2 %>" placeholder="9999"></li>
+                            <li class="info_phone_last"><input type="text" class="checkPhone3 phoneNum requiredValue" name="userPhone3" value="<%=phone3 %>" placeholder="9999">
                                 <span class="info_box_icon iconPhone"><i class="fa-regular fa-square-check ch_phone"></i></span>
                             </li>
                         </ul>
