@@ -9,11 +9,6 @@ h1 {
 	text-align: center;
 }
 
-.table-container table {
-	margin-top: 30px;
-	border-collapse: collapse;
-	border: solid 1px lightblue;
-}
  
 .table-container {
 	display: flex;
@@ -22,6 +17,11 @@ h1 {
 	margin: 10px auto auto auto;
 }
 
+.table-container table {
+	margin-top: 30px;
+	border-collapse: collapse;
+	border: solid 1px lightblue;
+}
 
 th, td, button {
 	padding: 5px;

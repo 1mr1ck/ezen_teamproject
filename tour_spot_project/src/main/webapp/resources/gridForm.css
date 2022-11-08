@@ -4,6 +4,13 @@ header {
 	height: 100px;
 }
 
+header > img {
+	position: relative;
+	float: right;
+	height: 100px;
+	object-fit: cover;
+}
+
 h1 {
 	margin-top: 0;
 }
@@ -27,6 +34,20 @@ h1 {
 
 #header a:active {
 	color: #51e3d4;
+}
+
+#welcome {
+	margin: 0;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: auto;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	color: white;
+	background: #0080FE;
 }
 
 nav {
@@ -132,20 +153,12 @@ nav .start-공지사항, a:nth-child(4):hover ~.animation {
 	display: flex;
 	position: absolute;
 	top: 55%;
-	left: 600px;
+	left: 550px;
 	flex-direction: column;
 	width: fit-content;
 	margin: 10px auto auto auto;
 	border-collapse: collapse;
 	border: solid 1px #51e3d4;
-}
-
-img {
-	position: absolute;
-	width: 18px;
-	top: 10px;
-	right: 0px;
-	margin: 0;;
 }
 
 td input {
@@ -160,7 +173,8 @@ td input {
 	width: auto;
 	border: none;
 	border-radius: 4px;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px
+		rgba(0, 0, 0, 0.06);
 	cursor: pointer;
 	transition: 0.5s;
 	color: white;
