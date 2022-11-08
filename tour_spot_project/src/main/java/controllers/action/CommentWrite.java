@@ -39,19 +39,9 @@ public class CommentWrite implements Action {
 			System.out.println(user_id + "님의 댓글 등록 실패");
 		}
 		
-//		[
-//		  {	
-//		    "modDate": "2022-11-05 20:29:28.0",
-//		    "regDate": "2022-11-05 20:29:28.0",
-//		    "content": "123"
-//		  }
-//		]
 		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
 		if(list.size() > 0) {
-			// 하나의 dto에 들어있는 컬럼6개의 값들을 다 뺴와야하는데 3개만 뺴옴.
 			JSONArray result = new JSONArray();
-			
-//			JSONArray result = new JSONArray(list);
 			
 			for(CommentDto dto : list) {
 				JSONObject jsonObj = new JSONObject();

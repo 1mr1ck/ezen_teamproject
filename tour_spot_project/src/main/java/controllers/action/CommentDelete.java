@@ -30,7 +30,6 @@ public class CommentDelete implements Action {
 		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
 		System.out.println("list size : " + list.size());
 		if(list.size() > 0) {
-			// 하나의 dto에 들어있는 컬럼5개의 값들을 다 뺴와야하는데 3개만 뺴옴.
 			JSONArray result = new JSONArray();
 			
 			for(CommentDto dto : list) {
