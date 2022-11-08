@@ -27,7 +27,7 @@ public class commentUpdateYes extends HttpServlet {
      */
     public commentUpdateYes() {
         super();
-        // TODO Auto-generated constructor stub
+        /// TODO Auto-generated constructor stub
     }
 
 	/**
