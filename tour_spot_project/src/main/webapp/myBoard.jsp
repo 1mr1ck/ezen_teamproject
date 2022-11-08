@@ -23,6 +23,7 @@
 	//BoardDao dao = BoardDao.getInstance();
 	//ArrayList<BoardDto> list = dao.getBoardUserAll(userId);
 	%>
+	<input class="myBoardID" type="hidden" value="<%=userId%>">
 	<jsp:include page="header.jsp"/>
 	<section class="userWrap">
 	<ul class="userNav_list">

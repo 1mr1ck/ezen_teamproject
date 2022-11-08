@@ -54,7 +54,7 @@ public class UserCommentAction extends HttpServlet {
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String userId = request.getParameter("user_Id");
+		String userId = request.getParameter("user_id");
 		ArrayList<CommentDto> comments = CommentDao.getInstance().getUserCommentAll(userId);
 		Gson gson = new Gson();
 		JSONArray jsonArray = new JSONArray();
