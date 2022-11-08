@@ -22,23 +22,24 @@ public class MypageGo implements Action {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		UserDao dao = UserDao.getInstance();
-		UserDto user = null;
 		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("log"); 
 		
-		if(id != null) {
-			user = dao.getUserById(id);
-		}
 		
-		if(user != null && user.getPassword().equals(password)) {
-			System.out.println("회원인증 성공");
-			session.setAttribute("log", id);
-			out.println("<script>alert('회원인증 완료');location.href='userPageNew.jsp';</script>");
-		}
-		else {
+		
+		if(user_id == null) {
 			System.out.println("회원인증 실패");
-			out.println("<script>alert('회원인증 실패');location.href='userConfirm.jsp';</script>");
+			out.println("<script>alert('로그인을 해주세요.');location.href='userConfirm.jsp';</script>");
+		} else {
+			UserDto dto = dao.getUserById(user_id);
+			if(password.equals(dto.getPassword()) && id.equals(dto.getId())) {
+				System.out.println("회원인증 성공");
+				out.println("<script>alert('회원인증 완료');location.href='userPageNew.jsp';</script>");
+			} else {
+				System.out.println("회원인증 실패");
+				out.println("<script>alert('회원인증 실패');location.href='userConfirm.jsp';</script>");
+			}
 		}
-		
 		out.flush();
 	}
 }

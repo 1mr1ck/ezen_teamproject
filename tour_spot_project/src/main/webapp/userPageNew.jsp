@@ -82,7 +82,7 @@
                             <h3>닉네임</h3>
                         </div>
                         <span class="info_box">
-                            <input class="info_box_input requiredValue" type="text" id="join_name" name="name" placeholder="닉네임 2~6자 내외" maxlength="6" value="<%=user.getName() %>">
+                            <input class="info_box_input requiredValue" type="text" id="join_name" name="userName" placeholder="닉네임 2~6자 내외" maxlength="6" value="<%=user.getName() %>">
                             <span class="info_box_icon"><i class="fa-regular fa-square-check nic_name"></i></span>
                         </span>
                         <span class="errorName errorCheck"></span>

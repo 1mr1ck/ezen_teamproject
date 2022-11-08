@@ -43,6 +43,7 @@ public class UserUpdateAction extends HttpServlet {
 		String changePwCheck = request.getParameter("changePwCheck");
 		String name = request.getParameter("userName");
 		String phone = request.getParameter("userPhone1") + "-" + request.getParameter("userPhone2") + "-" + request.getParameter("userPhone3");
+		System.out.println(phone);
 		String address1 = request.getParameter("userAddress1");
 		String address2 = request.getParameter("userAddress2");
 		String address = address1 + address2;
