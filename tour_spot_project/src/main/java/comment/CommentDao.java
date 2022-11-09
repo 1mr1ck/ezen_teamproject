@@ -128,7 +128,6 @@ public class CommentDao {
 		return list;
 	}
 	// 유저 아이디로 검색.
-	// 게시글 번호로 Read
 		public ArrayList<CommentDto> getUserCommentAll(String userId){
 			ArrayList<CommentDto> list = new ArrayList<CommentDto>();
 			String sql = "SELECT * FROM comments WHERE `user_id`=? ORDER BY c_no DESC;";
