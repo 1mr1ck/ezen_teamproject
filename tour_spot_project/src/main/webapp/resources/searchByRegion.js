@@ -40,7 +40,7 @@ function getSpotByRegion() {
 			const regDate = e.regDate;
 			const modDate = e.modDate;
 			const viewCnt = e.viewCnt;
-
+			
 			$('.spotInfo').append(
 				`<tr>
 					<td>${b_no}</td>
