@@ -23,6 +23,7 @@
 	System.out.println(n_no);
 	if(n_no > 0) {
 		dto = dao.getNoticeByNo(n_no);
+		dao.updateViewCnt(n_no);
 	%>
 	<jsp:include page="/views/header.jsp" />
 	<section style="height:50vw;">
