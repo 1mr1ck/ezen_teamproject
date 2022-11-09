@@ -51,6 +51,16 @@ h1 {
 	background: #0080FE;
 }
 
+section {
+	display : flex;
+	text-align : center;
+	align-items : center;
+	height : auto;
+	flex-direction : column;
+	margin-top: 10%;
+	
+}
+
 nav {
 	position: relative;
 	margin: auto;
@@ -120,7 +130,6 @@ nav .start-공지사항, a:nth-child(4):hover ~.animation {
 }
 
 .search {
-	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -152,7 +161,6 @@ nav .start-공지사항, a:nth-child(4):hover ~.animation {
 
 .search-content {
 	display: flex;
-	position: absolute;
 	top: 55%;
 	left: 10%;
 	flex-direction: column;
