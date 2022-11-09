@@ -50,7 +50,7 @@ function setList(value){
 	    method : "post",
 	    url : 'UserCommentAction',
 	    data : {
-	        user_Id : `${userId}`
+	        user_id : `${userId}`
 	    }
 	}).done(e=>{
 	    const list = JSON.parse(e);

@@ -115,13 +115,12 @@ public class UserDto {
 		return token;
 	}
 
+	@Override
+	public String toString() {
+		return "UserDto [no=" + no + ", name=" + name + ", birthday=" + birthday + ", gender=" + gender + ", id=" + id
+				+ ", address=" + address + ", phone=" + phone + ", password=" + password + ", token=" + token + "]";
+	}
 //	public void setToken(String token) {
 //		this.token = token;
 //	}
-	
-	
-	
-	
-	
-	
 }
