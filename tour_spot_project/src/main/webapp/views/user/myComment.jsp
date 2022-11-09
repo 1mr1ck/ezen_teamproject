@@ -32,7 +32,6 @@
 		<li><a href="myComment">내가 쓴 댓글</a></li>
 		<li><a href="myDeleteUser">회원탈퇴</a></li>
 	</ul>
-	<h1><a href="home" style="text-decoration:none">Tour_Spot</a></h1>
 	<input id="totalBoards" type="hidden">
 	<select class="resetList" onchange="resetList(this.value)">
 		<option value='1' >목록 : 1개씩</option>
