@@ -8,9 +8,11 @@ let myHtml = "";
 let myrow = "";
 let start = 0;
 //객체 불러오기
+$( window ).load(function() {
+	setList(3);
+});
 
-setList(3);
-let user_id = $(".myBoardID").val();
+//let user_id = $(".myBoardID").val();
 console.log(user_id);
 function setStartList(startPage){
 	let endVal = $('.resetList').val();
@@ -20,7 +22,7 @@ function setStartList(startPage){
 	    method : "post",
 	    url : 'boardListAction',
 	    data : {
-	        user_id : `${user_id}`
+	        user_id : $(".myBoardID").val()
 	    } 
 	}).done(e=>{
 	    const list = JSON.parse(e);
@@ -54,7 +56,7 @@ function setList(value){
 	    method : "post",
 	    url : 'boardListAction',
 	    data : {
-	        user_id : `${user_id}`
+	        user_id : $(".myBoardID").val()
 	    }
 	}).done(e=>{
 	    const list = JSON.parse(e);

@@ -132,7 +132,7 @@ public class KakaoControllarAction extends HttpServlet  {
 			request.setCharacterEncoding("utf-8");
 			request.setAttribute("profile", profile);
 			Script.print("회원가입으로 이동합니다",response);
-			request.getRequestDispatcher("join.jsp").forward(request, response);
+			request.getRequestDispatcher("join").forward(request, response);
 		}
 	}
 }
