@@ -95,7 +95,7 @@
 				<input type="hidden" class="command" name="command" value="CommentWrite">
 				<%if(id != null){ %>
 					<button name="create_cmt" onclick="createCmt(`<%=b_no%>`)">댓글등록</button>
-				<%} %>
+				<%}%>
 			</div>
 			<div class="cmt">
 				<table border="1">
