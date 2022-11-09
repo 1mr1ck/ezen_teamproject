@@ -17,6 +17,7 @@ import controllers.action.MypageGo;
 import controllers.action.NoticeDelete;
 import controllers.action.NoticeWrite;
 import controllers.action.SearchByRegion;
+import controllers.action.UserDelete;
 import controllers.action.UserDuplCheck;
 
 public class ActionFactory {
@@ -40,6 +41,7 @@ public class ActionFactory {
 		else if(command.equals("Login")) { action = new Login(); }
 		else if(command.equals("Logout")) { action = new Logout(); }
 		else if(command.equals("UserDuplCheck")) { action = new UserDuplCheck(); }
+		else if(command.equals("UserDelete")) { action = new UserDelete(); }
 		// Comment 
 		else if(command.equals("CommentWrite")) { action = new CommentWrite(); }
 		else if(command.equals("CommentDelete")) { action = new CommentDelete(); }

@@ -18,7 +18,7 @@
 	ArrayList<NoticeDto> list = dao.getNoticeAll();
 	%>
 </body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="/views/header.jsp" />
 	<div class="table-container">
 		<table border="1">
 			<thead>
@@ -35,7 +35,7 @@
 				<%for(NoticeDto notice : list) {%>
 				<tr>
 					<td style="border-left: hidden; width: 35px; text-align: center;"><%=notice.getN_no() %></td>
-					<td style="width: 350px;"><a href="noticeView.jsp?no=<%=notice.getN_no()%>"><%=notice.getTitle() %></a></td>
+					<td style="width: 350px;"><a href="noticeView?no=<%=notice.getN_no()%>"><%=notice.getTitle() %></a></td>
 					<td style="width: 140px; text-align: center;"><%=notice.getUser_id() %></td>
 					<td style="width:130px; text-align: center;"><%=notice.getRegDate() %></td>
 					<td style="width:130px; text-align: center;"><%=notice.getRegDate() %></td>
@@ -47,10 +47,10 @@
 		<div style="width:100%;">
 		<%if(id != null) {%>
 			<%if(id.equals("admin")) {%>
-			<button onclick="location.href='noticeWriteForm.jsp'">글쓰기</button>
+			<button onclick="location.href='noticeWriteForm'">글쓰기</button>
 			<%}%>
 		<%}%>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="/views/footer.jsp" />
 </html>

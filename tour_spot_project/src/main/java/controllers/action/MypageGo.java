@@ -29,15 +29,15 @@ public class MypageGo implements Action {
 		
 		if(user_id == null) {
 			System.out.println("회원인증 실패");
-			out.println("<script>alert('로그인을 해주세요.');location.href='userConfirm.jsp';</script>");
+			out.println("<script>alert('로그인을 해주세요.');location.href='userConfirm';</script>");
 		} else {
 			UserDto dto = dao.getUserById(user_id);
 			if(password.equals(dto.getPassword()) && id.equals(dto.getId())) {
 				System.out.println("회원인증 성공");
-				out.println("<script>alert('회원인증 완료');location.href='userPageNew.jsp';</script>");
+				out.println("<script>alert('회원인증 완료');location.href='userPageNew';</script>");
 			} else {
 				System.out.println("회원인증 실패");
-				out.println("<script>alert('회원인증 실패');location.href='userConfirm.jsp';</script>");
+				out.println("<script>alert('회원인증 실패');location.href='userConfirm';</script>");
 			}
 		}
 		out.flush();

@@ -14,7 +14,6 @@ function createCmt(b_no) {
 			content: content,
 			b_no: b_no,
 			modDate : modDate,
-			command : command
 		}
 	}).done(function(response) {
 		const list = JSON.parse(response);

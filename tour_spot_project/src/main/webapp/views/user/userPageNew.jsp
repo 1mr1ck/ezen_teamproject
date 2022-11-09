@@ -29,13 +29,13 @@
 		response.sendRedirect("home");
 	} else {
 	%>
-	<jsp:include page="headerMypage.jsp" />
+	<jsp:include page="/views/headerMypage.jsp" />
 	<section class="userWrap">
 		<ul class="userNav_list">
-			<li><a href="userPageNew.jsp">정보 수정</a></li>
-			<li><a href="myBoard.jsp">내가 쓴 게시글</a></li>
-			<li><a href="myComment.jsp">내가 쓴 댓글</a></li>
-			<li><a href="">회원탈퇴</a></li>
+			<li><a href="userPageNew">정보 수정</a></li>
+			<li><a href="myBoard">내가 쓴 게시글</a></li>
+			<li><a href="myComment">내가 쓴 댓글</a></li>
+			<li><a href="myDeleteUser">회원탈퇴</a></li>
 		</ul>
 		<!-- 아아디/현재비번/사용할비번/사용할비번확인/이름/휴대번호/주소 -->
 		<div class="info">
@@ -139,7 +139,7 @@
         </form>
         </div>
 	</section>
-	<jsp:include page="footerMyPage.jsp" />
+	<jsp:include page="/views/footerMyPage.jsp" />
 	<%} %>
 	<script src="resources/userPageTest.js" charset="utf-8"></script>
 </body>
