@@ -26,8 +26,6 @@ public class CommentUpdateNo implements Action {
 		
 		ArrayList<CommentDto> list = dao.getCommentAll(b_no);
 		if(list.size() > 0) {
-			// 하나의 dto에 들어있는 컬럼6개의 값들을 다 뺴와야하는데 3개만 뺴옴.
-//			JSONArray result = new JSONArray(list);
 			
 			JSONArray result = new JSONArray();
 			
