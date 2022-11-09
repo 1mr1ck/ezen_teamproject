@@ -125,7 +125,7 @@
 			%>
 		</div>
 	</section>
-	<jsp:include page="/views/footer.jsp" />
+	<jsp:include page="/views/boardfooter.jsp" />
 	<script src="resources/map.js"></script>
 	<script src="resources/comment.js"></script>
 </body>
