@@ -239,6 +239,6 @@ input[type=submit], input[type=button] {
   transition: 0.5s;
 }
 
-footer{
+.footer{
 	position: static;
 }
