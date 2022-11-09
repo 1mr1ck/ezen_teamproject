@@ -48,7 +48,7 @@ function getSpotByRegion() {
 			$('.spotInfo').append(
 				`<tr>
 					<td>${b_no}</td>
-					<%if(img_Url != null) {%>
+					<%if(img_url != null) {%>
 					<td><img src="${img_url}" width=100 height=100></td>
 					<%}%>
 					<td><a href="boardView?no=${b_no}">${title}</a></td>
