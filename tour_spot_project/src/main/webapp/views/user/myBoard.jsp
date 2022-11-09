@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Tour_Spot</title>
 <link rel="stylesheet" href="resources/grid.css">
 <link rel="stylesheet" href="resources/userJoinTest.css">
 <link rel="stylesheet" href="resources/table.css">

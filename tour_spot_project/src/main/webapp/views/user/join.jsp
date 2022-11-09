@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<script src="https://kit.fontawesome.com/fa861a7902.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="resources/userJoin.css">
-<title>EZEN RENTAL CAR [ JOIN ]</title>
+<title>Tour_Spot</title>
 </head>
 <body> 
 	<%

@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/boardTable.css">
-<title>Insert title here</title>
+<title>Tour_Spot</title>
 </head>
 <body>
 	<%

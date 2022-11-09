@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Tour_Spot</title>
     <link rel="stylesheet" href="resources/myDeleteUser.css" />
 </head>
 <body>  

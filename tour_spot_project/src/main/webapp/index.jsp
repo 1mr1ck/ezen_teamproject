@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/index.css">
-<title>사용자들이 직접 만드는 관광지</title>
+<title>Tour_Spot</title>
 <script src="resources/sociallogin.js" charset="utf-8"></script>
 </head>
 <body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>추천하는 관광지</title>
+<title>Tour_Spot</title>
 </head>
 <body>
 	<jsp:include page="/views/header.jsp"/>
