@@ -21,6 +21,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('https://t1.daumcdn.net/cfile/tistory/1159C8524D6C365821');
 }
 
 .login-wrapper > h2{
