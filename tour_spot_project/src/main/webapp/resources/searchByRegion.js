@@ -39,16 +39,19 @@ function getSpotByRegion() {
 			const title = e.title;
 			const user_id = e.user_id;
 			const regDate = e.regDate;
-			const modDate = e.modDate;
+			var modDate = e.modDate;
 			const viewCnt = e.viewCnt;
 			const img_url = e.img_url;
-			console.log(img_url);
-
+			/*console.log(img_url);*/
+			
+			if(modDate === undefined) {
+				modDate = "";
+			}
 			
 			$('.spotInfo').append(
 				`<tr>
 					<td>${b_no}</td>
-					<%if(img_Url != null) {%>
+					<%if(img_url != null) {%>
 					<td><img src="${img_url}" width=100 height=100></td>
 					<%}%>
 					<td><a href="boardView?no=${b_no}">${title}</a></td>
