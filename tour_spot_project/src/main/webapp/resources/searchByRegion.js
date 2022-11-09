@@ -24,6 +24,7 @@ function getSpotByRegion() {
 		$('.spotTitle').append(
 			`<tr>
 				<td>번호</td>
+				<td>이미지</td>
 				<td>제목</td>
 				<td>작성자</td>
 				<td>작성날짜</td>
@@ -40,11 +41,16 @@ function getSpotByRegion() {
 			const regDate = e.regDate;
 			const modDate = e.modDate;
 			const viewCnt = e.viewCnt;
+			const img_url = e.img_url;
+			console.log(img_url);
 
 			$('.spotInfo').append(
 				`<tr>
 					<td>${b_no}</td>
-					<td>${title}</td>
+					<%if(img_Url != null) {%>
+					<td><img src="${img_url}" width=100 height=100></td>
+					<%}%>
+					<td><a href="boardView?no=${b_no}">${title}</a></td>
 					<td>${user_id}</td>
 					<td>${regDate}</td>
 					<td>${modDate}</td>

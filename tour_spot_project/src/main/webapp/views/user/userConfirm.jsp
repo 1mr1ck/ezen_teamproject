@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<script src="https://kit.fontawesome.com/fa861a7902.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="resources/index.css">
+	<link rel="stylesheet" href="resources/mypageIndex.css">
 	<script src="resources/sociallogin.js" charset="utf-8"></script>
 </head> 
 <body>
@@ -24,7 +24,7 @@
 				<input type="text" name="id" placeholder="Email"> 
 				<input type="hidden" name="command" value="MypageGo">
 				<input type="password" name="password" placeholder="Password">
-				<input type="submit" value="Login">
+				<input type="submit" value="Check">
 			</form>
 		</div>
 	</section>
