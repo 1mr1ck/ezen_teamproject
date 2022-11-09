@@ -44,6 +44,7 @@ function getSpotByRegion() {
 			const img_url = e.img_url;
 			console.log(img_url);
 
+			
 			$('.spotInfo').append(
 				`<tr>
 					<td>${b_no}</td>

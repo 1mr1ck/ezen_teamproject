@@ -154,9 +154,9 @@ nav .start-공지사항, a:nth-child(4):hover ~.animation {
 	display: flex;
 	position: absolute;
 	top: 55%;
-	left: 600px;
+	left: 10%;
 	flex-direction: column;
-	width: fit-content;
+	width: 80vw;
 	margin: 10px auto auto auto;
 	border-collapse: collapse;
 	border: solid 1px #51e3d4;
