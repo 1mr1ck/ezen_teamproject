@@ -29,6 +29,11 @@ public class UserDelete implements Action {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
+		System.out.println("logId : "+logId);
+		System.out.println("getPassword : "+dto.getPassword());
+		System.out.println("id : "+id);
+		System.out.println("password : "+password);
+		
 		if(logId.equals(id) && password.equals(dto.getPassword())) {
 			dao.deleteUser(dto);
 			session.invalidate();

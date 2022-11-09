@@ -39,10 +39,12 @@ public class Join implements Action {
 	//  String passwordCheck = request.getParameter("passwordCheck");
 		String token = request.getParameter("token");
 		
+		System.out.println("token : "+token);
 		System.out.println(name+birth+gender+id+address+phone+password+token);
 		
-		if(token == null) {
+		if(token.equals("")) {
 			dto = new UserDto(no, name, birthday, gender, id, address, phone, password);
+			System.out.println(dto);
 			dao.createUser(dto);
 			out.println("<script>alert('회원가입 완료');location.href='home';</script>");
 		} else {

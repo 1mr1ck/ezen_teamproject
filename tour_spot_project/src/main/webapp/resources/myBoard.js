@@ -10,7 +10,7 @@ let start = 0;
 //객체 불러오기
 
 setList(3);
-let user_id = (".myBoardID").val();
+let user_id = $(".myBoardID").val();
 console.log(user_id);
 function setStartList(startPage){
 	let endVal = $('.resetList').val();
@@ -20,7 +20,7 @@ function setStartList(startPage){
 	    method : "post",
 	    url : 'boardListAction',
 	    data : {
-	        user_id : `${userId}`
+	        user_id : `${user_id}`
 	    } 
 	}).done(e=>{
 	    const list = JSON.parse(e);
@@ -54,7 +54,7 @@ function setList(value){
 	    method : "post",
 	    url : 'boardListAction',
 	    data : {
-	        user_id : `${userId}`
+	        user_id : `${user_id}`
 	    }
 	}).done(e=>{
 	    const list = JSON.parse(e);
@@ -110,29 +110,3 @@ function getStartNo(startIdx,viewLength,length){
 	console.log('limit : ',limit);
 	return limit<0 ? 0 : limit;
 }
-
-/*
-appendButton();
-function appendButton(){
-	let boardHtml = "";
-	$.ajax({
-		method : 'GET',
-		url : 'account',
-		data : { 
-			user_id : 'onmy123'
-		}
-	}).done(e=>{
-		let size = $('.resetList').val();
-		let totalBoards = parseInt(e);
-		let lastPage = Math.ceil(totalBoards/size);
-		for(let i=0; i<lastPage ; i++){
-			boardHtml+=<a href="aaaa">(i+1)</a>;
-		}
-	});
-}
-*/
-/*
-처음에 밑에 1~ 5까지 출력
-5를 누르거나 다음을 누르면 다음 페이지 출력
-갯수가 늘지 않으면 그대로 유지
-*/
